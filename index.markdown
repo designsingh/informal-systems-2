@@ -1,6 +1,6 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
-layout: home
 ---
+
+<p>
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime id ea voluptate dolore <a href="#">delectus minima</a> obcaecati dignissimos quis aut molestiae ut facilis vero cupiditate placeat, iusto nisi. Facilis, excepturi maxime?
+</p>
