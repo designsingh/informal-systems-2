@@ -9,13 +9,19 @@
             rel="stylesheet"
             href="{{ '/assets/css/main.css' | relative_url }}"
         />
+        <style>
+            .siteHeader-logoLink {
+                background-image:
+                    url({{ 'assets/img/logo.svg' | relative_url }}); 
+            }
+        </style>
     </head>
     <body>
         <div class="grid-container">
             <div class="grid">
                 <header class="siteHeader">
                     <h1 class="siteHeader-logo">
-                        <a href="" class="siteHeader-logoLink">
+                        <a href="{{ site.menuItems[0].url | relative_url }}" class="siteHeader-logoLink">
                             informal
                         </a>
                     </h1>
@@ -61,5 +67,10 @@
             </div>
         </div>
         {{ content }}
+        <div class="bgBubbles">
+            <div class="bgBubble bgBubble--a"></div>
+            <div class="bgBubble bgBubble--b"></div>
+            <div class="bgBubble bgBubble--c"></div>
+        </div>
     </body>
 </html>

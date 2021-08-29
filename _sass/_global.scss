@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Glegoo:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Glegoo:wght@400;700&family=Inter:wght@400;500&display=swap");
 
 $breakpoints: (
     xlarge: 1280px,
@@ -10,6 +10,8 @@ $containerWidthsAtBreakpoint: (
 );
 
 $color--accent: #2f87a5;
+$color--accent--magenta: #e071dc;
+$color--accent--burgundy: #ab534d;
 $color--background: white;
 $color--foreground: #0b2d7c;
 
@@ -17,10 +19,12 @@ $borderRadius--normal: 4px;
 
 $boxShadow--normal: 2px 2px 4px 0 rgba(black, 0.2);
 
-$text--fontFamily--body: Glegoo, sans-serif;
-$text--fontFamily--display: $text--fontFamily--body;
-$text--fontWeight--body: 400;
-$text--fontWeight--display: 700;
+$fontFamily--body: Inter, sans-serif;
+$fontFamily--display: Glegoo, sans-serif;
+
+$fontWeight--body--normal: 400;
+$fontWeight--body--bold: 500;
+$fontWeight--display: 700;
 
 $whiteSpace--xTight: calc(var(--gridUnit) * 0.25);
 $whiteSpace--tight: calc(var(--gridUnit) * 0.5);
@@ -59,9 +63,60 @@ $whiteSpace--xLoose: calc(var(--gridUnit) * 4);
 
     background: $color--background;
     color: $color--foreground;
-    font-family: $text--fontFamily--body;
+    font-family: $fontFamily--body;
     font-size: var(--fontSize--normal);
     line-height: var(--lineHeight--normal);
+}
+@keyframes bgBubbleAnimation {
+    from {
+        opacity: 0.2;
+        transform: translate(5%, 5%) rotate(0);
+    }
+    to {
+        opacity: 0.6;
+        transform: translate(5%, 5%) rotate(359deg);
+    }
+}
+.bgBubbles {
+    height: 100vh;
+    position: fixed;
+    width: 100vw;
+    z-index: -1;
+}
+.bgBubble {
+    --animation-duration: 4s;
+
+    border-radius: 100vw;
+    filter: blur(200px);
+    height: 60vh;
+    position: fixed;
+    width: 60vh;
+    animation-name: bgBubbleAnimation;
+    animation-duration: var(--animation-duration);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease;
+}
+.bgBubble--a {
+    --animation-duration: 4s;
+
+    background-color: $color--accent;
+    left: -20vw;
+    top: -20vh;
+}
+.bgBubble--b {
+    --animation-duration: 6s;
+
+    background-color: $color--accent--burgundy;
+    right: -5vw;
+    top: -40vh;
+}
+.bgBubble--c {
+    --animation-duration: 5s;
+
+    background-color: $color--accent--magenta;
+    right: -30vw;
+    bottom: -20vh;
 }
 .grid-container {
     margin: 0 auto;
@@ -70,12 +125,28 @@ $whiteSpace--xLoose: calc(var(--gridUnit) * 4);
         width: map-get($containerWidthsAtBreakpoint, large);
     }
 }
+.pageHeader-superTitle {
+    font-weight: $fontWeight--body--bold;
+}
+.pageHeader-title {
+    font-family: $fontFamily--display;
+    font-size: var(--fontSize--xLarge);
+    font-weight: $fontWeight--display;
+}
 .siteHeader {
     align-items: center;
     display: flex;
     font-size: var(--fontSize--small);
     justify-content: space-between;
     padding: $whiteSpace--normal 0;
+    margin-bottom: $whiteSpace--loose;
+}
+.siteHeader-logoLink {
+    // background-image set in _layouts/default.html
+    display: block;
+    font-size: 0;
+    height: 48px;
+    width: 120px;
 }
 .siteHeader-navItems {
     display: flex;
