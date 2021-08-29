@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Glegoo:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Glegoo:wght@400;700&display=swap");
 
 $breakpoints: (
     xlarge: 1280px,
@@ -9,20 +9,24 @@ $containerWidthsAtBreakpoint: (
     large: 960px,
 );
 
-$color--accent: #2F87A5;
+$color--accent: #2f87a5;
 $color--background: white;
-$color--foreground: #0B2D7C;
+$color--foreground: #0b2d7c;
+
+$borderRadius--normal: 4px;
+
+$boxShadow--normal: 2px 2px 4px 0 rgba(black, 0.2);
 
 $text--fontFamily--body: Glegoo, sans-serif;
 $text--fontFamily--display: $text--fontFamily--body;
 $text--fontWeight--body: 400;
 $text--fontWeight--display: 700;
 
-$whiteSpace--xTight: calc(var(--grid-unit) * 0.25);
-$whiteSpace--tight: calc(var(--grid-unit) * 0.5);
-$whiteSpace--normal: var(--grid-unit);
-$whiteSpace--loose: calc(var(--grid-unit) * 2);
-$whiteSpace--xLoose: calc(var(--grid-unit) * 4);
+$whiteSpace--xTight: calc(var(--gridUnit) * 0.25);
+$whiteSpace--tight: calc(var(--gridUnit) * 0.5);
+$whiteSpace--normal: var(--gridUnit);
+$whiteSpace--loose: calc(var(--gridUnit) * 2);
+$whiteSpace--xLoose: calc(var(--gridUnit) * 4);
 
 @mixin responsiveStylesFor($breakpoint) {
     @media screen and (min-width: map-get($breakpoints, $breakpoint)) {
@@ -34,24 +38,30 @@ $whiteSpace--xLoose: calc(var(--grid-unit) * 4);
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-size: 1rem;
+    font-size: inherit;
     line-height: 1.5em;
     list-style-type: none;
     text-decoration: none;
     color: unset;
 }
 :root {
-    --grid-unit: 30px;
-    --text-size-body: 16px;
-    --text-size-display: 40px;
-    --text-line-height-body: 1.5rem;
-    --text-line-height-display: 1.4em;
+    --gridUnit: 30px;
 
-    background: var(--color-background);
-    color: var(--color-foreground);
+    --fontSize--small: 16px;
+    --fontSize--normal: 24px;
+    --fontSize--large: 40px;
+    --fontSize--xLarge: 80px;
+
+    --lineHeight--small: 1.5rem;
+    --lineHeight--normal: 1.5rem;
+    --lineHeight--large: 1.5rem;
+    --lineHeight--xLarge: 1.5rem;
+
+    background: $color--background;
+    color: $color--foreground;
     font-family: $text--fontFamily--body;
-    font-size: var(--text-size-body);
-    line-height: var(--text-line-height-body);
+    font-size: var(--fontSize--normal);
+    line-height: var(--lineHeight--normal);
 }
 .grid-container {
     margin: 0 auto;
@@ -61,24 +71,30 @@ $whiteSpace--xLoose: calc(var(--grid-unit) * 4);
     }
 }
 .siteHeader {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
+    display: flex;
+    font-size: var(--fontSize--small);
+    justify-content: space-between;
     padding: $whiteSpace--normal 0;
 }
 .siteHeader-navItems {
     display: flex;
     column-gap: $whiteSpace--normal;
 }
-.siteHeader-navItem {
+.siteHeader-navItemButton {
+    display: block;
     padding-bottom: $whiteSpace--xTight;
+
+    &:hover {
+        color: $color--accent;
+    }
 }
 .siteHeader-navItem--isActive {
     color: $color--accent;
     position: relative;
 
     &:after {
-        content: '';
+        content: "";
         position: absolute;
         left: 0;
         right: 0;
@@ -93,14 +109,24 @@ $whiteSpace--xLoose: calc(var(--grid-unit) * 4);
 .siteHeader-subMenu {
     position: absolute;
     top: 100%;
-    left: 0;
+    left: calc(#{$whiteSpace--tight} * -1);
     opacity: 0;
     transform: scale(0.8);
     transition: all 0.125s;
     white-space: nowrap;
+    border-radius: $borderRadius--normal;
+    box-shadow: $boxShadow--normal;
 
     :hover > & {
         opacity: 1;
         transform: scale(1);
+    }
+}
+.siteHeader-subMenuItemButton {
+    display: block;
+    padding: $whiteSpace--xTight $whiteSpace--tight;
+
+    :hover > & {
+        color: $color--accent;
     }
 }

@@ -16,7 +16,25 @@ defaults:
           path: ''
       values:
           layout: 'default'
-
-# Build settings
+menuItems:
+    - label: Home
+      url: /
+    - label: Products
+      url: /products
+    - label: Services
+      url: /services
+      subMenuItems:
+          - label: Service A
+            url: /services/service-a
+          - label: Service B
+            url: /services/service-b
+          - label: Service C
+            url: /services/service-c
+    - label: Cooperative
+      url: /cooperative
+    - label: Careers
+      url: /careers
+    - label: Community
+      url: /community
 plugins:
     - jekyll-feed

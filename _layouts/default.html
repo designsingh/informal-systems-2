@@ -21,43 +21,40 @@
                     </h1>
                     <nav class="siteHeader-nav">
                         <ul class="siteHeader-navItems">
-                            <li
-                                class="
-                                    siteHeader-navItem
-                                    siteHeader-navItem--isActive
-                                "
-                            >
-                                <a href="#" class="siteHeader-navItemButton">
-                                    Home
-                                </a>
-                            </li>
-                            <li
-                                class="
-                                    siteHeader-navItem
-                                    siteHeader-navItem--hasSubMenu
-                                "
-                            >
-                                <a href="#" class="siteHeader-navItemButton">
-                                    Services
-                                </a>
-                                <ul class="siteHeader-subMenu">
-                                    <li class="siteHeader-subMenuItem">
-                                        <a href="#" class="siteHeader-subMenuItemButton">
-                                            Service A
-                                        </a>
-                                    </li>
-                                    <li class="siteHeader-subMenuItem">
-                                        <a href="#" class="siteHeader-subMenuItemButton">
-                                            Service B
-                                        </a>
-                                    </li>
-                                    <li class="siteHeader-subMenuItem">
-                                        <a href="#" class="siteHeader-subMenuItemButton">
-                                            Service C
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
+                            {% for menuItem in site.menuItems %}
+                                <li
+                                    class="
+                                        siteHeader-navItem
+                                        {% if page.url == menuItem.url %}
+                                            siteHeader-navItem--isActive
+                                        {% endif %}
+                                        {% if menuItem.subMenuItems.size > 0 %}
+                                            siteHeader-navItem--hasSubMenu
+                                        {% endif %}
+                                    "
+                                >
+                                    <a
+                                        href="{{ menuItem.url | relative_url }}"
+                                        class="siteHeader-navItemButton"
+                                    >
+                                        {{ menuItem.label }}
+                                    </a>
+                                    {% if menuItem.subMenuItems.size > 0 %}
+                                        <ul class="siteHeader-subMenu">
+                                            {% for subMenuItem in menuItem.subMenuItems %}
+                                                <li class="siteHeader-subMenuItem">
+                                                    <a
+                                                        href="{{ subMenuItem.url | relative_url }}"
+                                                        class="siteHeader-subMenuItemButton"
+                                                    >
+                                                        {{ subMenuItem.label }}
+                                                    </a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
                         </ul>
                     </nav>
                 </header>
