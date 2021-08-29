@@ -11,6 +11,58 @@
         />
     </head>
     <body>
+        <div class="grid-container">
+            <div class="grid">
+                <header class="siteHeader">
+                    <h1 class="siteHeader-logo">
+                        <a href="" class="siteHeader-logoLink">
+                            informal
+                        </a>
+                    </h1>
+                    <nav class="siteHeader-nav">
+                        <ul class="siteHeader-navItems">
+                            <li
+                                class="
+                                    siteHeader-navItem
+                                    siteHeader-navItem--isActive
+                                "
+                            >
+                                <a href="#" class="siteHeader-navItemButton">
+                                    Home
+                                </a>
+                            </li>
+                            <li
+                                class="
+                                    siteHeader-navItem
+                                    siteHeader-navItem--hasSubMenu
+                                "
+                            >
+                                <a href="#" class="siteHeader-navItemButton">
+                                    Services
+                                </a>
+                                <ul class="siteHeader-subMenu">
+                                    <li class="siteHeader-subMenuItem">
+                                        <a href="#" class="siteHeader-subMenuItemButton">
+                                            Service A
+                                        </a>
+                                    </li>
+                                    <li class="siteHeader-subMenuItem">
+                                        <a href="#" class="siteHeader-subMenuItemButton">
+                                            Service B
+                                        </a>
+                                    </li>
+                                    <li class="siteHeader-subMenuItem">
+                                        <a href="#" class="siteHeader-subMenuItemButton">
+                                            Service C
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </header>
+            </div>
+        </div>
         {{ content }}
     </body>
 </html>
