@@ -73,16 +73,6 @@ $whiteSpace--xLoose: calc(var(--gridUnit) * 4);
     font-size: var(--fontSize--normal);
     line-height: var(--lineHeight--normal);
 }
-@keyframes bgBubbleAnimation {
-    from {
-        opacity: 0.2;
-        transform: translate(5%, 5%) rotate(0);
-    }
-    to {
-        opacity: 0.6;
-        transform: translate(5%, 5%) rotate(359deg);
-    }
-}
 .avatar,
 .avatarSpacer {
     align-items: center;
@@ -112,44 +102,58 @@ $whiteSpace--xLoose: calc(var(--gridUnit) * 4);
 .avatarList--large {
     --avatarSize: var(--avatarSize--large);
 }
+@keyframes bgBubblePulsate {
+    from {
+        opacity: 0.2;
+    }
+    to {
+        opacity: 0.6;
+    }
+}
+@keyframes bgBubbleRotate {
+    from {
+        transform: scale(2) rotate(0) translate(1%, 1%);
+    }
+    to {
+        transform: scale(2) rotate(359deg) translate(1%, 1%);
+    }
+}
 .bgBubbles {
     height: 100vh;
+    left: 0;
     position: fixed;
+    top: 0;
     width: 100vw;
     z-index: -1;
 }
 .bgBubble {
     --animation-duration: 4s;
 
-    border-radius: 100vw;
-    filter: blur(200px);
-    height: 60vh;
-    position: fixed;
-    width: 60vh;
-    animation-name: bgBubbleAnimation;
-    animation-duration: var(--animation-duration);
-    animation-iteration-count: infinite;
     animation-direction: alternate;
+    animation-duration: var(--animation-duration), calc(var(--animation-duration) * 2);
+    animation-iteration-count: infinite;
+    animation-name: bgBubblePulsate, bgBubbleRotate;
     animation-timing-function: ease;
+    border-radius: 100vw;
+    height: 700px;
+    position: fixed;
+    width: 700px;
 }
 .bgBubble--a {
     --animation-duration: 4s;
 
-    background-color: $color--accent;
     left: -20vw;
     top: -20vh;
 }
 .bgBubble--b {
     --animation-duration: 6s;
 
-    background-color: $color--accent--burgundy;
     right: -5vw;
     top: -40vh;
 }
 .bgBubble--c {
     --animation-duration: 5s;
 
-    background-color: $color--accent--magenta;
     right: -30vw;
     bottom: -20vh;
 }
