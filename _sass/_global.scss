@@ -210,18 +210,19 @@ $whiteSpace--xLoose: calc(var(--gridUnit) * 4);
     font-family: $fontFamily--display;
     font-weight: $fontWeight--display;
 }
-.siteHeader-navItems {
+.siteHeader-menuItems {
     display: flex;
     column-gap: $whiteSpace--normal;
 }
-.siteHeader-navItemButton {
+.siteHeader-menuItemButton {
     display: block;
     padding-bottom: $whiteSpace--xTight;
 
+    &:focus,
     &:hover {
         color: $color--accent;
     }
-    .siteHeader-navItem--hasSubMenu & {
+    .siteHeader-menuItem--hasSubMenu & {
         display: flex;
         column-gap: $whiteSpace--xTight;
 
@@ -232,10 +233,10 @@ $whiteSpace--xLoose: calc(var(--gridUnit) * 4);
         }
     }
 }
-.siteHeader-navItem--hasSubMenu {
+.siteHeader-menuItem--hasSubMenu {
     position: relative;
 }
-.siteHeader-navItem--isActive {
+.siteHeader-menuItem--isActive {
     color: $color--accent;
     position: relative;
 
@@ -264,20 +265,19 @@ $whiteSpace--xLoose: calc(var(--gridUnit) * 4);
     transition-property: opacity, transform;
     white-space: nowrap;
 
-    :hover > & {
+    .siteHeader-menuItem--hasSubMenu:focus-within > &,
+    .siteHeader-menuItem--hasSubMenu:hover > & {
         opacity: 1;
         transform: scale(1);
-    }
-    &:focus-within {
-        transform: scale(0.95);
-        transition-duration: 0.05s;
+        transition-delay: 0.25s;
     }
 }
 .siteHeader-subMenuItemButton {
     display: block;
     padding: $whiteSpace--xTight $whiteSpace--tight;
 
-    :hover > & {
+    &:focus,
+    &:hover {
         background-color: rgba($color--accent, 0.1);
         color: $color--accent;
     }

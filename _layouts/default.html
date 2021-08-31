@@ -12,7 +12,7 @@
         <style>
             .siteHeader-logoLink {
                 background-image:
-                    url({{ 'assets/img/logo.svg' | relative_url }}); 
+                    url({{ 'assets/img/logo.svg' | relative_url }});
             }
             .bgBubble--a {
                 background-image:
@@ -29,7 +29,7 @@
         </style>
         <script src="https://kit.fontawesome.com/97f11cf15d.js" crossorigin="anonymous"></script>
     </head>
-    <body> 
+    <body>
         <div class="grid-container">
             <div class="grid">
                 <header class="siteHeader">
@@ -39,22 +39,22 @@
                         </a>
                     </h1>
                     <nav class="siteHeader-nav">
-                        <ul class="siteHeader-navItems">
+                        <ul class="siteHeader-menuItems">
                             {% for menuItem in site.menuItems %}
                                 <li
                                     class="
-                                        siteHeader-navItem
+                                        siteHeader-menuItem
                                         {% if page.url == menuItem.url %}
-                                            siteHeader-navItem--isActive
+                                            siteHeader-menuItem--isActive
                                         {% endif %}
                                         {% if menuItem.subMenuItems.size > 0 %}
-                                            siteHeader-navItem--hasSubMenu
+                                            siteHeader-menuItem--hasSubMenu
                                         {% endif %}
                                     "
                                 >
                                     <a
                                         href="{{ menuItem.url | relative_url }}"
-                                        class="siteHeader-navItemButton"
+                                        class="siteHeader-menuItemButton"
                                     >
                                         {{ menuItem.label }}
                                     </a>
