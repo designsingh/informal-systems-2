@@ -1,0 +1,18 @@
+<nav class="tabbedNav">
+    <ul class="tabbedNav-tabs">
+        {% for menuItem in include.menuItems %}
+            <li
+                class="
+                    tabbedNav-tab
+                    {% if forloop.first == true %}
+                        is-active
+                    {% endif %}
+                "
+            >
+                <a class="tabbedNav-tabButton" href="#{{ menuItem | downcase }}">
+                    {{ menuItem }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</nav>

@@ -16,6 +16,17 @@ defaults:
           path: ''
       values:
           layout: 'default'
+plugins:
+    - jekyll-feed
+
+# Config below
+careers:
+    categories:
+        - All # Uhh, don't change this one
+        - Engineering
+        - Development
+        - Design
+        - Marketing
 menuItems:
     - label: Home
       url: /
@@ -36,5 +47,3 @@ menuItems:
       url: /careers
     - label: Community
       url: /community
-plugins:
-    - jekyll-feed

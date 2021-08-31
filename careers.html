@@ -9,7 +9,7 @@ intro: |
 
 {% include page-title.html %}
 
-<div class="grid-container">
+<section class="grid-container">
     <div class="grid">
         <ul class="avatarList avatarList--large">
             <li class="avatar"></li>
@@ -22,4 +22,13 @@ intro: |
             <li class="avatar avatar--placeholder">You</li>
         </ul>
     </div>
-</div>
+</section>
+
+<section class="grid-container">
+    <div class="grid">
+        {%
+            include tabbed-nav.html
+            menuItems=site.careers.categories
+        %}
+    </div>
+</section>
