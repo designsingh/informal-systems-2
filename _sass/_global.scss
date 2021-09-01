@@ -80,6 +80,7 @@ $whiteSpace--xLoose: calc(var(--gridUnit) * 4);
     font-family: $fontFamily--body;
     font-size: var(--fontSize--normal);
     line-height: var(--lineHeight--normal);
+    padding-bottom: $whiteSpace--xLoose;
 }
 .avatar,
 .avatarSpacer {
@@ -165,12 +166,8 @@ $whiteSpace--xLoose: calc(var(--gridUnit) * 4);
     right: -30vw;
     bottom: -20vh;
 }
-.grid-container {
+.grid {
     margin: 0 auto;
-
-    & + & {
-        margin-top: $whiteSpace--loose;
-    }
 
     $largeBreakpointDefinition: map-get($breakpointDefinitions, "large");
     $xLargeBreakpointDefinition: map-get($breakpointDefinitions, "xLarge");
@@ -183,13 +180,39 @@ $whiteSpace--xLoose: calc(var(--gridUnit) * 4);
         width: map-get($xLargeBreakpointDefinition, "grid-width");
     }
 }
-.pageHeader-superTitle {
+.grid-container {
+    & + & {
+        margin-top: $whiteSpace--loose;
+    }
+}
+.heading {
+    font-family: $fontFamily--display;
+    font-weight: $fontWeight--display;
+}
+.heading--1 {
+    font-size: var(--fontSize--xLarge);
+}
+.heading--2 {
+    font-size: var(--fontSize--large);
+}
+.heading--3 {
+    font-family: $fontFamily--body;
     font-weight: $fontWeight--body--bold;
 }
-.pageHeader-title {
-    font-family: $fontFamily--display;
-    font-size: var(--fontSize--xLarge);
-    font-weight: $fontWeight--display;
+.horizontalRule {
+    border-bottom: $border--hairline;
+    border-color: $color--foreground;
+}
+.iconifiedMetaData {
+    display: flex;
+    column-gap: $whiteSpace--normal;
+}
+.iconifiedMetaData-labelText {
+    display: none;
+}
+.iconifiedMetaData-labelValuePair {
+    display: flex;
+    column-gap: $whiteSpace--tight;
 }
 .siteHeader {
     align-items: center;
@@ -223,14 +246,9 @@ $whiteSpace--xLoose: calc(var(--gridUnit) * 4);
         color: $color--accent;
     }
     .siteHeader-menuItem--hasSubMenu & {
-        display: flex;
+        align-items: center;
         column-gap: $whiteSpace--xTight;
-
-        &::after {
-            content: "\f078"; // chevron-down
-            font-family: "Font Awesome 5 Pro";
-            display: inline-block;
-        }
+        display: flex;
     }
 }
 .siteHeader-menuItem--hasSubMenu {
@@ -301,5 +319,20 @@ $whiteSpace--xLoose: calc(var(--gridUnit) * 4);
         border-bottom: $border--thick;
         border-color: $color--accent;
         color: $color--accent;
+    }
+}
+$gridSizes: (
+    xTight: $whiteSpace--xTight,
+    tight: $whiteSpace--tight,
+    normal: $whiteSpace--normal,
+    loose: $whiteSpace--loose,
+    xLoose: $whiteSpace--xLoose,
+);
+
+@each $gridSizeName, $whiteSpaceValue in $gridSizes {
+    .u-rowGap--#{$gridSizeName} {
+        display: flex;
+        flex-direction: column;
+        row-gap: $whiteSpaceValue;
     }
 }

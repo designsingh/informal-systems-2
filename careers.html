@@ -5,6 +5,36 @@ intro: |
     Our cooperatively owned and governed company is a growing team with world-class
     expertise in distributed systems, formal verification, and open-source
     ecosystem.
+
+# Temporary
+careerData:
+    - jobTitle: Rust Engineer
+      groupName: Cosmos
+      jobType: Full Time
+      locations:
+          - Berlin
+          - Toronto
+          - Lausanne
+          - Vienna
+          - Paris
+      description: |
+          As a Rust Engineer in Cosmos, you will have the opportunity to contribute
+          to and lead varioues aspects of this undertaking and work on core,
+          open-source...
+    - jobTitle: Security Engineer
+      groupName: Cosmos
+      jobType: Full Time
+      locations:
+          - Berlin
+          - Toronto
+          - Lausanne
+          - Vienna
+          - Paris
+      description: |
+          As a Security Engineer in Cosmos, you will work with teams across the
+          stack on rigorous and high-caliber reviews, tools, processes, and testing
+          regimes to guarantee the quality of the software and the security of the
+          networks that run it.
 ---
 
 {% include page-title.html %}
@@ -26,9 +56,56 @@ intro: |
 
 <section class="grid-container">
     <div class="grid">
-        {%
-            include tabbed-nav.html
-            menuItems=site.careers.categories
-        %}
+        {% include tabbed-nav.html menuItems=site.careers.categories %}
     </div>
 </section>
+
+{% for career in page.careerData %}
+    {% if forloop.first == false %}
+        <div class="grid-container">
+            <div class="grid">
+                <div class="horizontalRule"></div>
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="grid-container">
+        <article class="grid u-rowGap--normal">
+            <header class="u-rowGap--tight">
+                <h3 class="heading heading--2">
+                    {{ career.jobTitle }}
+                    &mdash;
+                    {{ career.groupName }}
+                </h3>
+                <dl class="iconifiedMetaData">
+                    <div class="iconifiedMetaData-labelValuePair">
+                        <dt class="iconifiedMetaData-label">
+                            <i class="iconifiedMetaData-labelIcon far fa-clock"></i>
+                            <span class="iconifiedMetaData-labelText">
+                                Job Type
+                            </span>
+                        </dt>
+                        <dd class="iconifiedMetaData-value">
+                            Full Time
+                        </dd>
+                    </div>
+                    <div class="iconifiedMetaData-labelValuePair">
+                        <dt class="iconifiedMetaData-label">
+                            <i class="iconifiedMetaData-labelIcon far fa-clock"></i>
+                            <span class="iconifiedMetaData-labelText">
+                                Location
+                            </span>
+                        </dt>
+                        <dd class="iconifiedMetaData-value">
+                            {{ career.locations | join: ", " }}
+                        </dd>
+                    </div>
+                </dl>
+            </header>
+
+            <main>
+                {{ career.description | markdownify }}
+            </main>
+        </article>
+    </div>
+{% endfor %}

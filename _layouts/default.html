@@ -30,7 +30,7 @@
         <script src="https://kit.fontawesome.com/97f11cf15d.js" crossorigin="anonymous"></script>
     </head>
     <body>
-        <div class="grid-container">
+        <div class="grid">
             <div class="grid">
                 <header class="siteHeader">
                     <h1 class="siteHeader-logo">
@@ -41,13 +41,14 @@
                     <nav class="siteHeader-nav">
                         <ul class="siteHeader-menuItems">
                             {% for menuItem in site.menuItems %}
+                                {% assign hasSubMenu = menuItem.subMenuItems.size %}
                                 <li
                                     class="
                                         siteHeader-menuItem
                                         {% if page.url == menuItem.url %}
                                             siteHeader-menuItem--isActive
                                         {% endif %}
-                                        {% if menuItem.subMenuItems.size > 0 %}
+                                        {% if hasSubMenu %}
                                             siteHeader-menuItem--hasSubMenu
                                         {% endif %}
                                     "
@@ -57,8 +58,11 @@
                                         class="siteHeader-menuItemButton"
                                     >
                                         {{ menuItem.label }}
+                                        {% if hasSubMenu %}
+                                            <i class="far fa-chevron-down"></i>
+                                        {% endif %}
                                     </a>
-                                    {% if menuItem.subMenuItems.size > 0 %}
+                                    {% if hasSubMenu %}
                                         <ul class="siteHeader-subMenu">
                                             {% for subMenuItem in menuItem.subMenuItems %}
                                                 <li class="siteHeader-subMenuItem">
@@ -79,7 +83,9 @@
                 </header>
             </div>
         </div>
+
         {{ content }}
+
         <div class="bgBubbles">
             <div class="bgBubble bgBubble--a"></div>
             <div class="bgBubble bgBubble--b"></div>
