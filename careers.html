@@ -5,36 +5,6 @@ intro: |
     Our cooperatively owned and governed company is a growing team with world-class
     expertise in distributed systems, formal verification, and open-source
     ecosystem.
-
-# Temporary
-careerData:
-    - jobTitle: Rust Engineer
-      groupName: Cosmos
-      jobType: Full Time
-      locations:
-          - Berlin
-          - Toronto
-          - Lausanne
-          - Vienna
-          - Paris
-      description: |
-          As a Rust Engineer in Cosmos, you will have the opportunity to contribute
-          to and lead varioues aspects of this undertaking and work on core,
-          open-source...
-    - jobTitle: Security Engineer
-      groupName: Cosmos
-      jobType: Full Time
-      locations:
-          - Berlin
-          - Toronto
-          - Lausanne
-          - Vienna
-          - Paris
-      description: |
-          As a Security Engineer in Cosmos, you will work with teams across the
-          stack on rigorous and high-caliber reviews, tools, processes, and testing
-          regimes to guarantee the quality of the software and the security of the
-          networks that run it.
 ---
 
 {% include page-title.html %}
@@ -60,7 +30,7 @@ careerData:
     </div>
 </section>
 
-{% for career in page.careerData %}
+{% for career in site.careers %}
     {% if forloop.first == false %}
         <div class="grid-container">
             <div class="grid">
@@ -72,10 +42,12 @@ careerData:
     <div class="grid-container">
         <article class="grid u-rowGap--normal">
             <header class="u-rowGap--tight">
-                <h3 class="heading heading--2">
-                    {{ career.jobTitle }}
-                    &mdash;
-                    {{ career.groupName }}
+                <h3 class="heading--2">
+                    <a href="{{ career.url | relative_url }}">
+                        {{ career.jobTitle }}
+                        &mdash;
+                        {{ career.groupName }}
+                    </a>
                 </h3>
                 <dl class="iconifiedMetaData">
                     <div class="iconifiedMetaData-labelValuePair">
@@ -104,7 +76,7 @@ careerData:
             </header>
 
             <main>
-                {{ career.description | markdownify }}
+                {{ career.content | truncate: 200, "..." | markdownify }}
             </main>
         </article>
     </div>

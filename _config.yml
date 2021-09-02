@@ -18,6 +18,11 @@ defaults:
           layout: 'default'
 plugins:
     - jekyll-feed
+collections:
+    careers:
+        output: true
+        sort_by: jobTitle
+        permalink: /:collection/:name
 
 # Config below
 careers:
@@ -27,6 +32,17 @@ careers:
         - Development
         - Design
         - Marketing
+footerMenuItems:
+    - label: About Us
+      url: /about
+    - label: Products & Services
+      url: /products-and-services
+    - label: News & Publications
+      url: /news-and-publications
+    - label: Blog
+      url: /blog
+    - label: Careers
+      url: /careers
 menuItems:
     - label: Home
       url: /
@@ -47,3 +63,16 @@ menuItems:
       url: /careers
     - label: Community
       url: /community
+socialLinks:
+    - label: Facebook
+      icon: fab fa-facebook
+      url: http://facebook.com/
+    - label: Instagram
+      icon: fab fa-instagram
+      url: http://instagram.com/
+    - label: Twitter
+      icon: fab fa-twitter
+      url: http://twitter.com/
+    - label: Facebook
+      icon: fab fa-linkedin
+      url: http://linkedin.com/

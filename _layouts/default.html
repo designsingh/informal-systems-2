@@ -10,7 +10,7 @@
             href="{{ '/assets/css/main.css' | relative_url }}"
         />
         <style>
-            .siteHeader-logoLink {
+            [class*="logo--"] {
                 background-image:
                     url({{ 'assets/img/logo.svg' | relative_url }});
             }
@@ -33,8 +33,11 @@
         <div class="grid">
             <div class="grid">
                 <header class="siteHeader">
-                    <h1 class="siteHeader-logo">
-                        <a href="{{ site.menuItems[0].url | relative_url }}" class="siteHeader-logoLink">
+                    <h1>
+                        <a
+                            href="{{ site.menuItems[0].url | relative_url }}"
+                            class="logo--header"
+                        >
                             informal
                         </a>
                     </h1>
@@ -85,6 +88,8 @@
         </div>
 
         {{ content }}
+
+        {% include footer.html %}
 
         <div class="bgBubbles">
             <div class="bgBubble bgBubble--a"></div>
