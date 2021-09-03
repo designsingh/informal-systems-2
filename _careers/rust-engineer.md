@@ -1,4 +1,5 @@
 ---
+category: Engineering
 jobTitle: Rust Engineer
 groupName: Cosmos
 blurb: |

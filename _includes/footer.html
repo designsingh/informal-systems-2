@@ -1,3 +1,35 @@
+{% capture dontMissOut %}
+    <h2 class="heading--1">
+        {% assign headline = "Don&rsquo;t miss updates from us" %}
+        {%- capture headlineMinusOrphans -%}
+            {{ headline | split: " " | reverse | join: " " | replace_first: ' ', '&nbsp;' | split: " " | reverse | join: " " }}
+        {%- endcapture -%}
+
+        {{ headlineMinusOrphans }}
+    </h2>
+
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo,
+        necessitatibus aspernatur. Laboriosam facilis quod ex aspernatur
+        laudantium? A voluptate qui reiciendis! Amet laudantium veritatis
+        eveniet beatae dolorem aspernatur nisi voluptatem!
+    </p>
+
+    <form class="u-columnGap--normal" action="#">
+        <div class="formField">
+            <span class="formField-label u-screenReadersOnly">
+                Email Address
+            </span>
+            <input class="input" type="email" placeholder="Your Email Address" />
+        </div>
+        <button class="button--primary">
+            Get Our Newsletter
+        </button>
+    </form>
+{% endcapture %}
+
+{% include high-contrast-block.html content=dontMissOut %}
+
 <footer class="siteFooter grid-container">
     <div class="grid">
         <div class="u-columns--3 u-columnGap--normal">
@@ -40,7 +72,7 @@
                     Links
                 </h4>
 
-                <ul class="u-rowGap--xTight">
+                <ul class="u-rowGap--xtight">
                     {% for menuItem in site.footerMenuItems %}
                         <li>
                             <a href="{{ menuItem.url | relative_url }}">

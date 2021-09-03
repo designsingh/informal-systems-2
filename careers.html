@@ -26,7 +26,9 @@ intro: |
 
 <section class="grid-container">
     <div class="grid">
-        {% include tabbed-nav.html menuItems=site.careers.categories %}
+        {% assign careerCategories = site.careers | map: 'category' | uniq | sort | join: ", " %}
+        {% assign withAll = "All, " | append: careerCategories | split: ", " %}
+        {% include tabbed-nav.html menuItems=withAll %}
     </div>
 </section>
 

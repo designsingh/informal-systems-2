@@ -35,11 +35,11 @@ $fontWeight--body--normal: 400;
 $fontWeight--body--bold: 500;
 $fontWeight--display: 700;
 
-$whiteSpace--xTight: calc(var(--gridUnit) * 0.25);
+$whiteSpace--xtight: calc(var(--gridUnit) * 0.25);
 $whiteSpace--tight: calc(var(--gridUnit) * 0.5);
 $whiteSpace--normal: var(--gridUnit);
 $whiteSpace--loose: calc(var(--gridUnit) * 2);
-$whiteSpace--xLoose: calc(var(--gridUnit) * 4);
+$whiteSpace--xloose: calc(var(--gridUnit) * 4);
 
 @mixin responsiveStylesFor($breakpointName) {
     $breakpointDefinition: map-get($breakpointDefinitions, $breakpointName);
@@ -68,10 +68,10 @@ $whiteSpace--xLoose: calc(var(--gridUnit) * 4);
     --fontSize--large: 40px;
     --fontSize--xLarge: 80px;
 
-    --lineHeight--small: 1.5rem;
-    --lineHeight--normal: 1.5rem;
-    --lineHeight--large: 1.5rem;
-    --lineHeight--xLarge: 1.5rem;
+    --lineHeight--small: 1.5em;
+    --lineHeight--normal: 1.5em;
+    --lineHeight--large: 1.5em;
+    --lineHeight--xLarge: 1em;
 
     --avatarSize--normal: 60px;
     --avatarSize--large: 120px;
@@ -81,7 +81,7 @@ $whiteSpace--xLoose: calc(var(--gridUnit) * 4);
     font-family: $fontFamily--body;
     font-size: var(--fontSize--normal);
     line-height: var(--lineHeight--normal);
-    padding-bottom: $whiteSpace--xLoose;
+    padding-bottom: $whiteSpace--xloose;
 }
 .avatar,
 .avatarSpacer {
@@ -178,10 +178,15 @@ $whiteSpace--xLoose: calc(var(--gridUnit) * 4);
     font-family: $fontFamily--display;
     font-size: var(--fontSize--small);
     font-weight: $fontWeight--display;
+
+    .highContrast & {
+        background-color: white;
+        color: $color--foreground;
+    }
 }
 .formField {
     cursor: pointer;
-    @extend .u-rowGap--xTight;
+    @extend .u-rowGap--xtight;
 }
 .formField-label {
     font-size: var(--fontSize--small);
@@ -212,18 +217,25 @@ $whiteSpace--xLoose: calc(var(--gridUnit) * 4);
 }
 .heading--1 {
     font-size: var(--fontSize--xLarge);
+    line-height: var(--lineHeight--xLarge);
 }
 .heading--2 {
     font-size: var(--fontSize--large);
+    line-height: var(--lineHeight--large);
 }
 .heading--3 {
     font-size: var(--fontSize--normal);
+    line-height: var(--lineHeight--normal);
     font-family: $fontFamily--display;
     font-weight: $fontWeight--display;
 }
 .heading--4 {
     font-family: $fontFamily--body;
     font-weight: $fontWeight--body--bold;
+}
+.highContrast {
+    background-color: $color--foreground;
+    color: white;
 }
 .horizontalRule {
     border-bottom: $border--hairline;
@@ -254,6 +266,16 @@ $whiteSpace--xLoose: calc(var(--gridUnit) * 4);
         position: relative;
         top: -2px;
     }
+
+    .highContrast & {
+        border-color: white;
+        background-color: transparent;
+        color: white;
+
+        &::placeholder {
+            color: rgba(white, 0.6);
+        }
+    }
 }
 [class*="logo--"] {
     // background-image set in _layouts/default.html
@@ -272,7 +294,7 @@ $whiteSpace--xLoose: calc(var(--gridUnit) * 4);
     width: 120px;
 }
 .siteFooter.siteFooter {
-    margin-top: $whiteSpace--xLoose;
+    margin-top: $whiteSpace--xloose;
 }
 .siteHeader {
     align-items: center;
@@ -292,7 +314,7 @@ $whiteSpace--xLoose: calc(var(--gridUnit) * 4);
 }
 .siteHeader-menuItemButton {
     display: block;
-    padding-bottom: $whiteSpace--xTight;
+    padding-bottom: $whiteSpace--xtight;
 
     &:focus,
     &:hover {
@@ -300,7 +322,7 @@ $whiteSpace--xLoose: calc(var(--gridUnit) * 4);
     }
     .siteHeader-menuItem--hasSubMenu & {
         align-items: center;
-        column-gap: $whiteSpace--xTight;
+        column-gap: $whiteSpace--xtight;
         display: flex;
     }
 }
@@ -328,7 +350,7 @@ $whiteSpace--xLoose: calc(var(--gridUnit) * 4);
     left: calc(#{$whiteSpace--tight} * -1);
     min-width: 200px;
     opacity: 0;
-    padding: $whiteSpace--xTight;
+    padding: $whiteSpace--xtight;
     position: absolute;
     top: 100%;
     transform: scale(0.8);
@@ -345,7 +367,7 @@ $whiteSpace--xLoose: calc(var(--gridUnit) * 4);
 }
 .siteHeader-subMenuItemButton {
     display: block;
-    padding: $whiteSpace--xTight $whiteSpace--tight;
+    padding: $whiteSpace--xtight $whiteSpace--tight;
 
     &:focus,
     &:hover {
@@ -374,13 +396,6 @@ $whiteSpace--xLoose: calc(var(--gridUnit) * 4);
         color: $color--accent;
     }
 }
-$gridSizes: (
-    xTight: $whiteSpace--xTight,
-    tight: $whiteSpace--tight,
-    normal: $whiteSpace--normal,
-    loose: $whiteSpace--loose,
-    xLoose: $whiteSpace--xLoose,
-);
 [class*="u-columnGap--"],
 [class*="u-rowGap--"] {
     display: flex;
@@ -392,12 +407,30 @@ $gridSizes: (
     align-items: flex-start;
     flex-direction: column;
 }
+$gridSizes: (
+    xtight: $whiteSpace--xtight,
+    tight: $whiteSpace--tight,
+    normal: $whiteSpace--normal,
+    loose: $whiteSpace--loose,
+    xloose: $whiteSpace--xloose,
+);
 @each $gridSizeName, $whiteSpaceValue in $gridSizes {
     .u-columnGap--#{$gridSizeName} {
         column-gap: $whiteSpaceValue;
     }
     .u-rowGap--#{$gridSizeName} {
         row-gap: $whiteSpaceValue;
+    }
+    .u-padding--#{$gridSizeName} {
+        padding: $whiteSpaceValue;
+    }
+    .u-paddingX--#{$gridSizeName} {
+        padding-left: $whiteSpaceValue;
+        padding-right: $whiteSpaceValue;
+    }
+    .u-paddingY--#{$gridSizeName} {
+        padding-bottom: $whiteSpaceValue;
+        padding-top: $whiteSpaceValue;
     }
 }
 [class^="u-columns--"] {
