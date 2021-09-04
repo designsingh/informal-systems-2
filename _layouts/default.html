@@ -48,7 +48,9 @@
                                 <li
                                     class="
                                         siteHeader-menuItem
-                                        {% if page.url == menuItem.url %}
+                                        {% assign currentPage = page.url | split: "/" %}
+                                        {% assign lowerCaseMenuItemLabel = menuItem.label | downcase %}
+                                        {% if currentPage[1] == lowerCaseMenuItemLabel %}
                                             siteHeader-menuItem--isActive
                                         {% endif %}
                                         {% if hasSubMenu %}

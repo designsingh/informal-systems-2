@@ -297,9 +297,11 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
 .pill {
     background-color: $color--background--faded;
     border-radius: 1000px;
+    color: $color--foreground--faded;
     display: inline-block;
-    margin-left: $whiteSpace--xtight;
+    font-size: var(--fontSize--small);
     padding: 0 $whiteSpace--tight;
+    vertical-align: middle;
 }
 .siteFooter.siteFooter {
     margin-top: $whiteSpace--xloose;
@@ -359,6 +361,7 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     min-width: 200px;
     opacity: 0;
     padding: $whiteSpace--xtight;
+    pointer-events: none;
     position: absolute;
     top: 100%;
     transform: scale(0.8);
@@ -369,6 +372,7 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     .siteHeader-menuItem--hasSubMenu:focus-within > &,
     .siteHeader-menuItem--hasSubMenu:hover > & {
         opacity: 1;
+        pointer-events: all;
         transform: scale(1);
         transition-delay: 0.25s;
     }
@@ -410,6 +414,7 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
 }
 [class*="u-columnGap--"] {
     flex-direction: row;
+    align-items: center;
 }
 [class*="u-rowGap--"] {
     align-items: flex-start;

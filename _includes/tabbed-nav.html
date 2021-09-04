@@ -15,10 +15,10 @@
                 "
             >
                 <a
-                    class="tabbedNav-tabButton"
+                    class="tabbedNav-tabButton u-columnGap--xtight"
                     href="./{% if menuItem != "All" %}{{ menuItem | downcase }}{% endif %}"
                 >
-                    {{ menuItem }}
+                    <span>{{ menuItem }}</span>
                     <span class="pill">
                         {{ entriesInCategory }}
                     </span>
