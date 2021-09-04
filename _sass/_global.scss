@@ -14,9 +14,10 @@ $breakpointDefinitions: (
 $color--accent: #2f87a5;
 $color--accent--magenta: #e071dc;
 $color--accent--burgundy: #ab534d;
-$color--background: white;
 $color--foreground: #0b2d7c;
 $color--foreground--faded: rgba($color--foreground, 0.6);
+$color--background: white;
+$color--background--faded: rgba($color--foreground, 0.1);
 
 $border--hairline: 1px solid rgba($color--foreground, 0.1);
 $border--thick: 4px solid rgba($color--foreground, 0.1);
@@ -292,6 +293,13 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
 .logo--header {
     height: 48px;
     width: 120px;
+}
+.pill {
+    background-color: $color--background--faded;
+    border-radius: 1000px;
+    display: inline-block;
+    margin-left: $whiteSpace--xtight;
+    padding: 0 $whiteSpace--tight;
 }
 .siteFooter.siteFooter {
     margin-top: $whiteSpace--xloose;

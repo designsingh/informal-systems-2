@@ -25,13 +25,12 @@ collections:
         permalink: /:collection/:name
 
 # Config below
-careers:
-    categories:
-        - All # Uhh, don't change this one
-        - Engineering
-        - Development
-        - Design
-        - Marketing
+careerCategories:
+    - All # Uhh, don't change this one
+    - Engineering
+    - Development
+    - Design
+    - Marketing
 footerMenuItems:
     - label: About Us
       url: /about

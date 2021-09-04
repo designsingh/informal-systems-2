@@ -1,16 +1,27 @@
 <nav class="tabbedNav">
     <ul class="tabbedNav-tabs">
         {% for menuItem in include.menuItems %}
+            {% if menuItem == "All" %}
+                {% assign entriesInCategory = site.careers | size %}
+            {% else %}
+                {% assign entriesInCategory = site.careers | where: "category", menuItem | size %}
+            {% endif %}
             <li
                 class="
                     tabbedNav-tab
-                    {% if forloop.first == true %}
+                    {% if menuItem == page.category %}
                         is-active
                     {% endif %}
                 "
             >
-                <a class="tabbedNav-tabButton" href="#{{ menuItem | downcase }}">
+                <a
+                    class="tabbedNav-tabButton"
+                    href="./{% if menuItem != "All" %}{{ menuItem | downcase }}{% endif %}"
+                >
                     {{ menuItem }}
+                    <span class="pill">
+                        {{ entriesInCategory }}
+                    </span>
                 </a>
             </li>
         {% endfor %}

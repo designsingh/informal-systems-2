@@ -1,0 +1,63 @@
+<section class="grid-container">
+    <div class="grid">
+        {% include tabbed-nav.html menuItems=site.careerCategories %}
+    </div>
+</section>
+
+{% assign count = 0 %}
+{% for career in site.careers %}
+    {% if page.category == "All" or career.category == page.category %}
+        {% assign count = count | plus: 1 %}
+
+        {% if count > 1 %}
+            <div class="grid-container">
+                <div class="grid">
+                    <div class="horizontalRule"></div>
+                </div>
+            </div>
+        {% endif %}
+
+        {% assign title = career.jobTitle | append: " &mdash; " | append: career.groupName %}
+
+        {% assign url = career.url | relative_url %}
+
+        <div class="grid-container">
+            <article class="grid u-rowGap--normal">
+                <header class="u-rowGap--tight">
+                    <h3 class="heading--2">
+                        <a href="{{ career.url | relative_url }}">
+                            {{ title }}
+                        </a>
+                    </h3>
+                    <dl class="iconifiedMetaData">
+                        {% assign locationList = career.locations | join: ", " %}
+                        {%
+                            include meta-data-item.html
+                                label="Job Type"
+                                icon="far fa-clock"
+                                value=career.jobType
+                        %}
+                        {%
+                            include meta-data-item.html
+                                label="Location"
+                                icon="far fa-map-marker-alt"
+                                value=locationList
+                        %}
+                    </dl>
+                </header>
+
+                <main>
+                    {{ career.content | truncate: 200, "..." | markdownify }}
+                </main>
+            </article>
+        </div>
+    {% endif %}
+{% endfor %}
+
+{% if count == 0 %}
+    <div class="grid-container">
+        <article class="grid u-rowGap--normal">
+            There are currently no postings in {{ page.category }}, but check back soon or reach out.
+        </article>
+    </div>
+{% endif %}

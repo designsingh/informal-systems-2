@@ -1,0 +1,35 @@
+<div class="grid-container">
+    <article class="grid u-rowGap--normal">
+        <header class="u-rowGap--tight">
+            <h3 class="heading--2">
+                <a href="{{ post.url | relative_url }}">
+                    {{ post.jobTitle }} &mdash; {{ post.groupName }}
+                </a>
+            </h3>
+            <dl class="iconifiedMetaData">
+                <div class="iconifiedMetaData-labelValuePair">
+                    <dt class="iconifiedMetaData-label">
+                        <i class="iconifiedMetaData-labelIcon far fa-clock"></i>
+                        <span class="iconifiedMetaData-labelText">
+                            Job Type
+                        </span>
+                    </dt>
+                    <dd class="iconifiedMetaData-value">Full Time</dd>
+                </div>
+                <div class="iconifiedMetaData-labelValuePair">
+                    <dt class="iconifiedMetaData-label">
+                        <i class="iconifiedMetaData-labelIcon far fa-clock"></i>
+                        <span class="iconifiedMetaData-labelText">
+                            Location
+                        </span>
+                    </dt>
+                    <dd class="iconifiedMetaData-value">
+                        {{ post.locations | join: ", " }}
+                    </dd>
+                </div>
+            </dl>
+        </header>
+
+        <main>{{ post.content | truncate: 200, "..." | markdownify }}</main>
+    </article>
+</div>
