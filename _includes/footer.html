@@ -2,7 +2,17 @@
     <h2 class="heading--1">
         {% assign headline = "Don&rsquo;t miss updates from us" %}
         {%- capture headlineMinusOrphans -%}
-            {{ headline | split: " " | reverse | join: " " | replace_first: ' ', '&nbsp;' | split: " " | reverse | join: " " }}
+            {{
+                headline
+                    | split: ""
+                    | reverse
+                    | join: ""
+                    | replace_first: ' ', '===='
+                    | split: ""
+                    | reverse
+                    | join: ""
+                    | replace_first: '====', '&nbsp;'
+            }}
         {%- endcapture -%}
 
         {{ headlineMinusOrphans }}
