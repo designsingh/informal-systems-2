@@ -1,0 +1,69 @@
+{% include site-header.html %}
+{% assign superTitle = "Careers / " | append: page.category %}
+<article class="u-rowGap--normal">
+    {%
+        include page-title.html
+            title=page.jobTitle
+            superTitle=superTitle
+            intro=page.blurb
+    %}
+
+    <div class="grid-container">
+        <div class="grid">
+            <img
+                class="photo"
+                src="http://lorempixel.com/640/360/abstract"
+            />
+
+            <hr class="horizontalRule--hairline u-marginY--normal" />
+
+            <dl class="iconifiedMetaData">
+                {% if page.hiringCount %}
+                    {% assign hiringCountText = page.hiringCount | append: " open positions" %}
+                    {%
+                        include meta-data-item.html
+                            label="Hiring Count"
+                            icon="far fa-user"
+                            value=hiringCountText
+                    %}
+                {% endif %}
+                {% assign locationList = page.locations | join: ", " %}
+                {%
+                    include meta-data-item.html
+                        label="Job Type"
+                        icon="far fa-clock"
+                        value=page.jobType
+                %}
+                {%
+                    include meta-data-item.html
+                        label="Location"
+                        icon="far fa-map-marker-alt"
+                        value=locationList
+                %}
+            </dl>
+        </div>
+    </div>
+
+    <div class="grid-container">
+        <div class="post grid u-rowGap--normal">
+            <!--
+                Shifting heading levels to reflect actual page hierarchy
+            -->
+            {{
+                content
+                    | replace: "h1", "h--one"
+                    | replace: "h2", "h--two"
+                    | replace: "h3", "h--three"
+                    | replace: "h4", "h--four"
+                    | replace: "h--one", "h3"
+                    | replace: "h--two", "h4"
+                    | replace: "h--three", "h5"
+                    | replace: "h--four", "h6"
+            }}
+
+            {% include career-post-shared-content.html %}
+        </div>
+    </div>
+</article>
+
+{% include site-footer.html %}

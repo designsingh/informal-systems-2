@@ -16,6 +16,21 @@ defaults:
           path: ''
       values:
           layout: 'default'
+    - scope:
+          path: 'careers'
+          type: 'pages'
+      values:
+          title: Careers at Informal
+          superTitle: Careers
+          intro: |
+              Our cooperatively owned and governed company is a growing team with world-class
+              expertise in distributed systems, formal verification, and open-source
+              ecosystem.
+    - scope:
+          path: ''
+          type: 'careers'
+      values:
+          layout: 'career-details'
 plugins:
     - jekyll-feed
 collections:

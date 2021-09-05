@@ -168,10 +168,18 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     right: -30vw;
     bottom: -20vh;
 }
-[class*="button--"] {
+.bgOrbits {
+    background-repeat: no-repeat;
+    background-position: top right;
+}
+.button {
     border: none;
     display: inline-block;
     padding: $whiteSpace--tight $whiteSpace--normal;
+    white-space: nowrap;
+}
+[class*="button--"] {
+    @extend .button;
 }
 .button--primary {
     background-color: $color--foreground;
@@ -186,12 +194,18 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     }
 }
 .formField {
-    cursor: pointer;
     @extend .u-rowGap--xtight;
+    cursor: pointer;
+    width: 50%;
+
+    .siteFooter & {
+        width: 100%;
+    }
 }
 .formField-label {
     font-size: var(--fontSize--small);
     font-weight: bold;
+    white-space: nowrap;
 }
 .grid {
     margin: 0 auto;
@@ -212,9 +226,12 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
         margin-top: $whiteSpace--loose;
     }
 }
-[class*="heading--"] {
+.heading {
     font-family: $fontFamily--display;
     font-weight: $fontWeight--display;
+}
+[class*="heading--"] {
+    @extend .heading;
 }
 .heading--1 {
     font-size: var(--fontSize--xLarge);
@@ -238,15 +255,20 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     background-color: $color--foreground;
     color: white;
 }
-.horizontalRule {
+[class*="horizontalRule"] {
+    background-color: transparent;
+    border-width: 0;
     border-bottom: $border--hairline;
     border-color: $color--foreground;
+    border-style: solid;
+}
+.horizontalRule--hairline {
+    border-color: $color--background--faded;
 }
 .iconifiedMetaData {
     display: flex;
     color: $color--foreground--faded;
     column-gap: $whiteSpace--normal;
-    font-size: var(--fontSize--small);
 }
 .iconifiedMetaData-labelText {
     display: none;
@@ -258,14 +280,13 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
 .input {
     border: $border--hairline;
     border-color: $color--foreground;
+    font-size: var(--fontSize--small);
     padding: $whiteSpace--tight $whiteSpace--normal;
     width: 100%;
 
     &::placeholder {
         color: $color--foreground--faded;
-        font-size: var(--fontSize--small);
         position: relative;
-        top: -2px;
     }
 
     .highContrast & {
@@ -276,6 +297,14 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
         &::placeholder {
             color: rgba(white, 0.6);
         }
+    }
+}
+.link {
+    color: $color--accent;
+    font-weight: bold;
+
+    &:hover {
+        text-decoration: underline;
     }
 }
 [class*="logo--"] {
@@ -294,6 +323,10 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     height: 48px;
     width: 120px;
 }
+.photo {
+    display: inline-block;
+    width: 100%;
+}
 .pill {
     background-color: $color--background--faded;
     border-radius: 1000px;
@@ -302,6 +335,39 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     font-size: var(--fontSize--small);
     padding: 0 $whiteSpace--tight;
     vertical-align: middle;
+}
+.post {
+    a:not([class]) {
+        @extend .link;
+    }
+    ol:not([class]),
+    ul:not([class]) {
+        @extend .u-rowGap, .u-rowGap--tight;
+        padding-left: $whiteSpace--xloose;
+    }
+    li:not([class]) {
+        position: relative;
+
+        &::before {
+            color: $color--accent;
+            content: '\f178';
+            font-family: 'Font Awesome 5 Pro';
+            font-weight: 100;
+            left: 0;
+            position: absolute;
+            top: 0;
+            transform: translateX(-200%);
+        }
+    }
+    h3:not([class]) {
+        @extend .heading, .heading--2;
+    }
+    h4:not([class]) {
+        @extend .heading, .heading--3;
+    }
+    h5:not([class]) {
+        @extend .heading, .heading--4;
+    }
 }
 .siteFooter.siteFooter {
     margin-top: $whiteSpace--xloose;
@@ -408,17 +474,22 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
         color: $color--accent;
     }
 }
-[class*="u-columnGap--"],
-[class*="u-rowGap--"] {
+.u-columnGap,
+.u-rowGap {
     display: flex;
 }
-[class*="u-columnGap--"] {
+.u-columnGap {
     flex-direction: row;
     align-items: center;
 }
-[class*="u-rowGap--"] {
-    align-items: flex-start;
+.u-rowGap {
     flex-direction: column;
+}
+[class*="u-columnGap--"] {
+    @extend .u-columnGap;
+}
+[class*="u-rowGap--"] {
+    @extend .u-rowGap;
 }
 $gridSizes: (
     xtight: $whiteSpace--xtight,
@@ -437,6 +508,12 @@ $gridSizes: (
     .u-padding--#{$gridSizeName} {
         padding: $whiteSpaceValue;
     }
+    .u-paddingBottom--#{$gridSizeName} {
+        padding-bottom: $whiteSpaceValue;
+    }
+    .u-paddingTop--#{$gridSizeName} {
+        padding-top: $whiteSpaceValue;
+    }
     .u-paddingX--#{$gridSizeName} {
         padding-left: $whiteSpaceValue;
         padding-right: $whiteSpaceValue;
@@ -444,6 +521,23 @@ $gridSizes: (
     .u-paddingY--#{$gridSizeName} {
         padding-bottom: $whiteSpaceValue;
         padding-top: $whiteSpaceValue;
+    }
+    .u-margin--#{$gridSizeName} {
+        margin: $whiteSpaceValue;
+    }
+    .u-marginBottom--#{$gridSizeName} {
+        margin-bottom: $whiteSpaceValue;
+    }
+    .u-marginTop--#{$gridSizeName} {
+        margin-top: $whiteSpaceValue;
+    }
+    .u-marginX--#{$gridSizeName} {
+        margin-left: $whiteSpaceValue;
+        margin-right: $whiteSpaceValue;
+    }
+    .u-marginY--#{$gridSizeName} {
+        margin-bottom: $whiteSpaceValue;
+        margin-top: $whiteSpaceValue;
     }
 }
 [class^="u-columns--"] {

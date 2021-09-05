@@ -1,0 +1,54 @@
+<h3>
+    About Informal
+</h3>
+
+<p>
+    Informal is a remote-first company with offices in Toronto, Lausanne, Vienna
+    and Berlin. We are structured like a worker’s cooperative, where important
+    corporate actions are subject to one-person-one-vote democratic control by
+    the member-employees. We provide 5-weeks of paid vacation, lifestyle
+    benefits, and annual retreats with the whole team. We envision a sustainable
+    future of cooperatively owned and governed, open-source, distributed
+    organizations running on reliable distributed systems and are excited to
+    grow the team with amazing individuals who believe in making this future a
+    reality.
+</p>
+
+<h3>
+    To Apply:
+</h3>
+
+<p>
+    Please apply via this this <a href="http://www.google.com/"
+    target="_blank">Google form</a> where you’ll be prompted to upload a cover
+    letter, CV, and other information that will help the review process go
+    smoothly.
+</p>
+
+<p>
+    We are an equal opportunity employer and value diversity in our
+    organization. We are committed to equal employment opportunities and
+    encourage applications from people of all race, religion, colour, national
+    origin, gender identity, sexual orientation, age, marital status, veteran
+    status, or disability status.
+</p>
+
+<h3>
+    Share:
+</h3>
+
+<ul class="u-columnGap--tight">
+    {% for shareLink in page.shareLinks %}
+        <li class="omitted-from-post-styles">
+            <a
+                class="shareLink-button"
+                href="{{ shareLink.url }}"
+            >
+                <i class="fab fa-{{ shareLink.service | downcase }}"></i>
+                <span class="u-screenReadersOnly">
+                    Share via {{ shareLink.service | capitalize }}
+                </span>
+            </a>
+        </li>
+    {% endfor %}
+</ul>

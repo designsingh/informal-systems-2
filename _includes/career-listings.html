@@ -1,3 +1,25 @@
+{%
+    include page-title.html
+        title=page.title
+        superTitle=page.superTitle
+        intro=page.intro
+%}
+
+<section class="grid-container">
+    <div class="grid">
+        <ul class="avatarList avatarList--large">
+            <li class="avatar"></li>
+            <li class="avatar"></li>
+            <li class="avatar"></li>
+            <li class="avatar"></li>
+            <li class="avatar"></li>
+            <li class="avatar">&plus;21</li>
+            <li class="avatarSpacer">&plus;</li>
+            <li class="avatar avatar--placeholder">You</li>
+        </ul>
+    </div>
+</section>
+
 <section class="grid-container">
     <div class="grid">
         {% include tabbed-nav.html menuItems=site.careerCategories %}
@@ -21,36 +43,7 @@
 
         {% assign url = career.url | relative_url %}
 
-        <div class="grid-container">
-            <article class="grid u-rowGap--normal">
-                <header class="u-rowGap--tight">
-                    <h3 class="heading--2">
-                        <a href="{{ career.url | relative_url }}">
-                            {{ title }}
-                        </a>
-                    </h3>
-                    <dl class="iconifiedMetaData">
-                        {% assign locationList = career.locations | join: ", " %}
-                        {%
-                            include meta-data-item.html
-                                label="Job Type"
-                                icon="far fa-clock"
-                                value=career.jobType
-                        %}
-                        {%
-                            include meta-data-item.html
-                                label="Location"
-                                icon="far fa-map-marker-alt"
-                                value=locationList
-                        %}
-                    </dl>
-                </header>
-
-                <main>
-                    {{ career.content | truncate: 200, "..." | markdownify }}
-                </main>
-            </article>
-        </div>
+        {% include post-list-item.html post=career %}
     {% endif %}
 {% endfor %}
 

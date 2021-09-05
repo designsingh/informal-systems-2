@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{{ page.title }}</title>
+        <link
+            rel="stylesheet"
+            href="{{ '/assets/css/main.css' | relative_url }}"
+        />
+        <style>
+            [class*="logo--"] {
+                background-image:
+                    url({{ 'assets/img/logo.svg' | relative_url }});
+            }
+            .bgBubble--a {
+                background-image:
+                    url({{ 'assets/img/orb-accent.png' | relative_url }});
+            }
+            .bgBubble--b {
+                background-image:
+                    url({{ 'assets/img/orb-magenta.png' | relative_url }});
+            }
+            .bgBubble--c {
+                background-image:
+                    url({{ 'assets/img/orb-burgundy.png' | relative_url }});
+            }
+            .bgOrbits {
+                background-image:
+                    url({{ 'assets/img/bg-orbits.svg' | relative_url }});
+            }
+        </style>
+        <script src="https://kit.fontawesome.com/97f11cf15d.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="grid">
+            <div class="grid">
+                <header class="siteHeader">
+                    <h1>
+                        <a
+                            href="{{ site.menuItems[0].url | relative_url }}"
+                            class="logo--header"
+                        >
+                            informal
+                        </a>
+                    </h1>
+                    <nav class="siteHeader-nav">
+                        <ul class="siteHeader-menuItems">
+                            {% for menuItem in site.menuItems %}
+                                {% assign hasSubMenu = menuItem.subMenuItems.size %}
+                                <li
+                                    class="
+                                        siteHeader-menuItem
+                                        {% assign currentPage = page.url | split: "/" %}
+                                        {% assign lowerCaseMenuItemLabel = menuItem.label | downcase %}
+                                        {% if currentPage[1] == lowerCaseMenuItemLabel %}
+                                            siteHeader-menuItem--isActive
+                                        {% endif %}
+                                        {% if hasSubMenu %}
+                                            siteHeader-menuItem--hasSubMenu
+                                        {% endif %}
+                                    "
+                                >
+                                    <a
+                                        href="{{ menuItem.url | relative_url }}"
+                                        class="siteHeader-menuItemButton"
+                                    >
+                                        {{ menuItem.label }}
+                                        {% if hasSubMenu %}
+                                            <i class="far fa-chevron-down"></i>
+                                        {% endif %}
+                                    </a>
+                                    {% if hasSubMenu %}
+                                        <ul class="siteHeader-subMenu">
+                                            {% for subMenuItem in menuItem.subMenuItems %}
+                                                <li class="siteHeader-subMenuItem">
+                                                    <a
+                                                        href="{{ subMenuItem.url | relative_url }}"
+                                                        class="siteHeader-subMenuItemButton"
+                                                    >
+                                                        {{ subMenuItem.label }}
+                                                    </a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </nav>
+                </header>
+            </div>
+        </div>
