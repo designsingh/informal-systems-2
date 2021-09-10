@@ -1,4 +1,46 @@
+@use 'sass:map';
+
 @import url("https://fonts.googleapis.com/css2?family=Glegoo:wght@400;700&family=Inter:wght@400;500&display=swap");
+
+$color--accent: #2f87a5;
+$color--accent--burgundy: #ab534d;
+$color--accent--purple: #a37aeb;
+$color--accent--magenta: #e071dc;
+$color--accent--magentaDarkened: #873385;
+$color--accent--yellow: #ffb756;
+$color--foreground: #0b2d7c;
+$color--foreground--faded: rgba($color--foreground, 0.6);
+$color--background: white;
+$color--background--faded: rgba($color--foreground, 0.1);
+
+$colorPalette: (
+    "accent": #2f87a5,
+    "burgundy": #ab534d,
+    "purple": #a37aeb,
+    "teal": #2f87a5,
+    "magenta": #e071dc,
+    "magentaDarkened": #873385,
+    "yellow": #ffb756,
+    "foreground": #0b2d7c,
+    "background": white,
+);
+$spotColors: (
+    "foreground--faded": ".u-color--foreground--300",
+    "background--faded": ".u-color--background--100",
+);
+$variants: (
+    "base": 400,
+    "lightened": (
+        100: 0.1,
+        200: 0.3,
+        300: 0.6,
+    ),
+    "darkened": (
+        500: 0.1,
+        600: 0.3,
+        700: 0.6,
+    ),
+);
 
 $breakpointDefinitions: (
     xLarge: (
@@ -11,23 +53,31 @@ $breakpointDefinitions: (
     ),
 );
 
-$color--accent: #2f87a5;
-$color--accent--magenta: #e071dc;
-$color--accent--burgundy: #ab534d;
-$color--foreground: #0b2d7c;
-$color--foreground--faded: rgba($color--foreground, 0.6);
-$color--background: white;
-$color--background--faded: rgba($color--foreground, 0.1);
+$borderRadii: (
+    "normal": 8px,
+    "large": 16px,
+    "xlarge": 24px,
+    "circle": 1000px,
+);
+
+$borderStyles: (
+    'hairline': 1px solid rgba($color--foreground, 0.1),
+    'thick': 4px solid rgba($color--foreground, 0.1),
+);
 
 $border--hairline: 1px solid rgba($color--foreground, 0.1);
 $border--thick: 4px solid rgba($color--foreground, 0.1);
 
-$borderRadius--normal: 4px;
+$borderRadius--normal: 8px;
+$borderRadius--large: 16px;
+$borderRadius--xlarge: 24px;
 
+$boxShadowStyles: (
+    "normal": 2px 2px 4px 0 rgba(black, 0.2),
+    "inset": 2px 2px 4px 0 rgba(black, 0.2) inset,
+);
 $boxShadow--normal: 2px 2px 4px 0 rgba(black, 0.2);
 $boxShadow--inset: 2px 2px 4px 0 rgba(black, 0.2) inset;
-
-$textShadow--lightOnDark: 1px 1px 3px rgba(black, 0.6);
 
 $fontFamily--body: Inter, sans-serif;
 $fontFamily--display: Glegoo, sans-serif;
@@ -35,6 +85,18 @@ $fontFamily--display: Glegoo, sans-serif;
 $fontWeight--body--normal: 400;
 $fontWeight--body--bold: 500;
 $fontWeight--display: 700;
+
+$gridSizes: (
+    "xtight": calc(var(--gridUnit) * 0.25),
+    "tight": calc(var(--gridUnit) * 0.5),
+    "normal": var(--gridUnit),
+    "loose": calc(var(--gridUnit) * 2),
+    "xloose": calc(var(--gridUnit) * 4),
+);
+
+$heading--decorativeUnderlineWidth: 70px;
+
+$textShadow--lightOnDark: 1px 1px 3px rgba(black, 0.6);
 
 $whiteSpace--xtight: calc(var(--gridUnit) * 0.25);
 $whiteSpace--tight: calc(var(--gridUnit) * 0.5);
@@ -83,6 +145,7 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     font-size: var(--fontSize--normal);
     line-height: var(--lineHeight--normal);
     padding-bottom: $whiteSpace--xloose;
+    scroll-padding-top: 10vh;
 }
 .avatar,
 .avatarSpacer {
@@ -98,6 +161,10 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     box-shadow: $boxShadow--inset;
     color: white;
     text-shadow: $textShadow--lightOnDark;
+}
+.avatar--large {
+    height: var(--avatarSize--large);
+    width: var(--avatarSize--large);
 }
 .avatarSpacer {
     font-size: var(--fontSize--large);
@@ -174,7 +241,10 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
 }
 .button {
     border: none;
+    cursor: pointer;
     display: inline-block;
+    font-family: $fontFamily--display;
+    font-weight: $fontWeight--display;
     padding: $whiteSpace--tight $whiteSpace--normal;
     white-space: nowrap;
 }
@@ -184,14 +254,17 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
 .button--primary {
     background-color: $color--foreground;
     color: white;
-    font-family: $fontFamily--display;
     font-size: var(--fontSize--small);
-    font-weight: $fontWeight--display;
 
     .highContrast & {
         background-color: white;
         color: $color--foreground;
     }
+}
+.button--secondary {
+    background-color: transparent;
+    font-size: var(--fontSize--normal);
+    text-decoration: underline;
 }
 .formField {
     @extend .u-rowGap--xtight;
@@ -229,6 +302,7 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
 .heading {
     font-family: $fontFamily--display;
     font-weight: $fontWeight--display;
+    width: 100%;
 }
 [class*="heading--"] {
     @extend .heading;
@@ -252,7 +326,9 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     font-weight: $fontWeight--body--bold;
 }
 .highContrast {
-    background-color: $color--foreground;
+    @extend .u-backgroundColor--foreground;
+    @extend .u-borderRadius--xlarge;
+    border-radius: $borderRadius--xlarge;
     color: white;
 }
 [class*="horizontalRule"] {
@@ -307,6 +383,14 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
         text-decoration: underline;
     }
 }
+.link--discreet {
+    color: $color--foreground;
+
+    &:hover {
+        color: $color--accent;
+        text-decoration: none;
+    }
+}
 [class*="logo--"] {
     // background-image set in _layouts/default.html
     background-size: contain;
@@ -322,6 +406,21 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
 .logo--header {
     height: 48px;
     width: 120px;
+}
+.lowContrast {
+    border-radius: $borderRadius--xlarge;
+}
+[class*="lowContrast--"] {
+    @extend .lowContrast;
+}
+.lowContrast--accent {
+    background-color: rgba($color--accent, 0.1);
+}
+.lowContrast--purple {
+    background-color: rgba($color--accent--purple, 0.1);
+}
+.lowContrast--yellow {
+    background-color: rgba($color--accent--yellow, 0.1);
 }
 .photo {
     display: inline-block;
@@ -350,8 +449,8 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
 
         &::before {
             color: $color--accent;
-            content: '\f178';
-            font-family: 'Font Awesome 5 Pro';
+            content: "\f178";
+            font-family: "Font Awesome 5 Pro";
             font-weight: 100;
             left: 0;
             position: absolute;
@@ -367,6 +466,21 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     }
     h5:not([class]) {
         @extend .heading, .heading--4;
+    }
+}
+.sectionTitle-heading {
+    @extend .u-paddingBottom--tight;
+    position: relative;
+
+    &::after {
+        border-bottom: $border--thick;
+        border-color: $color--accent--magentaDarkened;
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 100%;
+        transform: translateX(-50%);
+        width: $heading--decorativeUnderlineWidth;
     }
 }
 .siteFooter.siteFooter {
@@ -474,6 +588,120 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
         color: $color--accent;
     }
 }
+@mixin increaseSpecificity {
+    &#{&} {
+        @content;
+    }
+}
+$flexProperties: (
+    'alignItems': align-items,
+    'justifyContent': justify-content,
+);
+@each $flexPropertyName, $flexPropertyCSSName in $flexProperties {
+    .u-#{$flexPropertyName}--flexStart {
+        @include increaseSpecificity {
+            #{$flexPropertyCSSName}: flex-start;
+        }
+    }
+    .u-#{$flexPropertyName}--center {
+        @include increaseSpecificity {
+            #{$flexPropertyCSSName}: center;
+        }
+    }
+    .u-#{$flexPropertyName}--stretch {
+        @include increaseSpecificity {
+            #{$flexPropertyCSSName}: stretch;
+        }
+    }
+}
+.u-alignItems--stretch {
+    & > * {
+        flex-grow: 1;
+    }
+}
+@each $colorName, $colorCode in $colorPalette {
+    .u-backgroundColor--#{$colorName} {
+        @include increaseSpecificity() {
+            background-color: $colorCode;
+        }
+    }
+    .u-borderColor--#{$colorName} {
+        @include increaseSpecificity() {
+            border-color: $colorCode;
+        }
+    }
+    .u-color--#{$colorName} {
+        @include increaseSpecificity() {
+            color: $colorCode;
+        }
+    }
+
+    @each $variantName, $adjustmentPercentage in map-get($variants, "lightened") {
+        $modifiedColor: rgba($colorCode, $adjustmentPercentage);
+
+        .u-backgroundColor--#{$colorName}--#{$variantName} {
+            @include increaseSpecificity() {
+                background-color: $modifiedColor;
+            }
+        }
+        .u-borderColor--#{$colorName}--#{$variantName} {
+            @include increaseSpecificity() {
+                border-color: $modifiedColor;
+            }
+        }
+        .u-color--#{$colorName}--#{$variantName} {
+            @include increaseSpecificity() {
+                color: $modifiedColor;
+            }
+        }
+    }
+}
+@each $borderRadiusName, $borderRadius in $borderRadii {
+    .u-borderRadius--#{$borderRadiusName} {
+        border-radius: $borderRadius;
+    }
+}
+@each $borderStyleName, $borderStyle in $borderStyles {
+    .u-border--#{$borderStyleName} {
+        border: $borderStyle;
+    }
+    .u-borderBottom--#{$borderStyleName} {
+        border-bottom: $borderStyle;
+    }
+    .u-borderLeft--#{$borderStyleName} {
+        border-left: $borderStyle;
+    }
+    .u-borderRight--#{$borderStyleName} {
+        border-right: $borderStyle;
+    }
+    .u-borderTop--#{$borderStyleName} {
+        border-top: $borderStyle;
+    }
+    .u-borderX--#{$borderStyleName} {
+        border-left: $borderStyle;
+        border-right: $borderStyle;
+    }
+    .u-borderY--#{$borderStyleName} {
+        border-bottom: $borderStyle;
+        border-top: $borderStyle;
+    }
+}
+@each $borderRadiusName, $borderRadius in $borderRadii {
+    .u-borderRadius--#{$borderRadiusName} {
+        border-radius: $borderRadius;
+    }
+}
+@each $boxShadowStyleName, $boxShadowStyle in $boxShadowStyles {
+    .u-boxShadow--#{$boxShadowStyleName} {
+        box-shadow: $boxShadowStyle;
+    }
+}
+.u-centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
 .u-columnGap,
 .u-rowGap {
     display: flex;
@@ -491,61 +719,86 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
 [class*="u-rowGap--"] {
     @extend .u-rowGap;
 }
-$gridSizes: (
-    xtight: $whiteSpace--xtight,
-    tight: $whiteSpace--tight,
-    normal: $whiteSpace--normal,
-    loose: $whiteSpace--loose,
-    xloose: $whiteSpace--xloose,
-);
 @each $gridSizeName, $whiteSpaceValue in $gridSizes {
     .u-columnGap--#{$gridSizeName} {
-        column-gap: $whiteSpaceValue;
+        @include increaseSpecificity {
+            column-gap: $whiteSpaceValue;
+        }
     }
     .u-rowGap--#{$gridSizeName} {
-        row-gap: $whiteSpaceValue;
+        @include increaseSpecificity {
+            row-gap: $whiteSpaceValue;
+        }
     }
     .u-padding--#{$gridSizeName} {
-        padding: $whiteSpaceValue;
+        @include increaseSpecificity {
+            padding: $whiteSpaceValue;
+        }
     }
     .u-paddingBottom--#{$gridSizeName} {
-        padding-bottom: $whiteSpaceValue;
+        @include increaseSpecificity {
+            padding-bottom: $whiteSpaceValue;
+        }
     }
     .u-paddingTop--#{$gridSizeName} {
-        padding-top: $whiteSpaceValue;
+        @include increaseSpecificity {
+            padding-top: $whiteSpaceValue;
+        }
     }
     .u-paddingX--#{$gridSizeName} {
-        padding-left: $whiteSpaceValue;
-        padding-right: $whiteSpaceValue;
+        @include increaseSpecificity {
+            padding-left: $whiteSpaceValue;
+            padding-right: $whiteSpaceValue;
+        }
     }
     .u-paddingY--#{$gridSizeName} {
-        padding-bottom: $whiteSpaceValue;
-        padding-top: $whiteSpaceValue;
+        @include increaseSpecificity {
+            padding-bottom: $whiteSpaceValue;
+            padding-top: $whiteSpaceValue;
+        }
     }
     .u-margin--#{$gridSizeName} {
-        margin: $whiteSpaceValue;
+        @include increaseSpecificity {
+            margin: $whiteSpaceValue;
+        }
     }
     .u-marginBottom--#{$gridSizeName} {
-        margin-bottom: $whiteSpaceValue;
+        @include increaseSpecificity {
+            margin-bottom: $whiteSpaceValue;
+        }
     }
     .u-marginTop--#{$gridSizeName} {
-        margin-top: $whiteSpaceValue;
+        @include increaseSpecificity {
+            margin-top: $whiteSpaceValue;
+        }
     }
     .u-marginX--#{$gridSizeName} {
-        margin-left: $whiteSpaceValue;
-        margin-right: $whiteSpaceValue;
+        @include increaseSpecificity {
+            margin-left: $whiteSpaceValue;
+            margin-right: $whiteSpaceValue;
+        }
     }
     .u-marginY--#{$gridSizeName} {
-        margin-bottom: $whiteSpaceValue;
-        margin-top: $whiteSpaceValue;
+        @include increaseSpecificity {
+            margin-bottom: $whiteSpaceValue;
+            margin-top: $whiteSpaceValue;
+        }
     }
 }
-[class^="u-columns--"] {
+[class*="u-columns--"] {
     display: grid;
 }
 @for $i from 1 through 12 {
     .u-columns--#{$i} {
         grid-template-columns: repeat($i, 1fr);
+    }
+    .u-spanColumns--#{$i} {
+        --num-columns: calc(12 / #{$i});
+        --num-gutters: calc(var(--num-columns) - 1);
+        --gutter-widths: calc(var(--num-gutters) * var(--gridUnit));
+        --width-of-span: calc((100% - var(--gutter-widths)) / var(--num-columns));
+
+        width: var(--width-of-span);
     }
 }
 .u-screenReadersOnly {

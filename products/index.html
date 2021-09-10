@@ -1,0 +1,118 @@
+---
+title: Specializes in the security of interblockchain protocols.
+superTitle: Products
+intro: |
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+    unknown printer took a galley of type and scrambled it to make a type specimen
+    book. It has survived not only five centuries, but also the leap into electronic
+products:
+    - title: tendermint-rs
+      color: teal
+      icon: assets/img/product-logos/tendermint-rs.svg
+      socialLinks:
+        - label: Github
+          icon: fab fa-github
+          url: http://www.github.com/
+      description: |
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus a aliquid
+          debitis. Consectetur repellat.
+    - title: ibc-rs
+      color: purple
+      icon: assets/img/product-logos/ibc-rs.svg
+      socialLinks:
+        - label: Github
+          icon: fab fa-github
+          url: http://www.github.com/
+      description: |
+          Inter-Blockchain Communication (IBC) is a protocol for secure,
+          packet-based communication between distinct blockchains.
+    - title: Hermes
+      color: yellow
+      icon: assets/img/product-logos/hermes.svg
+      socialLinks:
+        - label: Website
+          icon: far fa-globe-americas
+          url: http://www.hermes-homepage.io/
+      description: |
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus a aliquid
+          debitis. Consectetur repellat.
+---
+{%
+    include page-title.html
+        title=page.title
+        superTitle=page.superTitle
+        intro=page.intro
+%}
+
+{% capture content %}
+    <p>
+        We are a leading contributor to the Tendermint and Cosmos projects, focused on
+        formally verifiable implementations in Rust.
+    </p>
+    <p>
+        <button class="button--secondary">
+            Contact Us
+        </button>
+    </p>
+{% endcapture %}
+
+{%
+    include section-title.html
+        title="Blockchain Infrastructure"
+        content=content
+%}
+
+<div class="grid-container">
+    <div class="grid u-columnGap--normal u-alignItems--stretch">
+        {% for product in page.products %}
+            <div
+                class="
+                    u-backgroundColor--{{ product.color }}--100
+                    u-borderRadius--xlarge
+                    u-centered
+                    u-justifyContent--flexStart
+                    u-padding--normal
+                    u-rowGap--normal
+                    u-spanColumns--4
+                "
+            >
+                <div
+                    class="
+                        avatar
+                        avatar--large
+                        u-backgroundColor--{{ product.color }}
+                        u-borderRadius--circle
+                        u-boxShadow--fancy
+                    "
+                >
+                    <img
+                        src="{{ product.icon | relative_url }}"
+                        alt="Logo for {{ product.label }}"
+                    />
+                </div>
+                <h3 class="heading--2">
+                    {{ product.title }}
+                </h3>
+
+                {{ product.description }}
+
+                <ul class="u-columnGap--tight">
+                    {% for socialLink in product.socialLinks %}
+                        <li>
+                            <a
+                                href="{{ socialLink.url }}"
+                                title="{{ socialLink.label }}"
+                            >
+                                <i class="{{ socialLink.icon }}"></i>
+                                <span class="u-screenReadersOnly">
+                                    {{ socialLink.label }}
+                                </span>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
+</div>

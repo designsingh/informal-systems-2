@@ -1,4 +1,4 @@
-<nav class="tabbedNav">
+<nav id="tabs" class="tabbedNav">
     <ul class="tabbedNav-tabs">
         {% for menuItem in include.menuItems %}
             {% if menuItem == "All" %}
@@ -16,7 +16,7 @@
             >
                 <a
                     class="tabbedNav-tabButton u-columnGap--xtight"
-                    href="./{% if menuItem != "All" %}{{ menuItem | downcase }}{% endif %}"
+                    href="./{% if menuItem != "All" %}{{ menuItem | downcase }}{% endif %}#tabs"
                 >
                     <span>{{ menuItem }}</span>
                     <span class="pill">

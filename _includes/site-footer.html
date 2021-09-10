@@ -30,16 +30,41 @@
                     <span class="formField-label u-screenReadersOnly">
                         Email Address
                     </span>
-                    <input class="input" type="email" placeholder="Your Email Address" />
+                    <input
+                        class="input"
+                        type="email"
+                        placeholder="Your Email Address"
+                    />
                 </div>
-                <button class="button--primary">
+                <button
+                    class="
+                        button--primary
+                        u-border--hairline
+                        u-borderColor--background
+                    "
+                >
                     Get Our Newsletter
                 </button>
             </form>
         {% endcapture %}
 
         <div class="u-marginTop--xloose">
-            {% include high-contrast-block.html content=dontMissOut %}
+            <section class="grid-container">
+                <div
+                    class="
+                        bgOrbits
+                        grid
+                        u-backgroundColor--foreground
+                        u-borderRadius--xlarge
+                        u-color--background
+                        u-paddingY--xloose
+                        u-paddingX--xloose
+                        u-rowGap--loose
+                    "
+                >
+                    {{ dontMissOut }}
+                </div>
+            </section>
         </div>
 
         <footer class="siteFooter grid-container">

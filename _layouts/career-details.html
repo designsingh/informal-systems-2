@@ -1,5 +1,19 @@
 {% include site-header.html %}
-{% assign superTitle = "Careers / " | append: page.category %}
+{% capture superTitle %}
+    <a
+        class="link--discreet"
+        href="{{ "careers/" | relative_url }}"
+    >
+        Careers
+    </a>
+    /
+    <a
+        class="link--discreet"
+        href="{{ "careers/" | append: page.category | relative_url }}#tabs"
+    >
+        {{ page.category }}
+    </a>
+{% endcapture %}
 <article class="u-rowGap--normal">
     {%
         include page-title.html
@@ -27,13 +41,15 @@
                             value=hiringCountText
                     %}
                 {% endif %}
-                {% assign locationList = page.locations | join: ", " %}
+
                 {%
                     include meta-data-item.html
                         label="Job Type"
                         icon="far fa-clock"
                         value=page.jobType
                 %}
+
+                {% assign locationList = page.locations | join: ", " %}
                 {%
                     include meta-data-item.html
                         label="Location"

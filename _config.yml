@@ -53,6 +53,8 @@ footerMenuItems:
       url: /products-and-services
     - label: News & Publications
       url: /news-and-publications
+    - label: Team
+      url: /team
     - label: Blog
       url: /blog
     - label: Careers
