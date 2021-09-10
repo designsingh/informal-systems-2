@@ -137,7 +137,8 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     --lineHeight--xLarge: 1em;
 
     --avatarSize--normal: 60px;
-    --avatarSize--large: 120px;
+    --avatarSize--large: 88px;
+    --avatarSize--xlarge: 120px;
 
     background: $color--background;
     color: $color--foreground;
@@ -163,8 +164,10 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     text-shadow: $textShadow--lightOnDark;
 }
 .avatar--large {
-    height: var(--avatarSize--large);
-    width: var(--avatarSize--large);
+    --avatarSize: var(--avatarSize--large);
+}
+.avatar--xlarge {
+    --avatarSize: var(--avatarSize--xlarge);
 }
 .avatarSpacer {
     font-size: var(--fontSize--large);
@@ -179,6 +182,9 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
 }
 .avatarList--large {
     --avatarSize: var(--avatarSize--large);
+}
+.avatarList--xlarge {
+    --avatarSize: var(--avatarSize--xlarge);
 }
 @keyframes bgBubblePulsate {
     from {
@@ -787,6 +793,9 @@ $flexProperties: (
 }
 [class*="u-columns--"] {
     display: grid;
+}
+[class*="u-spanColumns--"] {
+    flex-grow: 0;
 }
 @for $i from 1 through 12 {
     .u-columns--#{$i} {

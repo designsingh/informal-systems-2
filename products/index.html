@@ -6,7 +6,7 @@ intro: |
     Ipsum has been the industry's standard dummy text ever since the 1500s, when an
     unknown printer took a galley of type and scrambled it to make a type specimen
     book. It has survived not only five centuries, but also the leap into electronic
-products:
+blockChainProducts:
     - title: tendermint-rs
       color: teal
       icon: assets/img/product-logos/tendermint-rs.svg
@@ -37,6 +37,30 @@ products:
       description: |
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus a aliquid
           debitis. Consectetur repellat.
+verificationProducts:
+  - title: Apalache
+    color: teal
+    icon: assets/img/product-logos/apalache.svg
+    socialLinks:
+      - label: Github
+        icon: fab fa-github
+        url: http://www.github.com/
+      - label: Website
+        icon: far fa-globe-americas
+        url: http://www.apalache-homepage.com/
+    description: |
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus a aliquid
+        debitis. Consectetur repellat.
+  - title: Model Based Testing
+    color: yellow
+    icon: assets/img/product-logos/model-based-testing.svg
+    socialLinks:
+      - label: Website
+        icon: far fa-globe-americas
+        url: http://www.mbs-homepage.com/
+    description: |
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus a aliquid
+        debitis. Consectetur repellat.
 ---
 {%
     include page-title.html
@@ -65,7 +89,7 @@ products:
 
 <div class="grid-container">
     <div class="grid u-columnGap--normal u-alignItems--stretch">
-        {% for product in page.products %}
+        {% for product in page.blockChainProducts %}
             <div
                 class="
                     u-backgroundColor--{{ product.color }}--100
@@ -114,5 +138,102 @@ products:
                 </ul>
             </div>
         {% endfor %}
+    </div>
+</div>
+
+{% capture content %}
+    <p>
+        We build formal verification tools that we leverage in our security audits.
+    </p>
+    <p>
+        <button class="button--secondary">
+            Jump to Security Audits
+        </button>
+    </p>
+{% endcapture %}
+
+{%
+    include section-title.html
+        title="Formal Verification Tools"
+        content=content
+%}
+
+<div class="grid-container">
+    <div class="grid u-columnGap--normal u-centered u-alignItems--stretch">
+        {% for product in page.verificationProducts %}
+            <div
+                class="
+                    u-backgroundColor--{{ product.color }}--100
+                    u-borderRadius--xlarge
+                    u-centered
+                    u-justifyContent--flexStart
+                    u-padding--normal
+                    u-rowGap--normal
+                    u-spanColumns--4
+                "
+            >
+                <div
+                    class="
+                        avatar
+                        avatar--large
+                        u-backgroundColor--{{ product.color }}
+                        u-borderRadius--circle
+                        u-boxShadow--fancy
+                    "
+                >
+                    <img
+                        src="{{ product.icon | relative_url }}"
+                        alt="Logo for {{ product.label }}"
+                    />
+                </div>
+                <h3 class="heading--2">
+                    {{ product.title }}
+                </h3>
+
+                {{ product.description }}
+
+                <ul class="u-columnGap--tight">
+                    {% for socialLink in product.socialLinks %}
+                        <li>
+                            <a
+                                href="{{ socialLink.url }}"
+                                title="{{ socialLink.label }}"
+                            >
+                                <i class="{{ socialLink.icon }}"></i>
+                                <span class="u-screenReadersOnly">
+                                    {{ socialLink.label }}
+                                </span>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div
+    class="
+        grid-container
+        u-backgroundColor--purple--100
+    "
+>
+    <div
+        class="
+            grid
+            u-centered
+            u-columnGap--xloose
+            u-paddingY--loose
+        "
+    >
+        <div>
+            <img
+                src="{{ 'assets/img/logo-cosmos.svg' | relative_url }}"
+                alt="Logo for Cosmos network"
+            />
+        </div>
+        <div>
+            Our Infrastructure powers the Cosmos network.
+        </div>
     </div>
 </div>
