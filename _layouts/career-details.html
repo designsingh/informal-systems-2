@@ -33,7 +33,11 @@
 
             <dl class="iconifiedMetaData">
                 {% if page.hiringCount %}
-                    {% assign hiringCountText = page.hiringCount | append: " open positions" %}
+                    {% if page.hiringCount == 1 %}
+                        {% assign hiringCountText = page.hiringCount | append: ' open position' %}
+                    {% else %}
+                        {% assign hiringCountText = page.hiringCount | append: ' open positions' %}
+                    {% endif %}
                     {%
                         include meta-data-item.html
                             label="Hiring Count"
