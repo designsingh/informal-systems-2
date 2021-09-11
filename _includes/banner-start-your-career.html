@@ -1,53 +1,23 @@
-<div class="u-marginTop--xloose">
-    <section class="grid-container">
-        <div
+{% capture content %}
+    <p>
+        Lorem Ipsum is simply dummy text of the printing and
+        typesetting industry. Lorem Ipsum has been the industry&rsquo;s.
+    </p>
+
+    <p>
+        <a
             class="
-                bgOrbits
-                grid
-                u-backgroundColor--foreground
-                u-borderRadius--xlarge
-                u-color--background
-                u-paddingY--xloose
-                u-paddingX--xloose
+                button--primary
+                u-backgroundColor--background
+                u-color--foreground
             "
         >
-            <div class="u-paddingRight--xloose u-rowGap--loose">
-                <h2 class="heading u-fontSize--h3">
-                    {% assign headline = "Start your career with Informal Systems" %}
-                    {%- capture headlineMinusOrphans -%}
-                        {{
-                            headline
-                                | split: ""
-                                | reverse
-                                | join: ""
-                                | replace_first: ' ', '===='
-                                | split: ""
-                                | reverse
-                                | join: ""
-                                | replace_first: '====', '&nbsp;'
-                        }}
-                    {%- endcapture -%}
-
-                    {{ headlineMinusOrphans }}
-                </h2>
-
-                <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry&rsquo;s.
-                </p>
-
-                <p>
-                    <a
-                        class="
-                            button--primary
-                            u-backgroundColor--background
-                            u-color--foreground
-                        "
-                    >
-                        Apply Now
-                    </a>
-                </p>
-            </div>
-        </div>
-    </section>
-</div>
+            Apply Now
+        </a>
+    </p>
+{% endcapture %}
+{%
+    include banner.html
+        headline="Start your career with Informal Systems"
+        content=content
+%}

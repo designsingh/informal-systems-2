@@ -1,6 +1,10 @@
-@use 'sass:map';
+@import url('https://fonts.googleapis.com/css2?family=Glegoo:wght@400;600&family=Inter:wght@300;500&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Glegoo:wght@400;700&family=Inter:wght@300;500&display=swap');
+@mixin increaseSpecificity {
+    &#{&} {
+        @content;
+    }
+}
 
 $color--accent: #2f87a5;
 $color--accent--burgundy: #ab534d;
@@ -99,7 +103,7 @@ $fontSizes: (
     ),
     'xlarge': (
         'size': 1.33rem,
-        'line-height': 1.1em,
+        'line-height': 1.4em,
     ),
     'h1': (
         'size': 3.75rem,
@@ -129,7 +133,7 @@ $fontSizes: (
 
 $fontWeight--body--normal: 300;
 $fontWeight--body--bold: 500;
-$fontWeight--display: 700;
+$fontWeight--display: 600;
 
 $gridSizes: (
     'xtight': calc(var(--gridUnit) * 0.25),
@@ -159,14 +163,16 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
 }
 
 * {
-    margin: 0;
-    padding: 0;
+    background-color: transparent;
+    border: 0;
     box-sizing: border-box;
+    color: unset;
     font-size: inherit;
     line-height: 1.5em;
     list-style-type: none;
+    margin: 0;
+    padding: 0;
     text-decoration: none;
-    color: unset;
 }
 :root {
     --gridUnit: 30px;
@@ -319,6 +325,7 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     cursor: pointer;
     display: inline-block;
     font-family: $fontFamily--display;
+    font-size: var(--fontSize--small);
     font-weight: $fontWeight--display;
     padding: $whiteSpace--tight $whiteSpace--normal;
     white-space: nowrap;
@@ -329,7 +336,6 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
 .button--primary {
     background-color: $color--foreground;
     color: white;
-    font-size: var(--fontSize--small);
 
     .highContrast & {
         background-color: white;
@@ -337,7 +343,10 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     }
 }
 .button--secondary {
-    background-color: transparent;
+    @extend .u-border--hairline;
+    border-color: #{map-get($colorPalette, 'foreground')} !important;
+}
+.button--tertiary {
     font-size: var(--fontSize--normal);
     text-decoration: underline;
 }
@@ -440,6 +449,10 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
             color: rgba(white, 0.6);
         }
     }
+}
+.link,
+.link--discreet {
+    cursor: pointer;
 }
 .link {
     color: $color--accent;
@@ -677,11 +690,6 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
         border-bottom: $border--thick;
         border-color: $color--accent;
         color: $color--accent;
-    }
-}
-@mixin increaseSpecificity {
-    &#{&} {
-        @content;
     }
 }
 $flexProperties: (

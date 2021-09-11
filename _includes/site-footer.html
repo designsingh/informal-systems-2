@@ -18,7 +18,7 @@
                         </p>
 
                         <ul class="u-columnGap--tight">
-                            {% for socialLink in site.socialLinks %}
+                            {% for socialLink in site.data.config.socialLinks %}
                                 <li>
                                     <a
                                         class="socialLink-button"
@@ -40,7 +40,7 @@
                         </h4>
 
                         <ul class="u-rowGap--xtight">
-                            {% for menuItem in site.footerMenuItems %}
+                            {% for menuItem in site.data.config.footerMenuItems %}
                                 <li>
                                     <a href="{{ menuItem.url | relative_url }}">
                                         {{ menuItem.label }}

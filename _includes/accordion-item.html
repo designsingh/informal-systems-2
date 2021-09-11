@@ -1,0 +1,42 @@
+<div
+    class="
+        u-backgroundColor--background--200
+        u-border--hairline
+        u-borderRadius--xlarge
+        u-padding--normal
+        u-rowGap--normal
+        js-accordion
+        {% if include.isOpen == true %}
+            is-open
+        {% else %}
+            is-closed
+        {% endif %}
+    "
+>
+    <div
+        class="
+            link--discreet
+            u-columnGap--normal
+            u-justifyC`ontent-spaceBetween
+            js-accordion-trigger
+        "
+    >
+        <h4 class="heading u-fontSize--xlarge">
+            {{ include.label }}
+        </h4>
+        <button class="u-fontSize--xlarge">
+            <i class="fal fa-minus js-accordion-icon-is-open"></i>
+            <i class="fal fa-plus js-accordion-icon-is-closed"></i>
+        </button>
+    </div>
+    <div
+        class="
+            post
+            u-fontSize--small
+            u-rowGap--tight
+            js-accordion-content
+        "
+    >
+        {{ include.content }}
+    </div>
+</div>

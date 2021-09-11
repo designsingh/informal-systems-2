@@ -1,0 +1,189 @@
+---
+title: Find bugs faster. Build confidence in your systems.
+superTitle: Services
+intro: |
+    We apply a multi-layered, automated approach to our security audits for the
+    blockchain ecosystem. We leverage our formal verification tools including
+    Apalache and Model-Based Testing, to make distributed systems secure and
+    resilient.
+---
+<main class="u-rowGap--loose">
+    {%
+        include page-title.html
+            title=page.title
+            superTitle=page.superTitle
+            intro=page.intro
+    %}
+    <section class="grid-container u-rowGap--loose">
+        <article class="grid u-alignItems--flexStart u-columns--2 u-columnGap--normal">
+            <div class="u-rowGap--normal">
+                <h3
+                    class="
+                        heading
+                        u-borderLeft--normal
+                        u-fontSize--h6
+                        u-paddingLeft--normal
+                        u-paddingY--xtight
+                    "
+                >
+                    Expert Review
+                </h3>
+                <p class="u-paddingLeft--normal">
+                    We are a team of distributed systems and protocol experts
+                    that is known for uncovering hard to find bugs and errors in
+                    code and protocol. We have profound expertise in protocol
+                    design, implementation, and analysis in the blockchain
+                    ecosystem, with origins in Tendermint and Cosmos as well as
+                    academic research on Byzantine fault-tolerant systems.
+                </p>
+            </div>
+            <div class="u-rowGap--normal">
+                {% capture content %}
+                    <p>
+                        Content: Pending.
+                    </p>
+                {% endcapture %}
+
+                {%
+                    include accordion-item.html
+                        label="Code Inspection"
+                        content=content
+                %}
+
+                {% capture content %}
+                    <p>
+                        Protocol errors and bugs surface when protocol rules are
+                        violated when software runs in production. We perform
+                        audit activities to uncover these behaviours. These
+                        activities include:
+                    </p>
+
+                    <ul class="u-paddingLeft--normal u-rowGap--tight">
+                        <li>
+                            Reverse protocol engineering
+                        </li>
+                        <li>
+                            Mathematical protocol analysis
+                        </li>
+                        <li>
+                            Protocol vulnerability analysis
+                        </li>
+                    </ul>
+
+                    <p>
+                        Based on the results of the reverse protocol
+                        engineering practice, we try to answer two main
+                        questions:
+                    </p>
+
+                    <ul class="u-paddingLeft--normal u-rowGap--tight">
+                        <li>
+                            Are there any flaws in the reconstructed protocols?
+                        </li>
+                        <li>
+                            Are there discrepancies between the
+                            documentation/specification of the protocols and
+                            their implementation?
+                        </li>
+                    </ul>
+                {% endcapture %}
+
+                {%
+                    include accordion-item.html
+                        label="Protocol Reconstruction and Analysis"
+                        content=content
+                        isOpen=true
+                %}
+            </div>
+        </article>
+
+        <article class="grid u-alignItems--flexStart u-columns--2 u-columnGap--normal">
+            <div class="u-rowGap--normal">
+                <h3
+                    class="
+                        heading
+                        u-borderLeft--normal
+                        u-fontSize--h6
+                        u-paddingLeft--normal
+                        u-paddingY--xtight
+                    "
+                >
+                    Automated Analysis
+                </h3>
+                <p class="u-paddingLeft--normal">
+                    Our team has decades of collective experience in academia
+                    and in industry in model checking distributed protocols. We
+                    are the architects and maintainers of Apalache &mdash; a
+                    user-friendly automated formal verification tool we leverage
+                    in our security audits.
+                </p>
+            </div>
+            <div class="u-rowGap--normal">
+                {% capture content %}
+                    <p>
+                        Content: Pending.
+                    </p>
+                {% endcapture %}
+
+                {%
+                    include accordion-item.html
+                        label="Adversarial Testing"
+                        content=content
+                %}
+
+                {%
+                    include accordion-item.html
+                        label="Formal Modelling and Protocol Verification"
+                        content=content
+                %}
+
+                {%
+                    include accordion-item.html
+                        label="Model-Based Testing"
+                        content=content
+                %}
+            </div>
+        </article>
+    </section>
+
+    <section class="u-backgroundColor--magenta--100">
+        <div
+            class="
+                grid
+                u-paddingY--xloose
+                u-rowGap--loose
+            "
+        >
+            <h3 class="heading u-fontSize--h3 u-columnGap--normal">
+                <img
+                    src="{{ 'assets/img/product-logos/apalache-fancy.svg' | relative_url }}"
+                    alt="Logo for Apalache"
+                />
+                <span>Apalache</span>
+            </h3>
+            <p>
+                Apalache is a symbolic model checker for TLA+ used to formally
+                verifying distributed system protocols, which secure and
+                transmit real-world value. Informal Systems has been actively
+                developing Apalache with a focus on usability and integration
+                with modern software development practices. Apalache is the
+                brain-child of Igor Konnov and Josef Widder who leveraged years
+                of academic research on formally verifying distributed systems
+                to develop this powerful tool.
+            </p>
+            <p class="u-columnGap--normal">
+                <a href="#" class="button--primary">
+                    Learn More
+                </a>
+                <a href="#" class="button--secondary">
+                    <i class="fab fa-github"></i>
+                    Github
+                </a>
+            </p>
+        </div>
+    </section>
+
+    <section>
+        {% include banner-audit-inquiry.html %}
+    </section>
+</main>

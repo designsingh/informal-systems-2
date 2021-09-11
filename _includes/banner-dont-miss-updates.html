@@ -1,65 +1,35 @@
-<div class="u-marginTop--xloose">
-    <section class="grid-container">
-        <div
+{% capture content %}
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo,
+        necessitatibus aspernatur. Laboriosam facilis quod ex aspernatur
+        laudantium? A voluptate qui reiciendis! Amet laudantium veritatis
+        eveniet beatae dolorem aspernatur nisi voluptatem!
+    </p>
+
+    <form class="u-columnGap--normal" action="#">
+        <div class="formField">
+            <span class="formField-label u-screenReadersOnly">
+                Email Address
+            </span>
+            <input
+                class="input"
+                type="email"
+                placeholder="Your Email Address"
+            />
+        </div>
+        <button
             class="
-                bgOrbits
-                grid
-                u-backgroundColor--foreground
-                u-borderRadius--xlarge
-                u-color--background
-                u-paddingY--xloose
-                u-paddingX--xloose
+                button--primary
+                u-border--hairline
+                u-borderColor--background
             "
         >
-            <div class="u-paddingRight--xloose u-rowGap--loose">
-                <h2 class="heading u-fontSize--h3">
-                    {% assign headline = "Don&rsquo;t miss updates from us" %}
-                    {%- capture headlineMinusOrphans -%}
-                        {{
-                            headline
-                                | split: ""
-                                | reverse
-                                | join: ""
-                                | replace_first: ' ', '===='
-                                | split: ""
-                                | reverse
-                                | join: ""
-                                | replace_first: '====', '&nbsp;'
-                        }}
-                    {%- endcapture -%}
-
-                    {{ headlineMinusOrphans }}
-                </h2>
-
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo,
-                    necessitatibus aspernatur. Laboriosam facilis quod ex aspernatur
-                    laudantium? A voluptate qui reiciendis! Amet laudantium veritatis
-                    eveniet beatae dolorem aspernatur nisi voluptatem!
-                </p>
-
-                <form class="u-columnGap--normal" action="#">
-                    <div class="formField">
-                        <span class="formField-label u-screenReadersOnly">
-                            Email Address
-                        </span>
-                        <input
-                            class="input"
-                            type="email"
-                            placeholder="Your Email Address"
-                        />
-                    </div>
-                    <button
-                        class="
-                            button--primary
-                            u-border--hairline
-                            u-borderColor--background
-                        "
-                    >
-                        Get Our Newsletter
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-</div>
+            Get Our Newsletter
+        </button>
+    </form>
+{% endcapture %}
+{%
+    include banner.html
+        headline="Don&rsquo;t miss updates from us"
+        content=content
+%}
