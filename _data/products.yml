@@ -1,0 +1,55 @@
+blockChainProducts:
+    - title: tendermint-rs
+      color: teal
+      icon: assets/img/product-logos/tendermint-rs.svg
+      socialLinks:
+        - label: Github
+          icon: fab fa-github
+          url: http://www.github.com/
+      description: |
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus a aliquid
+          debitis. Consectetur repellat.
+    - title: ibc-rs
+      color: purple
+      icon: assets/img/product-logos/ibc-rs.svg
+      socialLinks:
+        - label: Github
+          icon: fab fa-github
+          url: http://www.github.com/
+      description: |
+          Inter-Blockchain Communication (IBC) is a protocol for secure,
+          packet-based communication between distinct blockchains.
+    - title: Hermes
+      color: yellow
+      icon: assets/img/product-logos/hermes.svg
+      socialLinks:
+        - label: Website
+          icon: far fa-globe-americas
+          url: http://www.hermes-homepage.io/
+      description: |
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus a aliquid
+          debitis. Consectetur repellat.
+verificationProducts:
+  - title: Apalache
+    color: teal
+    icon: assets/img/product-logos/apalache.svg
+    socialLinks:
+      - label: Github
+        icon: fab fa-github
+        url: http://www.github.com/
+      - label: Website
+        icon: far fa-globe-americas
+        url: http://www.apalache-homepage.com/
+    description: |
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus a aliquid
+        debitis. Consectetur repellat.
+  - title: Model Based Testing
+    color: yellow
+    icon: assets/img/product-logos/model-based-testing.svg
+    socialLinks:
+      - label: Website
+        icon: far fa-globe-americas
+        url: http://www.mbs-homepage.com/
+    description: |
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus a aliquid
+        debitis. Consectetur repellat.

@@ -1,2 +1,251 @@
 ---
 ---
+
+<div class="u-rowGap--loose">
+    <header class="pageHeader grid-container">
+        <div class="grid u-rowGap--loose">
+            <h2 class="homePage-heading heading u-fontSize--h1">
+                Verifiable distributed systems &amp; organizations.
+            </h2>
+
+            <div
+                class="
+                    u-borderLeft--normal
+                    u-marginLeft--loose
+                    u-paddingLeft--loose
+                    u-rowGap--loose
+                "
+            >
+                <p>
+                    We are a cooperatively owned organization building
+                    technology that enables verifiable, trustworthy, and fair
+                    relationships between protocols and people to flourish.
+                </p>
+                <p>
+                    <a class="button--primary" href="#"> Get Started </a>
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <main class="grid-container u-rowGap--loose">
+        <section class="grid u-columnGap--normal">
+            <div class="u-rowGap--normal u-spanColumns--7">
+                <h3
+                    class="
+                        heading
+                        sectionTitle-heading--leftAligned
+                        u-fontSize--h3
+                        u-whiteSpace--nowrap
+                    "
+                >
+                    Interchain Operations
+                </h3>
+                <p>
+                    Secure the network. Align your incentives. Cephalopod
+                    Equipment is our interchain service provider
+                </p>
+                <p>
+                    We operate Cephalopod Equipment - a leading Proof-of-Stake
+                    validator and interchain service provider in the Cosmos
+                    ecosystem and beyond
+                </p>
+                <p>
+                    <a class="button--primary" href="#"> Learn More </a>
+                </p>
+            </div>
+            <div class="u-spanColumns--5">
+                <img
+                    class="photo"
+                    src="{{
+                        'assets/img/homepage/art-interchain-operations.svg'
+                            | relative_url
+                    }}"
+                />
+            </div>
+        </section>
+
+        <section class="grid u-columnGap--normal u-flexDirection--rowReverse">
+            <div class="u-rowGap--normal u-spanColumns--7">
+                <h3
+                    class="
+                        heading
+                        sectionTitle-heading--leftAligned
+                        u-fontSize--h3
+                    "
+                >
+                    Auditing
+                </h3>
+                <p>Find bugs faster. Build confidence in your systems.</p>
+                <p>
+                    We specialize in security audits for cross chain protocols
+                    and core blockchain infrastructure. We apply formal
+                    verification methods and model-based testing techniques to
+                    deliver industry-leading results.
+                </p>
+                <p>
+                    <a class="button--primary" href="#"> Learn More </a>
+                </p>
+            </div>
+            <div class="u-spanColumns--5">
+                <img
+                    class="photo"
+                    src="{{
+                        'assets/img/homepage/art-auditing.svg'
+                            | relative_url
+                    }}"
+                />
+            </div>
+        </section>
+
+        <section class="grid u-rowGap--loose">
+            <div class="u-rowGap--normal u-textAlign--center">
+                <h3
+                    class="
+                        heading
+                        sectionTitle-heading--centerAligned
+                        u-fontSize--h3
+                    "
+                >
+                    Products
+                </h3>
+                <p>Our R&amp;D powers and secures the Interchain.</p>
+            </div>
+            <article class="u-rowGap--normal">
+                <h4
+                    class="
+                        heading
+                        u-borderLeft--normal
+                        u-fontSize--h6
+                        u-paddingLeft--normal
+                    "
+                >
+                    Cosmos
+                </h4>
+                <div class="u-paddingLeft--normal u-rowGap--normal">
+                    <p>Retain your sovereignty. Interoperate with others.</p>
+                    <p>
+                        We are a leading contributor to the Cosmos interchain
+                        ecosystem, with a focus on Tendermint and IBC. We
+                        formally specify and verify protocols and contribute to
+                        their implementations in Go and Rust.
+                    </p>
+                </div>
+                <div class="u-columnGap--normal u-columns--3">
+                    {% for product in site.data.products.blockChainProducts %}
+                        <div
+                            class="
+                                u-backgroundColor--{{ product.color }}--100
+                                u-padding--normal
+                                u-columnGap--tight
+                            "
+                        >
+                            <div
+                                class="
+                                    avatar
+                                    avatar--large
+                                    u-backgroundColor--{{ product.color }}
+                                    u-borderRadius--circle
+                                    u-boxShadow--fancy
+                                "
+                            >
+                                <img
+                                    src="{{ product.icon | relative_url }}"
+                                    alt="Logo for {{ product.label }}"
+                                />
+                            </div>
+                            <h5 class="heading">{{ product.title }}</h5>
+                        </div>
+                    {% endfor %}
+                </div>
+            </article>
+
+            <article class="u-rowGap--normal">
+                <h4
+                    class="
+                        heading
+                        u-borderLeft--normal
+                        u-fontSize--h6
+                        u-paddingLeft--normal
+                    "
+                >
+                    Verification
+                </h4>
+                <div class="u-paddingLeft--normal u-rowGap--normal">
+                    <p>Verify your protocols. Get higher coverage with less code.</p>
+                    <p>
+                        We make formal verification tools more accessible. We bring
+                        TLA+ to the 21st century with Apalache, our symbolic model
+                        checker. Our Model-Based Testing tools enable you to
+                        generate complex test cases with minimal code.
+                    </p>
+                </div>
+                <div class="u-columnGap--normal u-columns--3">
+                    {% for product in site.data.products.verificationProducts %}
+                        <div
+                            class="
+                                u-backgroundColor--{{ product.color }}--100
+                                u-padding--normal
+                                u-columnGap--tight
+                            "
+                        >
+                            <div
+                                class="
+                                    avatar
+                                    avatar--large
+                                    u-backgroundColor--{{ product.color }}
+                                    u-borderRadius--circle
+                                    u-boxShadow--fancy
+                                "
+                            >
+                                <img
+                                    src="{{ product.icon | relative_url }}"
+                                    alt="Logo for {{ product.label }}"
+                                />
+                            </div>
+                            <h5 class="heading">{{ product.title }}</h5>
+                        </div>
+                    {% endfor %}
+                </div>
+            </article>
+        </section>
+
+        <section class="grid u-columnGap--normal">
+            <div class="u-rowGap--normal u-spanColumns--7">
+                <h4
+                    class="
+                        heading
+                        sectionTitle-heading--leftAligned
+                        u-fontSize--h6
+                    "
+                >
+                    Our mission is to bring verifiability to distributed systems and
+                    organizations.
+                </h4>
+                <div class="u-rowGap--normal">
+                    <p>
+                        <strong>Our vision</strong> is an open-source ecosystem of cooperatively
+                        owned and governed distributed organizations running on
+                        reliable distributed systems.
+                    </p>
+                    <p>
+                        Distributed software systems are the foundation for many
+                        critical systems in our society; financial services,
+                        transport, healthcare, cloud services, and more.
+                    </p>
+                </div>
+            </div>
+            <div class="u-spanColumns--5">
+                <img
+                    class="photo"
+                    src="{{
+                        'assets/img/homepage/art-mission.png'
+                            | relative_url
+                    }}"
+                />
+            </div>
+        </section>
+    </main>
+</div>
+
+{% include banner-start-your-career.html %}

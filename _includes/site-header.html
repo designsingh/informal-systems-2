@@ -34,7 +34,7 @@
         <script src="https://kit.fontawesome.com/97f11cf15d.js" crossorigin="anonymous"></script>
     </head>
     <body>
-        <div class="grid">
+        <div class="grid-container u-sticky">
             <div class="grid">
                 <header class="siteHeader">
                     <h1>
@@ -54,7 +54,11 @@
                                         siteHeader-menuItem
                                         {% assign currentPage = page.url | split: "/" %}
                                         {% assign lowerCaseMenuItemLabel = menuItem.label | downcase %}
-                                        {% if currentPage[1] == lowerCaseMenuItemLabel %}
+                                        {%
+                                            if
+                                                currentPage[1] == lowerCaseMenuItemLabel or
+                                                (page.url == "/" and menuItem.label == "Home")
+                                        %}
                                             siteHeader-menuItem--isActive
                                         {% endif %}
                                         {% if hasSubMenu %}

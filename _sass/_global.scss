@@ -1,6 +1,6 @@
 @use 'sass:map';
 
-@import url("https://fonts.googleapis.com/css2?family=Glegoo:wght@400;700&family=Inter:wght@400;500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Glegoo:wght@400;700&family=Inter:wght@400;500&display=swap');
 
 $color--accent: #2f87a5;
 $color--accent--burgundy: #ab534d;
@@ -14,28 +14,28 @@ $color--background: white;
 $color--background--faded: rgba($color--foreground, 0.1);
 
 $colorPalette: (
-    "accent": #2f87a5,
-    "burgundy": #ab534d,
-    "purple": #a37aeb,
-    "teal": #2f87a5,
-    "magenta": #e071dc,
-    "magentaDarkened": #873385,
-    "yellow": #ffb756,
-    "foreground": #0b2d7c,
-    "background": white,
+    'accent': #2f87a5,
+    'burgundy': #ab534d,
+    'purple': #a37aeb,
+    'teal': #2f87a5,
+    'magenta': #e071dc,
+    'magentaDarkened': #873385,
+    'yellow': #ffb756,
+    'foreground': #0b2d7c,
+    'background': white,
 );
 $spotColors: (
-    "foreground--faded": ".u-color--foreground--300",
-    "background--faded": ".u-color--background--100",
+    'foreground--faded': '.u-color--foreground--300',
+    'background--faded': '.u-color--background--100',
 );
 $variants: (
-    "base": 400,
-    "lightened": (
+    'base': 400,
+    'lightened': (
         100: 0.1,
         200: 0.3,
         300: 0.6,
     ),
-    "darkened": (
+    'darkened': (
         500: 0.1,
         600: 0.3,
         700: 0.6,
@@ -43,7 +43,7 @@ $variants: (
 );
 
 $breakpointDefinitions: (
-    xLarge: (
+    xlarge: (
         min-width: 1280px,
         grid-width: 1170px,
     ),
@@ -53,45 +53,90 @@ $breakpointDefinitions: (
     ),
 );
 
-$borderRadii: (
-    "normal": 8px,
-    "large": 16px,
-    "xlarge": 24px,
-    "circle": 1000px,
-);
-
 $borderStyles: (
     'hairline': 1px solid rgba($color--foreground, 0.1),
+    'normal': 2px solid $color--foreground,
     'thick': 4px solid rgba($color--foreground, 0.1),
 );
+$border--hairline: map-get($borderStyles, 'hairline');
+$border--normal: map-get($borderStyles, 'normal');
+$border--thick: map-get($borderStyles, 'thick');
 
-$border--hairline: 1px solid rgba($color--foreground, 0.1);
-$border--thick: 4px solid rgba($color--foreground, 0.1);
-
-$borderRadius--normal: 8px;
-$borderRadius--large: 16px;
-$borderRadius--xlarge: 24px;
+$borderRadii: (
+    'normal': 8px,
+    'large': 16px,
+    'xlarge': 24px,
+    'circle': 1000px,
+);
+$borderRadius--normal: map-get($borderRadii, 'normal');
+$borderRadius--large: map-get($borderRadii, 'large');
+$borderRadius--xlarge: map-get($borderRadii, 'xlarge');
+$borderRadius--circle: map-get($borderRadii, 'circle');
 
 $boxShadowStyles: (
-    "normal": 2px 2px 4px 0 rgba(black, 0.2),
-    "inset": 2px 2px 4px 0 rgba(black, 0.2) inset,
+    'avatar': 0 20px 40px 0,
+    'normal': 0 10px 50px 0 rgba(black, 0.1),
+    'inset': 2px 2px 4px 0 rgba(black, 0.2) inset,
 );
-$boxShadow--normal: 2px 2px 4px 0 rgba(black, 0.2);
-$boxShadow--inset: 2px 2px 4px 0 rgba(black, 0.2) inset;
+$boxShadow--normal: map-get($boxShadowStyles, 'normal');
+$boxShadow--inset: map-get($boxShadowStyles, 'inset');
 
 $fontFamily--body: Inter, sans-serif;
 $fontFamily--display: Glegoo, sans-serif;
+
+$fontSizes: (
+    'small': (
+        'size': 0.67rem,
+        'line-height': 1.1em,
+    ),
+    'normal': (
+        'size': 24px,
+        'line-height': 1.6em,
+    ),
+    'large': (
+        'size': 1.17rem,
+        'line-height': 1.1em,
+    ),
+    'xlarge': (
+        'size': 1.33rem,
+        'line-height': 1.1em,
+    ),
+    'h1': (
+        'size': 3.75rem,
+        'line-height': 1.1em,
+    ),
+    'h2': (
+        'size': 3.33rem,
+        'line-height': 1.1em,
+    ),
+    'h3': (
+        'size': 2.67rem,
+        'line-height': 1.1em,
+    ),
+    'h4': (
+        'size': 2.33rem,
+        'line-height': 1.1em,
+    ),
+    'h5': (
+        'size': 2rem,
+        'line-height': 1.1em,
+    ),
+    'h6': (
+        'size': 1.67rem,
+        'line-height': 1.4em,
+    ),
+);
 
 $fontWeight--body--normal: 400;
 $fontWeight--body--bold: 500;
 $fontWeight--display: 700;
 
 $gridSizes: (
-    "xtight": calc(var(--gridUnit) * 0.25),
-    "tight": calc(var(--gridUnit) * 0.5),
-    "normal": var(--gridUnit),
-    "loose": calc(var(--gridUnit) * 2),
-    "xloose": calc(var(--gridUnit) * 4),
+    'xtight': calc(var(--gridUnit) * 0.25),
+    'tight': calc(var(--gridUnit) * 0.5),
+    'normal': var(--gridUnit),
+    'loose': calc(var(--gridUnit) * 2),
+    'xloose': calc(var(--gridUnit) * 4),
 );
 
 $heading--decorativeUnderlineWidth: 70px;
@@ -106,7 +151,7 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
 
 @mixin responsiveStylesFor($breakpointName) {
     $breakpointDefinition: map-get($breakpointDefinitions, $breakpointName);
-    $minWidth: map-get($breakpointDefinition, "min-width");
+    $minWidth: map-get($breakpointDefinition, 'min-width');
 
     @media screen and (min-width: $minWidth) {
         @content;
@@ -128,13 +173,20 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
 
     --fontSize--small: 16px;
     --fontSize--normal: 24px;
-    --fontSize--large: 40px;
-    --fontSize--xLarge: 80px;
+    --fontSize--large: 28px;
+    --fontSize--xlarge: 32px;
 
-    --lineHeight--small: 1.5em;
-    --lineHeight--normal: 1.5em;
-    --lineHeight--large: 1.5em;
-    --lineHeight--xLarge: 1em;
+    --fontSize--heading--1: 90px;
+    --fontSize--heading--2: 80px;
+    --fontSize--heading--3: 64px;
+    --fontSize--heading--4: 56px;
+    --fontSize--heading--5: 48px;
+    --fontSize--heading--6: 40px;
+
+    --lineHeight--small: 1.6em;
+    --lineHeight--normal: 1.6em;
+    --lineHeight--large: 1.6em;
+    --lineHeight--xlarge: 1em;
 
     --avatarSize--normal: 60px;
     --avatarSize--large: 88px;
@@ -145,7 +197,6 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     font-family: $fontFamily--body;
     font-size: var(--fontSize--normal);
     line-height: var(--lineHeight--normal);
-    padding-bottom: $whiteSpace--xloose;
     scroll-padding-top: 10vh;
 }
 .avatar,
@@ -153,15 +204,31 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     align-items: center;
     border-radius: 1000px;
     display: flex;
+    flex-shrink: 0;
     height: var(--avatarSize, --avatarSize--normal);
     justify-content: center;
     width: var(--avatarSize, --avatarSize--normal);
 }
 .avatar {
+    @extend .u-boxShadow--inset;
+
     background-color: $color--accent;
-    box-shadow: $boxShadow--inset;
     color: white;
+    position: relative;
     text-shadow: $textShadow--lightOnDark;
+
+    &::after {
+        background-color: inherit;
+        border-radius: 1000px;
+        bottom: -10px;
+        content: "";
+        filter: blur(40px);
+        height: 70%;
+        left: 50%;
+        position: absolute;
+        transform: translateX(-50%);
+        width: 70%;
+    }
 }
 .avatar--large {
     --avatarSize: var(--avatarSize--large);
@@ -214,7 +281,8 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     --animation-duration: 4s;
 
     animation-direction: alternate;
-    animation-duration: var(--animation-duration), calc(var(--animation-duration) * 2);
+    animation-duration: var(--animation-duration),
+        calc(var(--animation-duration) * 2);
     animation-iteration-count: infinite;
     animation-name: bgBubblePulsate, bgBubbleRotate;
     animation-timing-function: ease;
@@ -254,7 +322,7 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     padding: $whiteSpace--tight $whiteSpace--normal;
     white-space: nowrap;
 }
-[class*="button--"] {
+[class*='button--'] {
     @extend .button;
 }
 .button--primary {
@@ -287,18 +355,23 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     white-space: nowrap;
 }
 .grid {
+    $largeBreakpointDefinition: map-get($breakpointDefinitions, 'large');
+    $xlargeBreakpointDefinition: map-get($breakpointDefinitions, 'xlarge');
+
+    @include responsiveStylesFor('large') {
+        --grid-width: #{map-get($largeBreakpointDefinition, 'grid-width')};
+    }
+
+    @include responsiveStylesFor('xlarge') {
+        --grid-width: #{map-get($xlargeBreakpointDefinition, 'grid-width')};
+    }
+
+    --width-of-single-column: calc(
+        (var(--grid-width) - (11 * var(--gridUnit))) / 12
+    );
+
     margin: 0 auto;
-
-    $largeBreakpointDefinition: map-get($breakpointDefinitions, "large");
-    $xLargeBreakpointDefinition: map-get($breakpointDefinitions, "xLarge");
-
-    @include responsiveStylesFor("large") {
-        width: map-get($largeBreakpointDefinition, "grid-width");
-    }
-
-    @include responsiveStylesFor("xLarge") {
-        width: map-get($xLargeBreakpointDefinition, "grid-width");
-    }
+    width: var(--grid-width);
 }
 .grid-container {
     & + & {
@@ -310,34 +383,20 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     font-weight: $fontWeight--display;
     width: 100%;
 }
-[class*="heading--"] {
-    @extend .heading;
-}
-.heading--1 {
-    font-size: var(--fontSize--xLarge);
-    line-height: var(--lineHeight--xLarge);
-}
-.heading--2 {
-    font-size: var(--fontSize--large);
-    line-height: var(--lineHeight--large);
-}
-.heading--3 {
-    font-size: var(--fontSize--normal);
-    line-height: var(--lineHeight--normal);
-    font-family: $fontFamily--display;
-    font-weight: $fontWeight--display;
-}
-.heading--4 {
-    font-family: $fontFamily--body;
-    font-weight: $fontWeight--body--bold;
-}
 .highContrast {
     @extend .u-backgroundColor--foreground;
     @extend .u-borderRadius--xlarge;
     border-radius: $borderRadius--xlarge;
     color: white;
 }
-[class*="horizontalRule"] {
+.homePage-heading {
+    @extend .u-color--foreground--300;
+
+    &:first-line {
+        @extend .u-color--foreground;
+    }
+}
+[class*='horizontalRule'] {
     background-color: transparent;
     border-width: 0;
     border-bottom: $border--hairline;
@@ -397,7 +456,7 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
         text-decoration: none;
     }
 }
-[class*="logo--"] {
+[class*='logo--'] {
     // background-image set in _layouts/default.html
     background-size: contain;
     background-repeat: no-repeat;
@@ -416,7 +475,7 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
 .lowContrast {
     border-radius: $borderRadius--xlarge;
 }
-[class*="lowContrast--"] {
+[class*='lowContrast--'] {
     @extend .lowContrast;
 }
 .lowContrast--accent {
@@ -455,8 +514,8 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
 
         &::before {
             color: $color--accent;
-            content: "\f178";
-            font-family: "Font Awesome 5 Pro";
+            content: '\f178';
+            font-family: 'Font Awesome 5 Pro';
             font-weight: 100;
             left: 0;
             position: absolute;
@@ -465,28 +524,51 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
         }
     }
     h3:not([class]) {
-        @extend .heading, .heading--2;
+        @extend .heading, .u-fontSize--h2;
     }
     h4:not([class]) {
-        @extend .heading, .heading--3;
+        @extend .heading, .u-fontSize--h3;
     }
     h5:not([class]) {
-        @extend .heading, .heading--4;
+        @extend .heading, .u-fontSize--h4;
     }
 }
-.sectionTitle-heading {
+[class*='sectionTitle-heading'] {
+    @extend .u-marginBottom--tight;
     @extend .u-paddingBottom--tight;
     position: relative;
 
     &::after {
         border-bottom: $border--thick;
         border-color: $color--accent--magentaDarkened;
-        content: "";
+        content: '';
         position: absolute;
-        left: 50%;
         top: 100%;
-        transform: translateX(-50%);
         width: $heading--decorativeUnderlineWidth;
+    }
+}
+.sectionTitle-heading {
+    &--leftAligned {
+        text-align: left;
+
+        &::after {
+            left: 0;
+        }
+    }
+    &--centerAligned {
+        text-align: center;
+
+        &::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+    &--rightAligned {
+        text-align: right;
+
+        &::after {
+            right: 0;
+        }
     }
 }
 .siteFooter.siteFooter {
@@ -494,6 +576,7 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
 }
 .siteHeader {
     align-items: center;
+    align-self: flex-start;
     display: flex;
     font-size: var(--fontSize--small);
     justify-content: space-between;
@@ -531,7 +614,7 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
 
     &::after {
         background-color: $color--accent;
-        content: "";
+        content: '';
         height: 2px;
         left: 0;
         position: absolute;
@@ -543,7 +626,7 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     background-color: white;
     border-radius: $borderRadius--normal;
     box-shadow: $boxShadow--normal;
-    left: calc(#{$whiteSpace--tight} * -1);
+    left: calc((#{$whiteSpace--tight} + #{$whiteSpace--xtight}) * -1);
     min-width: 200px;
     opacity: 0;
     padding: $whiteSpace--xtight;
@@ -565,6 +648,7 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
 }
 .siteHeader-subMenuItemButton {
     display: block;
+    font-weight: $fontWeight--body--normal;
     padding: $whiteSpace--xtight $whiteSpace--tight;
 
     &:focus,
@@ -642,7 +726,8 @@ $flexProperties: (
         }
     }
 
-    @each $variantName, $adjustmentPercentage in map-get($variants, "lightened") {
+    @each $variantName, $adjustmentPercentage in map-get($variants, 'lightened')
+    {
         $modifiedColor: rgba($colorCode, $adjustmentPercentage);
 
         .u-backgroundColor--#{$colorName}--#{$variantName} {
@@ -719,10 +804,10 @@ $flexProperties: (
 .u-rowGap {
     flex-direction: column;
 }
-[class*="u-columnGap--"] {
+[class*='u-columnGap--'] {
     @extend .u-columnGap;
 }
-[class*="u-rowGap--"] {
+[class*='u-rowGap--'] {
     @extend .u-rowGap;
 }
 @each $gridSizeName, $whiteSpaceValue in $gridSizes {
@@ -744,6 +829,16 @@ $flexProperties: (
     .u-paddingBottom--#{$gridSizeName} {
         @include increaseSpecificity {
             padding-bottom: $whiteSpaceValue;
+        }
+    }
+    .u-paddingLeft--#{$gridSizeName} {
+        @include increaseSpecificity {
+            padding-left: $whiteSpaceValue;
+        }
+    }
+    .u-paddingRight--#{$gridSizeName} {
+        @include increaseSpecificity {
+            padding-right: $whiteSpaceValue;
         }
     }
     .u-paddingTop--#{$gridSizeName} {
@@ -773,6 +868,16 @@ $flexProperties: (
             margin-bottom: $whiteSpaceValue;
         }
     }
+    .u-marginLeft--#{$gridSizeName} {
+        @include increaseSpecificity {
+            margin-left: $whiteSpaceValue;
+        }
+    }
+    .u-marginRight--#{$gridSizeName} {
+        @include increaseSpecificity {
+            margin-right: $whiteSpaceValue;
+        }
+    }
     .u-marginTop--#{$gridSizeName} {
         @include increaseSpecificity {
             margin-top: $whiteSpaceValue;
@@ -791,10 +896,10 @@ $flexProperties: (
         }
     }
 }
-[class*="u-columns--"] {
+[class*='u-columns--'] {
     display: grid;
 }
-[class*="u-spanColumns--"] {
+[class*='u-spanColumns--'] {
     flex-grow: 0;
 }
 @for $i from 1 through 12 {
@@ -802,13 +907,26 @@ $flexProperties: (
         grid-template-columns: repeat($i, 1fr);
     }
     .u-spanColumns--#{$i} {
-        --num-columns: calc(12 / #{$i});
-        --num-gutters: calc(var(--num-columns) - 1);
+        --num-gutters: calc(#{$i} - 1);
         --gutter-widths: calc(var(--num-gutters) * var(--gridUnit));
-        --width-of-span: calc((100% - var(--gutter-widths)) / var(--num-columns));
 
-        width: var(--width-of-span);
+        width: calc(var(--width-of-single-column) * #{$i} + var(--gutter-widths));
     }
+}
+.u-flexDirection--rowReverse {
+    flex-direction: row-reverse;
+}
+@each $fontSizeName, $fontDefinition in $fontSizes {
+    $fontSize: map-get($fontDefinition, 'size');
+    $lineHeight: map-get($fontDefinition, 'line-height');
+
+    .u-fontSize--#{$fontSizeName} {
+        font-size: $fontSize;
+        line-height: $lineHeight;
+    }
+}
+.u-justifyContent--spaceBetween {
+    justify-content: space-between;
 }
 .u-screenReadersOnly {
     position: absolute;
@@ -820,4 +938,18 @@ $flexProperties: (
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
+}
+.u-sticky {
+    @extend .u-backgroundColor--background--200;
+
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.u-textAlign--center {
+    text-align: center;
+}
+.u-whiteSpace--nowrap {
+    white-space: nowrap;
 }

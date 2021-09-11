@@ -1,18 +1,9 @@
 <div class="grid-container u-marginY--xloose">
-    <div
-        class="
-            grid
-            u-spanColumns--6
-            u-rowGap--loose
-            u-centered
-        "
-    >
-        <h2 class="sectionTitle-heading heading--2">
+    <div class="grid u-spanColumns--6 u-rowGap--loose u-centered">
+        <h2 class="heading sectionTitle-heading--centerAligned u-fontSize--h6">
             {{ include.title }}
         </h2>
 
-        {{ include.content }}
-
-        {{ include.ctaURL }}
+        {{ include.content }} {{ include.ctaURL }}
     </div>
 </div>

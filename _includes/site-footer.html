@@ -1,75 +1,6 @@
-        {% capture dontMissOut %}
-            <h2 class="heading--1">
-                {% assign headline = "Don&rsquo;t miss updates from us" %}
-                {%- capture headlineMinusOrphans -%}
-                    {{
-                        headline
-                            | split: ""
-                            | reverse
-                            | join: ""
-                            | replace_first: ' ', '===='
-                            | split: ""
-                            | reverse
-                            | join: ""
-                            | replace_first: '====', '&nbsp;'
-                    }}
-                {%- endcapture -%}
-
-                {{ headlineMinusOrphans }}
-            </h2>
-
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo,
-                necessitatibus aspernatur. Laboriosam facilis quod ex aspernatur
-                laudantium? A voluptate qui reiciendis! Amet laudantium veritatis
-                eveniet beatae dolorem aspernatur nisi voluptatem!
-            </p>
-
-            <form class="u-columnGap--normal" action="#">
-                <div class="formField">
-                    <span class="formField-label u-screenReadersOnly">
-                        Email Address
-                    </span>
-                    <input
-                        class="input"
-                        type="email"
-                        placeholder="Your Email Address"
-                    />
-                </div>
-                <button
-                    class="
-                        button--primary
-                        u-border--hairline
-                        u-borderColor--background
-                    "
-                >
-                    Get Our Newsletter
-                </button>
-            </form>
-        {% endcapture %}
-
-        <div class="u-marginTop--xloose">
-            <section class="grid-container">
-                <div
-                    class="
-                        bgOrbits
-                        grid
-                        u-backgroundColor--foreground
-                        u-borderRadius--xlarge
-                        u-color--background
-                        u-paddingY--xloose
-                        u-paddingX--xloose
-                        u-rowGap--loose
-                    "
-                >
-                    {{ dontMissOut }}
-                </div>
-            </section>
-        </div>
-
-        <footer class="siteFooter grid-container">
+        <footer class="siteFooter grid-container u-rowGap--loose">
             <div class="grid">
-                <div class="u-columns--3 u-columnGap--normal">
+                <div class="u-alignItems--flexStart u-columns--3 u-columnGap--normal">
                     <div class="u-rowGap--normal">
                         <h4>
                             <a
@@ -81,10 +12,9 @@
                         </h4>
 
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
-                            deleniti quod eos pariatur laudantium hic, consequatur
-                            soluta, minus suscipit ipsam assumenda culpa impedit dicta,
-                            sed dolores ullam aliquid quidem exercitationem.
+                            Lorem Ipsum is simply dummy text of the printing and
+                            typesetting industry. Lorem Ipsum has been the
+                            industry&rsquo;s.
                         </p>
 
                         <ul class="u-columnGap--tight">
@@ -105,7 +35,7 @@
                     </div>
 
                     <div class="u-rowGap--normal">
-                        <h4 class="heading--3">
+                        <h4 class="heading">
                             Links
                         </h4>
 
@@ -121,7 +51,7 @@
                     </div>
 
                     <div class="u-rowGap--normal">
-                        <h4 class="heading--3">
+                        <h4 class="heading">
                             Contact
                         </h4>
 
@@ -138,11 +68,27 @@
                                 </span>
                                 <input class="input" placeholder="Email Address" type="text" name="email_address" />
                             </label>
-                            <button class="button--primary">
+                            <a class="button--primary" href="#">
                                 Apply Now
-                            </button>
+                            </a>
                         </form>
                     </div>
+                </div>
+            </div>
+
+            <div class="heading u-backgroundColor--foreground u-fontSize--small">
+                <div class="grid u-color--background u-columnGap--normal u-justifyContent--spaceBetween u-paddingY--normal">
+                    <div>
+                        &copy; {{ "now" | date: "%Y" }} Informal Systems Inc. All rights reserved.
+                    </div>
+                    <ul class="u-columnGap--normal">
+                        <li>
+                            <a href="#">Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a href="#">Terms of Service</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </footer>
