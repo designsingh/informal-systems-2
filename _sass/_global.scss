@@ -505,6 +505,10 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     display: inline-block;
     width: 100%;
 }
+.photo--autoWidth {
+    display: inline-block;
+    width: auto;
+}
 .pill {
     background-color: $color--background--faded;
     border-radius: 1000px;
@@ -721,17 +725,17 @@ $flexProperties: (
 @each $colorName, $colorCode in $colorPalette {
     .u-backgroundColor--#{$colorName} {
         @include increaseSpecificity() {
-            background-color: $colorCode;
+            background-color: $colorCode !important;
         }
     }
     .u-borderColor--#{$colorName} {
         @include increaseSpecificity() {
-            border-color: $colorCode;
+            border-color: $colorCode !important;
         }
     }
     .u-color--#{$colorName} {
         @include increaseSpecificity() {
-            color: $colorCode;
+            color: $colorCode !important;
         }
     }
 
@@ -741,17 +745,17 @@ $flexProperties: (
 
         .u-backgroundColor--#{$colorName}--#{$variantName} {
             @include increaseSpecificity() {
-                background-color: $modifiedColor;
+                background-color: $modifiedColor !important;
             }
         }
         .u-borderColor--#{$colorName}--#{$variantName} {
             @include increaseSpecificity() {
-                border-color: $modifiedColor;
+                border-color: $modifiedColor !important;
             }
         }
         .u-color--#{$colorName}--#{$variantName} {
             @include increaseSpecificity() {
-                color: $modifiedColor;
+                color: $modifiedColor !important;
             }
         }
     }

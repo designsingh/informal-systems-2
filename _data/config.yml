@@ -27,8 +27,8 @@ menuItems:
       subMenuItems:
           - label: Auditing
             url: /services/auditing
-          - label: Validation
-            url: /services/validation
+          - label: Validating
+            url: /services/validating
     - label: Cooperative
       url: /cooperative
     - label: Careers
