@@ -198,7 +198,7 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     font-weight: $fontWeight--body--normal;
     font-size: var(--fontSize--normal);
     line-height: var(--lineHeight--normal);
-    scroll-padding-top: 10vh;
+    scroll-padding-top: 140px;
 }
 .avatar,
 .avatarSpacer {
@@ -525,13 +525,13 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
         }
     }
     h3:not([class]) {
-        @extend .heading, .u-fontSize--h2;
+        @extend .heading, .u-fontSize--h6;
     }
     h4:not([class]) {
-        @extend .heading, .u-fontSize--h3;
+        @extend .heading, .u-fontSize--xlarge;
     }
     h5:not([class]) {
-        @extend .heading, .u-fontSize--h4;
+        @extend .heading, .u-fontSize--large;
     }
 }
 [class*='sectionTitle-heading'] {
