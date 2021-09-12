@@ -941,6 +941,10 @@ $flexProperties: (
 .u-justifyContent--spaceBetween {
     justify-content: space-between;
 }
+.u-masonryIsh {
+    column-count: 3;
+    column-gap: var(--gridUnit);
+}
 .u-screenReadersOnly {
     position: absolute;
     width: 1px;

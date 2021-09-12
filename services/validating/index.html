@@ -172,6 +172,41 @@ intro: |
     </section>
 
     <section>
+        {% capture content %}
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error
+                consequatur iusto enim natus deleniti, est esse deserunt ut
+                quasi temporibus odit optio hic maiores eos!
+            </p>
+        {% endcapture %}
+
+        {%
+            include section-title.html
+                title="Join us on Twitter"
+                content=content
+        %}
+
+        <div
+            class="
+                grid
+                u-alignItems--flexStart
+                u-columns--3
+                u-columnGap--normal
+            "
+        >
+            {% for tweet in site.data.config.tweets %}
+                <blockquote class="twitter-tweet">
+                    <p lang="en" dir="ltr">
+                        <a href="https://twitter.com/tweet/status/{{ tweet }}">
+                            Loading...
+                        </a>
+                    </p>
+                </blockquote>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section>
         {% include banner-newsletter.html %}
     </section>
 </main>
