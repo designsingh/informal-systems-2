@@ -1,6 +1,232 @@
 ---
-title: About
-permalink: /about/
+title: Verifiable Systems & Organizations
+superTitle: About Us
+intro: |
+    We believe that better relationships between people and
+    protocols can flourish.
 ---
+<main class="u-rowGap--xloose">
+    {%
+        include page-title.html
+            title=page.title
+            superTitle=page.superTitle
+            intro=page.intro
+    %}
 
-<h1>About</h1>
+    <section class="u-centered u-columnGap--normal">
+        <div class="u-alignItems--flexEnd u-rowGap--normal">
+            <img
+                class="photo"
+                src="{{ 'assets/img/about/photo-1.png' | relative_url }}"
+                alt="Photo"
+            />
+            <img
+                class="photo"
+                src="{{ 'assets/img/about/photo-2.png' | relative_url }}"
+                alt="Photo"
+                style="width: 70%"
+            />
+        </div>
+        <div class="u-rowGap--normal">
+            <img
+                class="photo"
+                src="{{ 'assets/img/about/photo-3.png' | relative_url }}"
+                alt="Photo"
+                style="width: 50%"
+            />
+            <img
+                class="photo"
+                src="{{ 'assets/img/about/photo-4.png' | relative_url }}"
+                alt="Photo"
+            />
+        </div>
+    </section>
+
+    <section class="grid u-alignItems--flexStart u-columnGap--normal">
+        <div class="u-rowGap--normal u-spanColumns--6">
+            <h3
+                class="
+                    heading
+                    sectionTitle-heading--leftAligned
+                    u-fontSize--h3
+                    u-whiteSpace--nowrap
+                "
+            >
+                Our Work
+            </h3>
+            <p>
+                Our work has three themes, reflecting the three key aspects of
+                our mission: <strong>verifiable</strong>,
+                <strong>systems</strong>, and <strong>organizations</strong>.
+            </p>
+        </div>
+        <div class="u-spanColumns--6 u-rowGap--loose">
+            <div class="u-rowGap--tight">
+                <div>
+                    <img
+                        class="photo--autoWidth"
+                        src="{{
+                            'assets/img/about/theme-icon-verifiable.svg'
+                                | relative_url
+                        }}"
+                    />
+                </div>
+                <div class="u-rowGap--tight">
+                    <h4 class="heading u-fontSize--xlarge">
+                        Verifiable
+                    </h4>
+                    <p>
+                        We make formal verification technology more accessible by
+                        developing tools and processes to improve the quality and
+                        experience of software engineering. We believe that
+                        accessible specification languages, powerful solvers, and
+                        toolkits for integrating with modern software can transform
+                        our ability to build and maintain critical, trusted systems.
+                    </p>
+                </div>
+            </div>
+
+            <div class="u-rowGap--tight">
+                <div>
+                    <img
+                        class="photo--autoWidth"
+                        src="{{
+                            'assets/img/about/theme-icon-systems.svg'
+                                | relative_url
+                        }}"
+                    />
+                </div>
+                <div class="u-rowGap--tight">
+                    <h4 class="heading u-fontSize--xlarge">
+                        Systems
+                    </h4>
+                    <p>
+                        We are a core developer of the Cosmos Network, where we
+                        focus on sovereign, interoperable technologies for more
+                        sustainable communities. We believe that system scaling
+                        is as much a social problem as it is a technical one,
+                        and that fixing the exploitative monetization of the
+                        internet may require a renewed understanding of money
+                        itself.
+                    </p>
+                </div>
+            </div>
+
+            <div class="u-rowGap--tight">
+                <div>
+                    <img
+                        class="photo--autoWidth"
+                        src="{{
+                            'assets/img/about/theme-icon-organizations.svg'
+                                | relative_url
+                        }}"
+                    />
+                </div>
+                <div class="u-rowGap--tight">
+                    <h4 class="heading u-fontSize--xlarge">
+                        Organizations
+                    </h4>
+                    <p>
+                        We are structured as a workers co-operative, organized
+                        around a collaborative web of workflows. We believe in a
+                        more sustainable form of technology organization that
+                        nurtures its employees and improves its society.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="aboutUs-valuesGrid grid">
+        <div class="aboutUs-valuesGridHeader u-rowGap--normal u-spanColumns--8">
+            <h3
+                class="
+                    heading
+                    sectionTitle-heading--leftAligned
+                    u-fontSize--h3
+                    u-whiteSpace--nowrap
+                "
+            >
+                Our Values
+            </h3>
+            <p>
+                Our values encompass the whole body, from head to toe.
+            </p>
+        </div>
+        {% for value in site.data.config.values %}
+            <div
+                class="
+                    u-backgroundColor--{% cycle "purple--100", "yellow--100" %}
+                    u-padding--normal
+                    u-rowGap--tight
+                "
+            >
+                <div>
+                    <img
+                        class="photo--autoWidth"
+                        src="{{
+                            'assets/img/about/value-icon-'
+                                | append: value.label
+                                | append: '.svg'
+                                | downcase
+                                | relative_url
+                        }}"
+                    />
+                </div>
+                <div class="u-rowGap--tight">
+                    <h4 class="heading u-fontSize--h6">
+                        {{ value.label }}
+                    </h4>
+                    {{ value.description | markdownify }}
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+
+    <section class="u-rowGap--loose">
+        <div class="grid u-centered u-rowGap--normal u-spanColumns--8">
+            <h3
+                class="
+                    heading
+                    sectionTitle-heading--centerAligned
+                    u-fontSize--h3
+                    u-whiteSpace--nowrap
+                "
+            >
+                Workers Coop
+            </h3>
+            <p>
+                We are a worker-owned organization, composed of a diverse group
+                of people from around the world. Join us!
+            </p>
+        </div>
+
+        <div class="grid u-columns--3 u-columnGap--normal u-rowGap--loose">
+            {% for teamMember in site.data.config.teamMembers %}
+                <div class="u-rowGap--tight">
+                    <div>
+                        <img
+                            class="photo"
+                            src="{{
+                                'assets/img/portraits/'
+                                    | append: teamMember.name
+                                    | replace: ' ', '-'
+                                    | append: '.png'
+                                    | relative_url
+                            }}"
+                            alt="Portrait of {{ teamMember.name }}"
+                        />
+                    </div>
+                    <h4 class="header u-fontSize--xlarge">
+                        {{ teamMember.name }}
+                    </h4>
+                    {{ teamMember.bio | markdownify }}
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section>
+        {% include banner-start-your-career.html %}
+    </section>
+</main>

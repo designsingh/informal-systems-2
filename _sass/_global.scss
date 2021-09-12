@@ -206,6 +206,14 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     line-height: var(--lineHeight--normal);
     scroll-padding-top: 140px;
 }
+.aboutUs-valuesGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.aboutUs-valuesGridHeader {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
 .avatar,
 .avatarSpacer {
     align-items: center;
@@ -717,6 +725,9 @@ $flexProperties: (
         }
     }
 }
+.u-alignItems--flexEnd {
+    align-items: flex-end;
+}
 .u-alignItems--stretch {
     & > * {
         flex-grow: 1;
@@ -929,6 +940,9 @@ $flexProperties: (
 .u-flexDirection--rowReverse {
     flex-direction: row-reverse;
 }
+.u-flexWrap {
+    flex-wrap: wrap;
+}
 @each $fontSizeName, $fontDefinition in $fontSizes {
     $fontSize: map-get($fontDefinition, 'size');
     $lineHeight: map-get($fontDefinition, 'line-height');
@@ -937,6 +951,9 @@ $flexProperties: (
         font-size: $fontSize;
         line-height: $lineHeight;
     }
+}
+.u-justifyContent--flexEnd {
+    justify-content: flex-end;
 }
 .u-justifyContent--spaceBetween {
     justify-content: space-between;

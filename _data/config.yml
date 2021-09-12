@@ -27,8 +27,8 @@ menuItems:
       subMenuItems:
           - label: Auditing
             url: /services/auditing
-          - label: Validating
-            url: /services/validating
+          - label: Interchange Operations
+            url: /services/interchange-operations
     - label: Cooperative
       url: /cooperative
     - label: Careers
@@ -48,6 +48,25 @@ socialLinks:
     - label: Facebook
       icon: fab fa-linkedin
       url: http://linkedin.com/
+teamMembers:
+  - name: Marie Leaf
+    bio: |
+      Marie works on product development to support local money and mutual
+  - name: Shon Feder
+    bio: |
+      Marie works on product development to support local money and mutual
+  - name: Josef Widder
+    bio: |
+      Marie works on product development to support local money and mutual
+  - name: Marie Leaf
+    bio: |
+      Marie works on product development to support local money and mutual
+  - name: Marie Leaf
+    bio: |
+      Marie works on product development to support local money and mutual
+  - name: Joshua Jeffrey
+    bio: |
+      Marie works on product development to support local money and mutual
 tweets:
   - 1436208066882686980
   - 1436675105405480961
@@ -55,3 +74,18 @@ tweets:
   - 1436208066882686980
   - 1436675105405480961
   - 1436722378051104768
+values:
+  - label: Play
+    description: Approach the world with open curiosity
+  - label: Think
+    description: Research, experiment, measure, validate
+  - label: Dance
+    description: Balance planning and improvisation
+  - label: Love
+    description: Psychological safety first
+  - label: Serve
+    description: Help others help you, recursively
+  - label: Own
+    description: Responsibility is for the taking
+  - label: Challenge
+    description: Push boundaries, raise the bar
