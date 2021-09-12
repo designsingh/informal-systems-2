@@ -7,14 +7,12 @@ careerCategories:
 footerMenuItems:
     - label: About Us
       url: /about
-    - label: Products & Services
-      url: /products-and-services
-    - label: News & Publications
-      url: /news-and-publications
-    - label: Team
-      url: /team
-    - label: Blog
-      url: /blog
+    - label: Products
+      url: /products
+    - label: Auditing
+      url: /services/auditing
+    - label: Interchain Operations
+      url: /services/interchain-operations
     - label: Careers
       url: /careers
 menuItems:
@@ -29,8 +27,8 @@ menuItems:
       subMenuItems:
           - label: Auditing
             url: /services/auditing
-          - label: Interchange Operations
-            url: /services/interchange-operations
+          - label: Interchain Operations
+            url: /services/interchain-operations
     - label: Careers
       url: /careers
 socialLinks:

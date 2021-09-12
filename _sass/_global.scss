@@ -345,7 +345,12 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     font-family: $fontFamily--display;
     font-weight: $fontWeight--display;
     padding: $whiteSpace--tight $whiteSpace--normal;
+    transition: transform 0.25s;
     white-space: nowrap;
+
+    &:hover {
+        transform: scale(1.05);
+    }
 }
 [class*='button--'] {
     @extend .button;
