@@ -40,8 +40,28 @@ intro: |
             <div class="u-rowGap--normal">
                 {% capture content %}
                     <p>
-                        Content: Pending.
+                        During code inspections, we manually analyze the source
+                        code for the purpose of reconstructing the underlying
+                        protocols. The code serves as the ultimate source of
+                        truth as we find it quite often diverges from
+                        specifications. Vulnerabilities are often found in
+                        codebases due to a number of reasons, including:
                     </p>
+
+                    <ul class="u-paddingLeft--normal u-rowGap--tight">
+                        <li>
+                            Incorrect engineering practices
+                        </li>
+                        <li>
+                            Code evolution
+                        </li>
+                        <li>
+                            Insufficient input validation
+                        </li>
+                        <li>
+                            Overseen conditions
+                        </li>
+                    </ul>
                 {% endcapture %}
 
                 {%
@@ -92,7 +112,6 @@ intro: |
                     include accordion-item.html
                         label="Protocol Reconstruction and Analysis"
                         content=content
-                        isOpen=true
                 %}
             </div>
         </article>
@@ -121,7 +140,19 @@ intro: |
             <div class="u-rowGap--normal">
                 {% capture content %}
                     <p>
-                        Content: Pending.
+                        Model checking is known for unveiling
+                        unforseen edge-cases in protocols. In “adversarial testing” we
+                        turn these edge cases into tests. Without advanced and proper
+                        adversarial testing, blockchains can suffer a number of errors
+                        that pose a risk to user funds and instill distrust in the
+                        system. In these cases, blockchain consensus engines halt and
+                        protocol crashes occur.
+                    </p>
+
+                    <p>
+                        We perform vulnerability searches by constructing TLA+ models
+                        which we leverage for code-specific test drivers. Through this
+                        process, we generate and execute massive adversarial test suites.
                     </p>
                 {% endcapture %}
 
@@ -131,11 +162,52 @@ intro: |
                         content=content
                 %}
 
+                {% capture content %}
+                    <p>
+                        Protocols running in production often involve several
+                        distinct actors which can result in deep protocol
+                        errors. We construct abstract formal protocol
+                        descriptions in TLA+ in order to specify the system and
+                        its properties. We formalize desired protocol properties
+                        as safety invariants and liveness properties, and try to
+                        prove/disprove them using our in-house model checking
+                        techniques.
+                    </p>
+                {% endcapture %}
+
                 {%
                     include accordion-item.html
                         label="Formal Modelling and Protocol Verification"
                         content=content
                 %}
+
+                {% capture content %}
+                <p>
+                    We generate test cases for the software
+                    that we audit directly from TLA+ specifications. This greatly
+                    augments manually created test cases with automatically
+                    generated ones derived from a formal model. These model-based
+                    testing activities include:
+                </p>
+
+                <ul class="u-paddingLeft--normal u-rowGap--tight">
+                    <li>
+                        Construction of TLA+ models for deep testing of source code / APIs
+                    </li>
+                    <li>
+                        Development of code-specific test drivers
+                    </li>
+                    <li>
+                        Integration of model-based test suites into the customer CI
+                    </li>
+                </ul>
+
+                <p>
+                    These techniques result in ​​a continuous and automatic
+                    monitoring process that searches for deviations between
+                    protocols and their implementation.
+                </p>
+                {% endcapture %}
 
                 {%
                     include accordion-item.html

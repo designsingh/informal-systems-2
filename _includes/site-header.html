@@ -9,7 +9,13 @@
             rel="stylesheet"
             href="{{ '/assets/css/main.css' | relative_url }}"
         />
-        <style>
+        <style type="text/css">
+            body {
+                background-image:
+                    url({{ 'assets/img/bg-lines.svg' | relative_url }});
+                background-position: top center;
+                background-repeat: repeat-y;
+            }
             [class*="logo--"] {
                 background-image:
                     url({{ 'assets/img/logo.svg' | relative_url }});
