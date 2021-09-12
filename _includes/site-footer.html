@@ -18,7 +18,7 @@
                             </a>
                         </h4>
 
-                        <p>
+                        <p class="u-color--foreground--secondary">
                             Lorem Ipsum is simply dummy text of the printing and
                             typesetting industry. Lorem Ipsum has been the
                             industry&rsquo;s.
@@ -27,10 +27,7 @@
                         <ul class="u-columnGap--tight">
                             {% for socialLink in site.data.config.socialLinks %}
                                 <li>
-                                    <a
-                                        class="socialLink-button"
-                                        href="{{ socialLink.url }}"
-                                    >
+                                    <a href="{{ socialLink.url }}">
                                         <i class="{{ socialLink.icon }}"></i>
                                         <span class="u-screenReadersOnly">
                                             {{ socialLink.label }}
@@ -49,7 +46,13 @@
                         <ul class="u-rowGap--xtight">
                             {% for menuItem in site.data.config.footerMenuItems %}
                                 <li>
-                                    <a href="{{ menuItem.url | relative_url }}">
+                                    <a
+                                        class="
+                                            link--discreet
+                                            u-color--foreground--secondary
+                                        "
+                                        href="{{ menuItem.url | relative_url }}"
+                                    >
                                         {{ menuItem.label }}
                                     </a>
                                 </li>

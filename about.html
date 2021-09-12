@@ -222,10 +222,12 @@ intro: |
                             alt="Portrait of {{ teamMember.name }}"
                         />
                     </div>
-                    <h4 class="header u-fontSize--xlarge">
+                    <h4 class="heading u-fontSize--xlarge">
                         {{ teamMember.name }}
                     </h4>
-                    {{ teamMember.bio | markdownify }}
+                    <div class="u-rowGap--tight u-color--foreground--secondary">
+                        {{ teamMember.bio | markdownify }}
+                    </div>
                 </div>
             {% endfor %}
         </div>
