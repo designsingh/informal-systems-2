@@ -4,6 +4,7 @@ const selectAll = (selector, node) =>
     Array.from((node || document).querySelectorAll(selector));
 
 const initPage = () => {
+    // Accordions
     const $accordions = selectAll('.js-accordion');
 
     $accordions.forEach(($accordion) => {
@@ -44,6 +45,34 @@ const initPage = () => {
 
         render();
     });
+
+    // Menu
+    const $menu = select('.js-menu');
+    const $menuToggleButton = select('.js-menu-toggle-button', $menu);
+    const $menuToggleButtonIconOpen = select(
+        '.js-menu-toggle-button-icon-open',
+        $menu
+    );
+    const $menuToggleButtonIconClose = select(
+        '.js-menu-toggle-button-icon-close',
+        $menu
+    );
+
+    const renderMenu = () => {
+        const isOpen = Array.from($menu.classList).includes('is-open');
+
+        $menuToggleButtonIconOpen.style.display = isOpen ? 'none' : '';
+        $menuToggleButtonIconClose.style.display = isOpen ? '' : 'none';
+    };
+
+    $menuToggleButton.addEventListener('click', () => {
+        $menu.classList.toggle('is-open');
+        $menu.classList.toggle('is-closed');
+
+        renderMenu();
+    });
+
+    renderMenu();
 };
 
 document.addEventListener('DOMContentLoaded', initPage);

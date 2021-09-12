@@ -46,7 +46,14 @@
                             informal
                         </a>
                     </h1>
-                    <nav class="siteHeader-nav">
+                    <nav class="siteHeader-nav js-menu is-closed">
+                        <button class="siteHeader-menuToggleButton js-menu-toggle-button">
+                            <i class="far fa-bars js-menu-toggle-button-icon-open"></i>
+                            <i class="fal fa-times js-menu-toggle-button-icon-close"></i>
+                            <div class="u-screenReadersOnly">
+                                Toggle Site Navigation
+                            </div>
+                        </button>
                         <ul class="siteHeader-menuItems">
                             {% for menuItem in site.data.config.menuItems %}
                                 {% assign hasSubMenu = menuItem.subMenuItems.size %}
@@ -77,7 +84,14 @@
                                     {% if hasSubMenu %}
                                         <ul class="siteHeader-subMenu">
                                             {% for subMenuItem in menuItem.subMenuItems %}
-                                                <li class="siteHeader-subMenuItem">
+                                                <li
+                                                    class="
+                                                        siteHeader-subMenuItem
+                                                        {% if page.url contains subMenuItem.url %}
+                                                            siteHeader-subMenuItem--isActive
+                                                        {% endif %}
+                                                    "
+                                                >
                                                     <a
                                                         href="{{ subMenuItem.url | relative_url }}"
                                                         class="siteHeader-subMenuItemButton"
