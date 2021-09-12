@@ -260,27 +260,10 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
         width: 70%;
     }
 }
-.avatarSpacer {
-    @extend .u-fontSize--h3;
-}
 .avatar--large {
     --avatarSize: var(--avatarSize--large);
 }
 .avatar--xlarge {
-    --avatarSize: var(--avatarSize--xlarge);
-}
-.avatar--placeholder {
-    background-color: $color--foreground;
-}
-.avatarList {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.avatarList--large {
-    --avatarSize: var(--avatarSize--large);
-}
-.avatarList--xlarge {
     --avatarSize: var(--avatarSize--xlarge);
 }
 @keyframes bgBubblePulsate {
@@ -385,6 +368,31 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
 .button--tertiary {
     @extend .u-fontSize--normal;
     text-decoration: underline;
+}
+.careersPage-avatarList {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+.careersPage-avatarListItem {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 120px;
+    width: 120px;
+
+    @include responsiveStylesFor('desktop') {
+        height: 140px;
+        width: 140px;
+    }
+}
+.careersPage-avatarListSpacer {
+    @extend .u-fontSize--h3;
+}
+.careersPage-avatarListUser {
+    background-color: map-get($colorPalette, 'foreground');
+    border-radius: 1000px;
+    color: map-get($colorPalette, 'background');
 }
 .formField {
     @extend .u-rowGap--xtight;
@@ -556,7 +564,7 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     border-radius: 1000px;
     color: $color--foreground--faded;
     display: inline-block;
-    padding: 0 $whiteSpace--tight;
+    padding: calc(#{$whiteSpace--xtight} / 2) $whiteSpace--xtight;
     vertical-align: middle;
 }
 .post {
