@@ -47,14 +47,21 @@ $variants: (
 );
 
 $breakpointDefinitions: (
-    xlarge: (
-        min-width: 1280px,
+    desktop: (
+        constraint-name: min-width,
+        constraint-value: 1280px,
         grid-width: 1170px,
     ),
-    large: (
-        min-width: 1024px,
+    tablet: (
+        constraint-name: min-width,
+        constraint-value: 1024px,
         grid-width: 960px,
     ),
+    mobile: (
+        constraint-name: max-width,
+        constraint-value: 1023px,
+        grid-width: 85vw,
+    )
 );
 
 $borderStyles: (
@@ -88,13 +95,19 @@ $boxShadow--inset: map-get($boxShadowStyles, 'inset');
 $fontFamily--body: Inter, sans-serif;
 $fontFamily--display: Glegoo, sans-serif;
 
+$fontSizeBase: (
+    'mobile': 16px,
+    'tablet': 20px,
+    'desktop': 24px,
+);
+
 $fontSizes: (
     'small': (
         'size': 0.67rem,
         'line-height': 1.1em,
     ),
     'normal': (
-        'size': 24px,
+        'size': 1rem,
         'line-height': 1.6em,
     ),
     'large': (
@@ -155,9 +168,10 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
 
 @mixin responsiveStylesFor($breakpointName) {
     $breakpointDefinition: map-get($breakpointDefinitions, $breakpointName);
-    $minWidth: map-get($breakpointDefinition, 'min-width');
+    $constraintName: map-get($breakpointDefinition, 'constraint-name');
+    $constraintValue: map-get($breakpointDefinition, 'constraint-value');
 
-    @media screen and (min-width: $minWidth) {
+    @media screen and (#{$constraintName}: $constraintValue) {
         @content;
     }
 }
@@ -175,19 +189,29 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     text-decoration: none;
 }
 :root {
-    --gridUnit: 30px;
+    --gridUnit: 20px;
 
     --avatarSize--normal: 60px;
     --avatarSize--large: 88px;
     --avatarSize--xlarge: 120px;
 
-    @extend .u-fontSize--normal;
-
     background: $color--background;
     color: $color--foreground;
     font-family: $fontFamily--body;
+    font-size: map-get($fontSizeBase, 'mobile');
     font-weight: $fontWeight--body--normal;
+    overflow-x: hidden;
     scroll-padding-top: 140px;
+
+    @include responsiveStylesFor('tablet') {
+        --gridUnit: 30px;
+        font-size: map-get($fontSizeBase, 'tablet');
+    }
+
+    @include responsiveStylesFor('desktop') {
+        --gridUnit: 30px;
+        font-size: map-get($fontSizeBase, 'desktop');
+    }
 }
 .aboutUs-valuesGrid {
     display: grid;
@@ -209,6 +233,7 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
 }
 .avatar {
     @extend .u-boxShadow--inset;
+    @extend .u-fontSize--xlarge;
 
     background-color: $color--accent;
     color: white;
@@ -228,14 +253,14 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
         width: 70%;
     }
 }
+.avatarSpacer {
+    @extend .u-fontSize--h3;
+}
 .avatar--large {
     --avatarSize: var(--avatarSize--large);
 }
 .avatar--xlarge {
     --avatarSize: var(--avatarSize--xlarge);
-}
-.avatarSpacer {
-    @extend .u-fontSize--large;
 }
 .avatar--placeholder {
     background-color: $color--foreground;
@@ -357,15 +382,18 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     white-space: nowrap;
 }
 .grid {
-    $largeBreakpointDefinition: map-get($breakpointDefinitions, 'large');
-    $xlargeBreakpointDefinition: map-get($breakpointDefinitions, 'xlarge');
+    $mobileBreakpointDefinition: map-get($breakpointDefinitions, 'mobile');
+    $tabletBreakpointDefinition: map-get($breakpointDefinitions, 'tablet');
+    $desktopBreakpointDefinition: map-get($breakpointDefinitions, 'desktop');
 
-    @include responsiveStylesFor('large') {
-        --grid-width: #{map-get($largeBreakpointDefinition, 'grid-width')};
+    --grid-width: #{map-get($mobileBreakpointDefinition, 'grid-width')};
+
+    @include responsiveStylesFor('tablet') {
+        --grid-width: #{map-get($tabletBreakpointDefinition, 'grid-width')};
     }
 
-    @include responsiveStylesFor('xlarge') {
-        --grid-width: #{map-get($xlargeBreakpointDefinition, 'grid-width')};
+    @include responsiveStylesFor('desktop') {
+        --grid-width: #{map-get($desktopBreakpointDefinition, 'grid-width')};
     }
 
     --width-of-single-column: calc(
@@ -804,6 +832,16 @@ $flexProperties: (
     justify-content: center;
     text-align: center;
 }
+.u-stackVerticallyIfMobile {
+    @include responsiveStylesFor('mobile') {
+        flex-direction: column !important;
+        align-items: stretch !important;
+
+        & > * {
+            flex-grow: 1 !important;
+        }
+    }
+}
 .u-columnGap,
 .u-rowGap {
     display: flex;
@@ -821,8 +859,40 @@ $flexProperties: (
 [class*='u-rowGap--'] {
     @extend .u-rowGap;
 }
+[class*='u-columns--'] {
+    @extend .u-stackVerticallyIfMobile;
+}
+@include responsiveStylesFor('tablet') {
+    .u-columns {
+        display: grid;
+    }
+    [class*='u-columns--'] {
+        @extend .u-columns;
+    }
+    .u-spanColumns {
+        flex-grow: 0;
+    }
+    [class*='u-spanColumns--'] {
+        @extend .u-spanColumns;
+    }
+    @for $i from 1 through 12 {
+        .u-columns--#{$i} {
+            grid-template-columns: repeat($i, 1fr);
+        }
+        .u-spanColumns--#{$i} {
+            --num-gutters: calc(#{$i} - 1);
+            --gutter-widths: calc(var(--num-gutters) * var(--gridUnit));
+
+            width: calc(var(--width-of-single-column) * #{$i} + var(--gutter-widths));
+        }
+    }
+}
 @each $gridSizeName, $whiteSpaceValue in $gridSizes {
     .u-columnGap--#{$gridSizeName} {
+        @include responsiveStylesFor('mobile') {
+            row-gap: $whiteSpaceValue !important;
+            column-gap: 0;
+        }
         @include increaseSpecificity {
             column-gap: $whiteSpaceValue;
         }
@@ -905,23 +975,6 @@ $flexProperties: (
             margin-bottom: $whiteSpaceValue;
             margin-top: $whiteSpaceValue;
         }
-    }
-}
-[class*='u-columns--'] {
-    display: grid;
-}
-[class*='u-spanColumns--'] {
-    flex-grow: 0;
-}
-@for $i from 1 through 12 {
-    .u-columns--#{$i} {
-        grid-template-columns: repeat($i, 1fr);
-    }
-    .u-spanColumns--#{$i} {
-        --num-gutters: calc(#{$i} - 1);
-        --gutter-widths: calc(var(--num-gutters) * var(--gridUnit));
-
-        width: calc(var(--width-of-single-column) * #{$i} + var(--gutter-widths));
     }
 }
 .u-flexDirection--rowReverse {

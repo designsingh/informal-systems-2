@@ -31,7 +31,14 @@ intro: |
 %}
 
 <div class="grid-container">
-    <div class="grid u-columnGap--normal u-alignItems--stretch">
+    <div
+        class="
+            grid
+            u-columnGap--normal
+            u-alignItems--stretch
+            u-stackVerticallyIfMobile
+        "
+    >
         {% for product in site.data.products.blockChainProducts %}
             <div
                 class="
@@ -102,7 +109,15 @@ intro: |
 %}
 
 <div class="grid-container">
-    <div class="grid u-columnGap--normal u-centered u-alignItems--stretch">
+    <div
+        class="
+            grid
+            u-columnGap--normal
+            u-centered
+            u-alignItems--stretch
+            u-stackVerticallyIfMobile
+        "
+    >
         {% for product in site.data.products.verificationProducts %}
             <div
                 class="
@@ -167,6 +182,7 @@ intro: |
             u-centered
             u-columnGap--xloose
             u-paddingY--loose
+            u-stackVerticallyIfMobile
         "
     >
         <div>

@@ -1,5 +1,5 @@
 <nav id="tabs" class="tabbedNav">
-    <ul class="tabbedNav-tabs">
+    <ul class="heading u-columnGap--loose u-stackVerticallyIfMobile">
         {% for menuItem in include.menuItems %}
             {% if menuItem == "All" %}
                 {% assign entriesInCategory = site.careers | size %}
