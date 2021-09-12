@@ -8,7 +8,11 @@
 <section class="grid-container">
     <div class="grid">
         <ul class="careersPage-avatarList">
-            {% for teamMember in site.data.config.teamMembers %}
+            {%
+                assign teamMembers =
+                    site.data.config.teamMembers | sort: "name"
+            %}
+            {% for teamMember in teamMembers limit:6 %}
                 <li class="careersPage-avatarListItem">
                     <img
                         class="photo"
