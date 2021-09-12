@@ -202,7 +202,11 @@ intro: |
         </div>
 
         <div class="grid u-columns--3 u-columnGap--normal u-rowGap--loose">
-            {% for teamMember in site.data.config.teamMembers %}
+            {%
+                assign teamMembers =
+                    site.data.config.teamMembers | sort: "name"
+            %}
+            {% for teamMember in teamMembers %}
                 <div class="u-rowGap--tight">
                     <div>
                         <img

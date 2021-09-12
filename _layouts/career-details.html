@@ -14,78 +14,82 @@
         {{ page.category }}
     </a>
 {% endcapture %}
-<article class="u-rowGap--normal">
-    {%
-        include page-title.html
-            title=page.jobTitle
-            superTitle=superTitle
-            intro=page.blurb
-    %}
+<div class="u-rowGap--xloose">
+    <article class="u-rowGap--normal">
+        {%
+            include page-title.html
+                title=page.jobTitle
+                superTitle=superTitle
+                intro=page.blurb
+        %}
 
-    <div class="grid-container">
-        <div class="grid">
-            <img
-                class="photo"
-                src="http://lorempixel.com/640/360/abstract"
-            />
+        <div class="grid-container">
+            <div class="grid">
+                <img
+                    class="photo"
+                    src="http://lorempixel.com/640/360/abstract"
+                />
 
-            <hr class="horizontalRule--hairline u-marginY--normal" />
+                <hr class="horizontalRule--hairline u-marginY--normal" />
 
-            <dl class="iconifiedMetaData">
-                {% if page.hiringCount %}
-                    {% if page.hiringCount == 1 %}
-                        {% assign hiringCountText = page.hiringCount | append: ' open position' %}
-                    {% else %}
-                        {% assign hiringCountText = page.hiringCount | append: ' open positions' %}
+                <dl class="iconifiedMetaData">
+                    {% if page.hiringCount %}
+                        {% if page.hiringCount == 1 %}
+                            {% assign hiringCountText = page.hiringCount | append: ' open position' %}
+                        {% else %}
+                            {% assign hiringCountText = page.hiringCount | append: ' open positions' %}
+                        {% endif %}
+                        {%
+                            include meta-data-item.html
+                                label="Hiring Count"
+                                icon="far fa-user"
+                                value=hiringCountText
+                        %}
                     {% endif %}
+
                     {%
                         include meta-data-item.html
-                            label="Hiring Count"
-                            icon="far fa-user"
-                            value=hiringCountText
+                            label="Job Type"
+                            icon="far fa-clock"
+                            value=page.jobType
                     %}
-                {% endif %}
 
-                {%
-                    include meta-data-item.html
-                        label="Job Type"
-                        icon="far fa-clock"
-                        value=page.jobType
-                %}
-
-                {% assign locationList = page.locations | join: ", " %}
-                {%
-                    include meta-data-item.html
-                        label="Location"
-                        icon="far fa-map-marker-alt"
-                        value=locationList
-                %}
-            </dl>
+                    {% assign locationList = page.locations | join: ", " %}
+                    {%
+                        include meta-data-item.html
+                            label="Location"
+                            icon="far fa-map-marker-alt"
+                            value=locationList
+                    %}
+                </dl>
+            </div>
         </div>
-    </div>
 
-    <div class="grid-container">
-        <div class="post grid u-rowGap--normal">
-            <!--
-                Shifting heading levels to reflect actual page hierarchy
-            -->
-            {{
-                content
-                    | replace: "h1", "h--one"
-                    | replace: "h2", "h--two"
-                    | replace: "h3", "h--three"
-                    | replace: "h4", "h--four"
-                    | replace: "h--one", "h3"
-                    | replace: "h--two", "h4"
-                    | replace: "h--three", "h5"
-                    | replace: "h--four", "h6"
-            }}
+        <div class="grid-container">
+            <div class="post grid u-rowGap--normal">
+                <!--
+                    Shifting heading levels to reflect actual page hierarchy
+                -->
+                {{
+                    content
+                        | replace: "h1", "h--one"
+                        | replace: "h2", "h--two"
+                        | replace: "h3", "h--three"
+                        | replace: "h4", "h--four"
+                        | replace: "h--one", "h3"
+                        | replace: "h--two", "h4"
+                        | replace: "h--three", "h5"
+                        | replace: "h--four", "h6"
+                }}
 
-            {% include career-post-shared-content.html %}
+                {% include career-post-shared-content.html %}
+            </div>
         </div>
-    </div>
-</article>
 
-{% include banner-newsletter.html %}
+    </article>
+    <section>
+        {% include banner-newsletter.html %}
+    </section>
+</div>
 
 {% include site-footer.html %}
