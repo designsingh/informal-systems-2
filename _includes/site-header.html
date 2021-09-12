@@ -53,12 +53,10 @@
                                 <li
                                     class="
                                         siteHeader-menuItem
-                                        {% assign currentPage = page.url | split: "/" %}
-                                        {% assign lowerCaseMenuItemLabel = menuItem.label | downcase %}
                                         {%
                                             if
-                                                currentPage[1] == lowerCaseMenuItemLabel or
-                                                (page.url == "/" and menuItem.label == "Home")
+                                                (page.url contains menuItem.url and menuItem.url != "/") or
+                                                (page.url == '/' and menuItem.url == '/')
                                         %}
                                             siteHeader-menuItem--isActive
                                         {% endif %}

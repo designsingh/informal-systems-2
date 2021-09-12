@@ -20,6 +20,8 @@ footerMenuItems:
 menuItems:
     - label: Home
       url: /
+    - label: About Us
+      url: /about
     - label: Products
       url: /products
     - label: Services
@@ -29,12 +31,8 @@ menuItems:
             url: /services/auditing
           - label: Interchange Operations
             url: /services/interchange-operations
-    - label: Cooperative
-      url: /cooperative
     - label: Careers
       url: /careers
-    - label: Community
-      url: /community
 socialLinks:
     - label: Facebook
       icon: fab fa-facebook

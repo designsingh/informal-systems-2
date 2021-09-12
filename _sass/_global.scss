@@ -177,33 +177,16 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
 :root {
     --gridUnit: 30px;
 
-    --fontSize--small: 16px;
-    --fontSize--normal: 24px;
-    --fontSize--large: 28px;
-    --fontSize--xlarge: 32px;
-
-    --fontSize--heading--1: 90px;
-    --fontSize--heading--2: 80px;
-    --fontSize--heading--3: 64px;
-    --fontSize--heading--4: 56px;
-    --fontSize--heading--5: 48px;
-    --fontSize--heading--6: 40px;
-
-    --lineHeight--small: 1.6em;
-    --lineHeight--normal: 1.6em;
-    --lineHeight--large: 1.6em;
-    --lineHeight--xlarge: 1em;
-
     --avatarSize--normal: 60px;
     --avatarSize--large: 88px;
     --avatarSize--xlarge: 120px;
+
+    @extend .u-fontSize--normal;
 
     background: $color--background;
     color: $color--foreground;
     font-family: $fontFamily--body;
     font-weight: $fontWeight--body--normal;
-    font-size: var(--fontSize--normal);
-    line-height: var(--lineHeight--normal);
     scroll-padding-top: 140px;
 }
 .aboutUs-valuesGrid {
@@ -252,7 +235,7 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     --avatarSize: var(--avatarSize--xlarge);
 }
 .avatarSpacer {
-    font-size: var(--fontSize--large);
+    @extend .u-fontSize--large;
 }
 .avatar--placeholder {
     background-color: $color--foreground;
@@ -329,11 +312,12 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     background-position: top right;
 }
 .button {
+    @extend .u-fontSize--small;
+
     border: none;
     cursor: pointer;
     display: inline-block;
     font-family: $fontFamily--display;
-    font-size: var(--fontSize--small);
     font-weight: $fontWeight--display;
     padding: $whiteSpace--tight $whiteSpace--normal;
     white-space: nowrap;
@@ -355,7 +339,7 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     border-color: #{map-get($colorPalette, 'foreground')} !important;
 }
 .button--tertiary {
-    font-size: var(--fontSize--normal);
+    @extend .u-fontSize--normal;
     text-decoration: underline;
 }
 .formField {
@@ -368,7 +352,7 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     }
 }
 .formField-label {
-    font-size: var(--fontSize--small);
+    @extend .u-fontSize--small;
     font-weight: bold;
     white-space: nowrap;
 }
@@ -437,9 +421,10 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     column-gap: $whiteSpace--tight;
 }
 .input {
+    @extend .u-fontSize--small;
+
     border: $border--hairline;
     border-color: $color--foreground;
-    font-size: var(--fontSize--small);
     padding: $whiteSpace--tight $whiteSpace--normal;
     width: 100%;
 
@@ -518,11 +503,12 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     width: auto;
 }
 .pill {
+    @extend .u-fontSize--small;
+
     background-color: $color--background--faded;
     border-radius: 1000px;
     color: $color--foreground--faded;
     display: inline-block;
-    font-size: var(--fontSize--small);
     padding: 0 $whiteSpace--tight;
     vertical-align: middle;
 }
@@ -601,10 +587,11 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     margin-top: $whiteSpace--xloose;
 }
 .siteHeader {
+    @extend .u-fontSize--small;
+
     align-items: center;
     align-self: flex-start;
     display: flex;
-    font-size: var(--fontSize--small);
     justify-content: space-between;
     margin-bottom: $whiteSpace--loose;
     padding: $whiteSpace--normal 0;
