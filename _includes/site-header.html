@@ -76,15 +76,19 @@
                                         {% endif %}
                                     "
                                 >
-                                    <a
-                                        href="{{ menuItem.url | relative_url }}"
-                                        class="siteHeader-menuItemButton"
-                                    >
-                                        {{ menuItem.label }}
-                                        {% if hasSubMenu %}
+                                    {% if hasSubMenu %}
+                                        <div class="siteHeader-menuItemButton">
+                                            {{ menuItem.label }}
                                             <i class="far fa-chevron-down"></i>
-                                        {% endif %}
-                                    </a>
+                                        </div>
+                                    {% else %}
+                                        <a
+                                            href="{{ menuItem.url | relative_url }}"
+                                            class="siteHeader-menuItemButton"
+                                        >
+                                            {{ menuItem.label }}
+                                        </a>
+                                    {% endif %}
                                     {% if hasSubMenu %}
                                         <ul class="siteHeader-subMenu">
                                             {% for subMenuItem in menuItem.subMenuItems %}

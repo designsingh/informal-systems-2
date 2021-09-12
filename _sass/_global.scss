@@ -735,6 +735,7 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
         column-gap: $whiteSpace--normal;
     }
     .siteHeader-menuItemButton {
+        cursor: pointer;
         display: block;
         padding-bottom: $whiteSpace--xtight;
 
