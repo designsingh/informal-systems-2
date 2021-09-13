@@ -42,7 +42,7 @@ intro: |
         </div>
     </section>
 
-    <section class="grid u-alignItems--flexStart u-columnGap--normal">
+    <section class="grid u-alignItems--flexStart u-columnGap--normal u-stackVerticallyIfMobile">
         <div class="u-rowGap--normal u-spanColumns--6">
             <h3
                 class="
@@ -254,6 +254,7 @@ intro: |
                             modalWindow
                             u-alignItems--flexStart
                             u-columnGap--normal
+                            u-stackVerticallyIfMobile
                         "
                     >
                         <button
@@ -309,7 +310,7 @@ intro: |
                                         | relative_url
                                 }}"
                                 alt="Portrait of {{ teamMember.name }}"
-                                style="width: 250px"
+                                style="max-width: 250px"
                             />
                         </div>
                     </article>

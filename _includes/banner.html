@@ -6,27 +6,32 @@
             u-backgroundColor--foreground
             u-borderRadius--xlarge
             u-color--background
-            u-paddingY--xloose
-            u-paddingX--xloose
+            u-padding--xloose
+            u-padding--mobile--xloose
         "
     >
         <div class="u-paddingRight--xloose u-rowGap--loose">
             <h2 class="heading u-fontSize--h3">
-                {%- capture headlineMinusOrphans -%}
-                    {{
-                        include.headline
-                            | split: ""
-                            | reverse
-                            | join: ""
-                            | replace_first: ' ', '===='
-                            | split: ""
-                            | reverse
-                            | join: ""
-                            | replace_first: '====', '&nbsp;'
-                    }}
-                {%- endcapture -%}
+                <div class="u-hidden--mobile">
+                    {%- capture headlineMinusOrphans -%}
+                        {{
+                            include.headline
+                                | split: ""
+                                | reverse
+                                | join: ""
+                                | replace_first: ' ', '===='
+                                | split: ""
+                                | reverse
+                                | join: ""
+                                | replace_first: '====', '&nbsp;'
+                        }}
+                    {%- endcapture -%}
 
-                {{ headlineMinusOrphans }}
+                    {{ headlineMinusOrphans }}
+                </div>
+                <div class="u-hidden--tablet">
+                    {{ include.headline }}
+                </div>
             </h2>
 
             {{ include.content }}

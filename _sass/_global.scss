@@ -106,7 +106,7 @@ $fontFamily--body: Inter, sans-serif;
 $fontFamily--display: Glegoo, sans-serif;
 
 $fontSizeBase: (
-    'mobile': 16px,
+    'mobile': 12px,
     'tablet': 20px,
     'desktop': 24px,
 );
@@ -223,13 +223,19 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
         font-size: map-get($fontSizeBase, 'desktop');
     }
 }
-.aboutUs-valuesGrid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-}
 .aboutUs-valuesGridHeader {
-    grid-column-start: 1;
-    grid-column-end: 3;
+    margin-bottom: $whiteSpace--normal;
+}
+@include responsiveStylesFor('tablet') {
+    .aboutUs-valuesGrid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .aboutUs-valuesGridHeader {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        margin-bottom: 0;
+    }
 }
 .avatar,
 .avatarSpacer {
@@ -329,8 +335,11 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    padding-bottom: 100px;
-    padding-top: 100px;
+
+    @include responsiveStylesFor('tablet') {
+        padding-bottom: $whiteSpace--xloose;
+        padding-top: $whiteSpace--xloose;
+    }
 }
 .bgOrbits {
     background-position: top right;
@@ -705,8 +714,15 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     }
     .siteHeader-menuToggleButton {
         cursor: pointer;
-        margin-bottom: $whiteSpace--normal;
-        margin-left: $whiteSpace--normal;
+        position: absolute;
+        top: $whiteSpace--normal;
+        left: $whiteSpace--loose;
+
+        .is-open & {
+            position: static;
+            margin-bottom: $whiteSpace--normal;
+            margin-left: $whiteSpace--normal;
+        }
     }
     .siteHeader-nav {
         color: map-get($colorPalette, 'foreground');
@@ -736,6 +752,7 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
 
         .siteHeader-menuItems {
             opacity: 0;
+            pointer-events: none;
             transition: opacity 0.25s;
         }
 
@@ -752,6 +769,7 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
 
             .siteHeader-menuItems {
                 opacity: 1;
+                pointer-events: all;
             }
         }
     }
@@ -983,8 +1001,9 @@ $flexProperties: (
 }
 .u-stackVerticallyIfMobile {
     @include responsiveStylesFor('mobile') {
-        flex-direction: column !important;
         align-items: stretch !important;
+        flex-direction: column !important;
+        row-gap: $whiteSpace--normal;
 
         & > * {
             flex-grow: 1 !important;
@@ -1038,92 +1057,60 @@ $flexProperties: (
 }
 @each $gridSizeName, $whiteSpaceValue in $gridSizes {
     .u-columnGap--#{$gridSizeName} {
-        @include responsiveStylesFor('mobile') {
-            row-gap: $whiteSpaceValue !important;
-            column-gap: 0;
-        }
-        @include increaseSpecificity {
-            column-gap: $whiteSpaceValue;
-        }
+        column-gap: $whiteSpaceValue;
     }
     .u-rowGap--#{$gridSizeName} {
-        @include increaseSpecificity {
-            row-gap: $whiteSpaceValue;
-        }
+        row-gap: $whiteSpaceValue;
     }
     .u-padding--#{$gridSizeName} {
-        @include increaseSpecificity {
+        padding: calc(#{$whiteSpaceValue} * 0.5);
+
+        @include responsiveStylesFor('tablet') {
             padding: $whiteSpaceValue;
         }
     }
     .u-paddingBottom--#{$gridSizeName} {
-        @include increaseSpecificity {
-            padding-bottom: $whiteSpaceValue;
-        }
+        padding-bottom: $whiteSpaceValue;
     }
     .u-paddingLeft--#{$gridSizeName} {
-        @include increaseSpecificity {
-            padding-left: $whiteSpaceValue;
-        }
+        padding-left: $whiteSpaceValue;
     }
     .u-paddingRight--#{$gridSizeName} {
-        @include increaseSpecificity {
-            padding-right: $whiteSpaceValue;
-        }
+        padding-right: $whiteSpaceValue;
     }
     .u-paddingTop--#{$gridSizeName} {
-        @include increaseSpecificity {
-            padding-top: $whiteSpaceValue;
-        }
+        padding-top: $whiteSpaceValue;
     }
     .u-paddingX--#{$gridSizeName} {
-        @include increaseSpecificity {
-            padding-left: $whiteSpaceValue;
-            padding-right: $whiteSpaceValue;
-        }
+        padding-left: $whiteSpaceValue;
+        padding-right: $whiteSpaceValue;
     }
     .u-paddingY--#{$gridSizeName} {
-        @include increaseSpecificity {
-            padding-bottom: $whiteSpaceValue;
-            padding-top: $whiteSpaceValue;
-        }
+        padding-bottom: $whiteSpaceValue;
+        padding-top: $whiteSpaceValue;
     }
     .u-margin--#{$gridSizeName} {
-        @include increaseSpecificity {
-            margin: $whiteSpaceValue;
-        }
+        margin: $whiteSpaceValue;
     }
     .u-marginBottom--#{$gridSizeName} {
-        @include increaseSpecificity {
-            margin-bottom: $whiteSpaceValue;
-        }
+        margin-bottom: $whiteSpaceValue;
     }
     .u-marginLeft--#{$gridSizeName} {
-        @include increaseSpecificity {
-            margin-left: $whiteSpaceValue;
-        }
+        margin-left: $whiteSpaceValue;
     }
     .u-marginRight--#{$gridSizeName} {
-        @include increaseSpecificity {
-            margin-right: $whiteSpaceValue;
-        }
+        margin-right: $whiteSpaceValue;
     }
     .u-marginTop--#{$gridSizeName} {
-        @include increaseSpecificity {
-            margin-top: $whiteSpaceValue;
-        }
+        margin-top: $whiteSpaceValue;
     }
     .u-marginX--#{$gridSizeName} {
-        @include increaseSpecificity {
-            margin-left: $whiteSpaceValue;
-            margin-right: $whiteSpaceValue;
-        }
+        margin-left: $whiteSpaceValue;
+        margin-right: $whiteSpaceValue;
     }
     .u-marginY--#{$gridSizeName} {
-        @include increaseSpecificity {
-            margin-bottom: $whiteSpaceValue;
-            margin-top: $whiteSpaceValue;
-        }
+        margin-bottom: $whiteSpaceValue;
+        margin-top: $whiteSpaceValue;
     }
 }
 .u-flexDirection--rowReverse {
@@ -1139,6 +1126,16 @@ $flexProperties: (
     .u-fontSize--#{$fontSizeName} {
         font-size: $fontSize;
         line-height: $lineHeight;
+    }
+}
+.u-hidden--mobile {
+    @include responsiveStylesFor('mobile') {
+        display: none;
+    }
+}
+.u-hidden--tablet {
+    @include responsiveStylesFor('tablet') {
+        display: none;
     }
 }
 .u-justifyContent--flexEnd {
