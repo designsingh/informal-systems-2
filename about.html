@@ -207,6 +207,7 @@ intro: |
                     site.data.config.teamMembers | sort: "name"
             %}
             {% for teamMember in teamMembers %}
+                {% assign modalWindowID = teamMember.name | downcase | replace: ' ', '-' %}
                 <div class="u-rowGap--tight">
                     <div>
                         <img
@@ -235,25 +236,42 @@ intro: |
                             {{ teamMember.bio | markdownify }}
                         </div>
                         <p>
-                            <button class="link u-color--foreground">
+                            <button
+                                class="link u-color--foreground js-modal-trigger"
+                                data-modal-id="{{ modalWindowID }}"
+                            >
                                 Read More
                             </button>
                         </p>
                     </div>
                 </div>
-                <div class="modalWindow-container">
+                <div
+                    class="modalWindow-container js-modal is-closed"
+                    data-modal-id="{{ modalWindowID }}"
+                >
                     <article
                         class="
                             modalWindow
                             u-alignItems--flexStart
                             u-columnGap--normal
-                            js-modal
-                            is-closed
                         "
                     >
+                        <button
+                            class="modalWindow-closeButton link js-modal-trigger"
+                            data-modal-id="{{ modalWindowID }}"
+                        >
+                            <i class="fal fa-times"></i>
+                            <span class="u-screenReadersOnly">
+                                Close Window
+                            </span>
+                        </button>
                         <div class="u-rowGap--tight">
                             <p class="u-fontSize--small">
-                                <a href="#" class="js-modal-close-button">
+                                <a
+                                    class="js-modal-trigger"
+                                    data-modal-id="{{ modalWindowID }}"
+                                    href="#"
+                                >
                                     Team
                                 </a>
                             </p>
@@ -263,7 +281,21 @@ intro: |
                             <div class="u-rowGap--tight u-fontSize--small">
                                 {{ teamMember.bio | markdownify }}
                             </div>
-
+                            <ul class="u-columnGap--tight">
+                                {% for socialLink in teamMember.socialLinks %}
+                                    <li>
+                                        <a
+                                            href="{{ socialLink.url }}"
+                                            target="_blank"
+                                        >
+                                            <i class="fab fa-{{ socialLink.service | downcase }}"></i>
+                                            <span class="u-screenReadersOnly">
+                                                {{ socialLink.service | capitalize }}
+                                            </span>
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
                         </div>
                         <div>
                             <img

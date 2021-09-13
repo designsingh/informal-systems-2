@@ -73,6 +73,35 @@ const initPage = () => {
     });
 
     renderMenu();
+
+    // Modal Windows
+    const toggleModal = (modalId) => {
+        const $modalWindow = select(`.js-modal[data-modal-id="${modalId}"]`);
+
+        $modalWindow.classList.toggle('is-closed');
+        $modalWindow.classList.toggle('is-open');
+    };
+
+    const $modalWindowTriggers = selectAll('.js-modal-trigger[data-modal-id]');
+
+    $modalWindowTriggers.forEach(($modalWindowTrigger) => {
+        const modalId = $modalWindowTrigger.dataset.modalId;
+
+        $modalWindowTrigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            toggleModal(modalId);
+        });
+    });
+
+    window.addEventListener('keydown', e => {
+        if (e.key === 'Escape') {
+            const $openModalTrigger = select('.js-modal.is-open .js-modal-trigger');
+
+            if ($openModalTrigger) {
+                $openModalTrigger.click();
+            }
+        }
+    })
 };
 
 document.addEventListener('DOMContentLoaded', initPage);

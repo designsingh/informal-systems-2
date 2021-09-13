@@ -551,6 +551,19 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
 .lowContrast--yellow {
     background-color: rgba($color--accent--yellow, 0.1);
 }
+.modalWindow {
+    background-color: map-get($colorPalette, 'background');
+    box-shadow: $boxShadow--normal;
+    padding: $whiteSpace--loose;
+    position: relative;
+    transform: scale(0);
+    transition: transform 0.25s;
+    width: 60vw;
+
+    .is-open & {
+        transform: scale(1);
+    }
+}
 .modalWindow-container {
     align-items: center;
     backdrop-filter: blur($backdropBlurRadius);
@@ -559,16 +572,23 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     height: 100vh;
     justify-content: center;
     left: 0;
+    opacity: 0;
+    pointer-events: none;
     position: fixed;
     top: 0;
     width: 100vw;
     z-index: 6000;
+    transition: opacity 0.25s;
+
+    &.is-open {
+        opacity: 1;
+        pointer-events: all;
+    }
 }
-.modalWindow {
-    background-color: map-get($colorPalette, 'background');
-    box-shadow: $boxShadow--normal;
-    padding: $whiteSpace--loose;
-    width: 60vw;
+.modalWindow-closeButton {
+    position: absolute;
+    top: $whiteSpace--tight;
+    right: $whiteSpace--normal;
 }
 .photo {
     display: inline-block;

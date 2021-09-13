@@ -41,8 +41,8 @@
     {% for shareLink in page.shareLinks %}
         <li class="omitted-from-post-styles">
             <a
-                class="shareLink-button"
                 href="{{ shareLink.url }}"
+                target="_blank"
             >
                 <i class="fab fa-{{ shareLink.service | downcase }}"></i>
                 <span class="u-screenReadersOnly">
