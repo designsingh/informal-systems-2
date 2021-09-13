@@ -32,18 +32,12 @@ menuItems:
     - label: Careers
       url: /careers
 socialLinks:
-    - label: Facebook
-      icon: fab fa-facebook
-      url: http://facebook.com/
-    - label: Instagram
-      icon: fab fa-instagram
-      url: http://instagram.com/
     - label: Twitter
       icon: fab fa-twitter
-      url: http://twitter.com/
-    - label: Facebook
+      url: https://twitter.com/informalinc
+    - label: LinkedIn
       icon: fab fa-linkedin
-      url: http://linkedin.com/
+      url: https://www.linkedin.com/company/informal-systems/
 teamMembers:
   - name: Marie Leaf
     socialLinks:
