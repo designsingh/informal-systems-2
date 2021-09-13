@@ -554,6 +554,7 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
 .modalWindow {
     background-color: map-get($colorPalette, 'background');
     box-shadow: $boxShadow--normal;
+    max-width: 1000px;
     padding: $whiteSpace--loose;
     position: relative;
     transform: scale(0);
