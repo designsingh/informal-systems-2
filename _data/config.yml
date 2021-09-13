@@ -11,8 +11,8 @@ footerMenuItems:
       url: /products
     - label: Auditing
       url: /services/auditing
-    - label: Interchain Operations
-      url: /services/interchain-operations
+    - label: Proof of Stake Validator
+      url: /services/proof-of-stake-validator
     - label: Careers
       url: /careers
 menuItems:
@@ -27,8 +27,8 @@ menuItems:
       subMenuItems:
           - label: Auditing
             url: /services/auditing
-          - label: Interchain Operations
-            url: /services/interchain-operations
+          - label: Proof of Stake Validator
+            url: /services/proof-of-stake-validator
     - label: Careers
       url: /careers
 socialLinks:
@@ -47,23 +47,39 @@ socialLinks:
 teamMembers:
   - name: Marie Leaf
     bio: |
-      Marie works on product development to support local money and mutual
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus, odit
+      quisquam. Quisquam aspernatur, hic, culpa voluptatum ducimus voluptas
+      placeat amet quo iure dignissimos delectus dicta, asperiores quibusdam nam
+      totam repellendus.
   - name: Shon Feder
     bio: |
-      Marie works on product development to support local money and mutual
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque, nemo? At
+      est, culpa asperiores excepturi quibusdam iusto, eveniet quas molestias
+      velit alias quis assumenda incidunt, voluptates ab voluptatibus eum?
+      Aliquam!
   - name: Josef Widder
     bio: |
-      Marie works on product development to support local money and mutual
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus tempore
+      dolor voluptate quis magnam eveniet a veniam distinctio laudantium
+      asperiores illo, voluptatem rem exercitationem hic similique, consequatur,
+      quasi omnis deserunt?
   - name: Marie Leaf
     bio: |
-      Marie works on product development to support local money and mutual
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi labore totam
+      laudantium ad amet repellat quisquam omnis sed, necessitatibus ipsum laborum
+      reiciendis repudiandae odio, porro placeat obcaecati a esse ratione.
   - name: Marie Leaf
     bio: |
-      Marie works on product development to support local money and mutual
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas inventore
+      ea eligendi incidunt maxime, nisi praesentium quo, id, pariatur vitae quod.
+      Quisquam obcaecati non pariatur voluptatum itaque vel, ullam officiis.
   - name: Joshua Jeffrey
     bio: |
-      Marie works on product development to support local money and mutual
-tweets:
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus sit, nisi
+      repudiandae impedit earum dolor neque culpa at est vitae deserunt officia
+      voluptatem beatae libero labore qui ipsam! Cupiditate, deleniti.
+      twee
+ts:
   - 1436208066882686980
   - 1436675105405480961
   - 1436857655306371081

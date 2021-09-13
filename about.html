@@ -201,7 +201,7 @@ intro: |
             </p>
         </div>
 
-        <div class="grid u-columns--3 u-columnGap--normal u-rowGap--loose">
+        <div class="grid u-alignItems--flexStart u-columns--3 u-columnGap--normal u-rowGap--loose">
             {%
                 assign teamMembers =
                     site.data.config.teamMembers | sort: "name"
@@ -225,9 +225,62 @@ intro: |
                     <h4 class="heading u-fontSize--xlarge">
                         {{ teamMember.name }}
                     </h4>
-                    <div class="u-rowGap--tight u-color--foreground--secondary">
-                        {{ teamMember.bio | markdownify }}
+                    <div class="u-rowGap">
+                        <div
+                            class="
+                                u-color--foreground--secondary
+                                u-maxLines--3
+                            "
+                        >
+                            {{ teamMember.bio | markdownify }}
+                        </div>
+                        <p>
+                            <button class="link u-color--foreground">
+                                Read More
+                            </button>
+                        </p>
                     </div>
+                </div>
+                <div class="modalWindow-container">
+                    <article
+                        class="
+                            modalWindow
+                            u-alignItems--flexStart
+                            u-columnGap--normal
+                            js-modal
+                            is-closed
+                        "
+                    >
+                        <div class="u-rowGap--tight">
+                            <p class="u-fontSize--small">
+                                <a href="#" class="js-modal-close-button">
+                                    Team
+                                </a>
+                            </p>
+                            <h5 class="heading u-fontSize--xlarge">
+                                {{ teamMember.name }}
+                            </h5>
+                            <div class="u-rowGap--tight u-fontSize--small">
+                                {{ teamMember.bio | markdownify }}
+                            </div>
+
+                        </div>
+                        <div>
+                            <img
+                                class="photo"
+                                src="{{
+                                    'assets/img/portraits/'
+                                        | append: teamMember.name
+                                        | downcase
+                                        | replace: ' ', '-'
+                                        | append: '.png'
+                                        | relative_url
+                                }}"
+                                alt="Portrait of {{ teamMember.name }}"
+                                style="width: 250px"
+                            />
+                        </div>
+                    </article>
                 </div>
             {% endfor %}
         </div>

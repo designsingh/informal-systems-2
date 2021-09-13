@@ -54,6 +54,8 @@ $variants: (
     ),
 );
 
+$backdropBlurRadius: 10px;
+
 $breakpointDefinitions: (
     desktop: (
         constraint-name: min-width,
@@ -504,11 +506,10 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
     cursor: pointer;
 }
 .link {
-    color: $color--accent;
-    font-weight: bold;
+    text-decoration: underline;
 
     &:hover {
-        text-decoration: underline;
+        color: $color--accent;
     }
 }
 .link--discreet {
@@ -549,6 +550,25 @@ $whiteSpace--xloose: calc(var(--gridUnit) * 4);
 }
 .lowContrast--yellow {
     background-color: rgba($color--accent--yellow, 0.1);
+}
+.modalWindow-container {
+    align-items: center;
+    backdrop-filter: blur($backdropBlurRadius);
+    background-color: rgba(map-get($colorPalette, 'background'), 0.1);
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 6000;
+}
+.modalWindow {
+    background-color: map-get($colorPalette, 'background');
+    box-shadow: $boxShadow--normal;
+    padding: $whiteSpace--loose;
+    width: 60vw;
 }
 .photo {
     display: inline-block;
@@ -1110,6 +1130,14 @@ $flexProperties: (
     column-count: 3;
     column-gap: var(--gridUnit);
 }
+@for $i from 1 through 10 {
+    .u-maxLines--#{$i} {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        -webkit-line-clamp: $i;
+    }
+}
 .u-screenReadersOnly {
     position: absolute;
     width: 1px;
@@ -1123,7 +1151,7 @@ $flexProperties: (
 }
 .u-sticky {
     @include responsiveStylesFor('tablet') {
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur($backdropBlurRadius);
         background-color: rgba(map-get($colorPalette, 'background'), 0.3);
         position: sticky;
         top: 0;
