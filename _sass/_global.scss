@@ -1183,5 +1183,7 @@ $flexProperties: (
     text-align: center;
 }
 .u-whiteSpace--nowrap {
-    white-space: nowrap;
+    @include responsiveStylesFor('tablet') {
+        white-space: nowrap;
+    }
 }
