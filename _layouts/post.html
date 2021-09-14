@@ -32,12 +32,20 @@
             </div>
         </dl>
     {% endcapture %}
+
     {%
         include page-title.html
             title=page.title
             superTitle=superTitle
             subTitle=subTitle
     %}
+
+    {% if page.featuredImage %}
+        <img
+            class="photo u-boxShadow--normal"
+            src={{ 'assets' | append: page.featuredImage | relative_url }}
+        />
+    {% endif %}
 
     <section class="grid post u-rowGap--normal">
         {{ page.content }}
