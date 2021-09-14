@@ -5,17 +5,16 @@ blockChainProducts:
       socialLinks:
         - label: Github
           icon: fab fa-github
-          url: http://www.github.com/
+          url: https://github.com/informalsystems/tendermint-rs
       description: |
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus a aliquid
-          debitis. Consectetur repellat.
+          Tendermint is a Byzantine Fault Tolerant state machine replication engine for applications written in Rust.
     - title: ibc-rs
       color: purple
       icon: assets/img/product-logos/ibc-rs.svg
       socialLinks:
         - label: Github
           icon: fab fa-github
-          url: http://www.github.com/
+          url: https://github.com/informalsystems/ibc-rs
       description: |
           Inter-Blockchain Communication (IBC) is a protocol for secure,
           packet-based communication between distinct blockchains.
@@ -25,10 +24,9 @@ blockChainProducts:
       socialLinks:
         - label: Website
           icon: far fa-globe-americas
-          url: http://www.hermes-homepage.io/
+          url: https://hermes.informal.systems/relayer.html
       description: |
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus a aliquid
-          debitis. Consectetur repellat.
+          Hermes is an open-source Rust implementation of a relayer for IBC, released under the ibc-relayer-cli crate.
 verificationProducts:
   - title: Apalache
     color: teal
@@ -36,20 +34,18 @@ verificationProducts:
     socialLinks:
       - label: Github
         icon: fab fa-github
-        url: http://www.github.com/
+        url: https://github.com/informalsystems/apalache
       - label: Website
         icon: far fa-globe-americas
-        url: http://www.apalache-homepage.com/
+        url: https://apalache.informal.systems/
     description: |
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus a aliquid
-        debitis. Consectetur repellat.
+        Symbolic model checker for TLA+ – formally verify TLA+ specifications for real-world distributed systems protocols
   - title: Model Based Testing
     color: yellow
     icon: assets/img/product-logos/model-based-testing.svg
     socialLinks:
       - label: Website
         icon: far fa-globe-americas
-        url: http://www.mbs-homepage.com/
+        url: https://aaronmw.github.io/informal-systems-2/services/auditing/
     description: |
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus a aliquid
-        debitis. Consectetur repellat.
+       A methodology and tool used to auto-generate tests for real implementations from an underlying TLA+ model.
