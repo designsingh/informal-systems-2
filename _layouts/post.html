@@ -1,0 +1,51 @@
+{% include site-header.html %}
+
+<main class="grid-container u-rowGap--loose">
+    {% capture superTitle %}
+        <a href="{{ 'blog' | relative_url }}" class="link--discreet">
+            Blog
+        </a>
+    {% endcapture %}
+    {% capture subTitle %}
+        <dl class="iconifiedMetaData u-stackVerticallyIfMobile">
+            <div class="iconifiedMetaData-labelValuePair">
+                <dt class="iconifiedMetaData-label">
+                    <i class="iconifiedMetaData-labelIcon far fa-calendar"></i>
+                    <span class="iconifiedMetaData-labelText">
+                        Date
+                    </span>
+                </dt>
+                <dd class="iconifiedMetaData-value">
+                    {{ page.date | date: "%Y-%m-%d" }}
+                </dd>
+            </div>
+            <div class="iconifiedMetaData-labelValuePair">
+                <dt class="iconifiedMetaData-label">
+                    <i class="iconifiedMetaData-labelIcon far fa-user"></i>
+                    <span class="iconifiedMetaData-labelText">
+                        Author
+                    </span>
+                </dt>
+                <dd class="iconifiedMetaData-value">
+                    {{ page.author }}
+                </dd>
+            </div>
+        </dl>
+    {% endcapture %}
+    {%
+        include page-title.html
+            title=page.title
+            superTitle=superTitle
+            subTitle=subTitle
+    %}
+
+    <section class="grid post u-rowGap--normal">
+        {{ page.content }}
+    </section>
+
+    <section>
+        {% include banner-newsletter.html %}
+    </section>
+</main>
+
+{% include site-footer.html %}

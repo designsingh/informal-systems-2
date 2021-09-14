@@ -6,37 +6,35 @@
                     class="link--discreet"
                     href="{{ include.post.url | relative_url }}"
                 >
-                    {{ include.post.title }}
+                    {{ include.post.jobTitle }}
                 </a>
             </h3>
             <dl class="iconifiedMetaData u-stackVerticallyIfMobile">
                 <div class="iconifiedMetaData-labelValuePair">
                     <dt class="iconifiedMetaData-label">
-                        <i class="iconifiedMetaData-labelIcon far fa-calendar"></i>
+                        <i class="iconifiedMetaData-labelIcon far fa-clock"></i>
                         <span class="iconifiedMetaData-labelText">
-                            Date
+                            Job Type
                         </span>
                     </dt>
                     <dd class="iconifiedMetaData-value">
-                        {{ post.date | date: "%Y-%m-%d" }}
+                        {{ include.post.jobType }}
                     </dd>
                 </div>
                 <div class="iconifiedMetaData-labelValuePair">
                     <dt class="iconifiedMetaData-label">
-                        <i class="iconifiedMetaData-labelIcon far fa-user"></i>
+                        <i class="iconifiedMetaData-labelIcon far fa-globe-americas"></i>
                         <span class="iconifiedMetaData-labelText">
-                            Author
+                            Location
                         </span>
                     </dt>
                     <dd class="iconifiedMetaData-value">
-                        {{ include.post.author }}
+                        {{ include.post.locations | join: ", " }}
                     </dd>
                 </div>
             </dl>
         </header>
 
-        <main class="post u-rowGap--normal">
-            {{ include.post.blurb }}
-        </main>
+        <main>{{ include.post.blurb }}</main>
     </article>
 </div>

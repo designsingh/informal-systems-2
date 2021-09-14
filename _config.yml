@@ -34,6 +34,10 @@ defaults:
 plugins:
     - jekyll-feed
 collections:
+    posts:
+        output: true
+        sort_by: date
+        permalink: /blog/:name
     careers:
         output: true
         sort_by: jobTitle

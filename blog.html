@@ -1,0 +1,31 @@
+---
+title: Informal Blog
+superTitle: Welcome to the
+---
+<main class="u-rowGap--xloose">
+    {%
+        include page-title.html
+            title=page.title
+            superTitle=page.superTitle
+            intro=page.intro
+    %}
+
+    <section class="grid-container">
+        <div class="grid post u-rowGap--normal">
+            {% for post in site.posts %}
+                {% assign count = count | plus: 1 %}
+
+                {% if count > 1 %}
+                    <div class="grid-container">
+                        <div class="grid">
+                            <div class="horizontalRule"></div>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% include post-list-item.html post=post %}
+            {% endfor %}
+            {% include banner-newsletter.html %}
+        </div>
+    </section>
+</main>
