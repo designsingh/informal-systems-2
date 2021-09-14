@@ -212,6 +212,15 @@ teamMembers:
   socialLinks:
     - service: Github
       url: https://github.com/mircea-c
+- name: Preet Singh
+  bio: |
+      Preet is a design consultant at Informal working to setup the team's design 
+      practice including people, design ops and our brand identity. He is a big
+      believer and proponent of the power of communities and bringing good people 
+      together to do great things.
+  socialLinks:
+    - service: Twitter
+      url: twitter.com/designsingh
 - name: Ranadeep Biswas
   bio: |
       Ranadeep is a Research Engineer at Informal based in Paris. He uses
