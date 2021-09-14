@@ -104,6 +104,12 @@ const initPage = () => {
             }
         }
     });
+
+    select('.js-newsletter-form').addEventListener('submit', () => {
+        setTimeout(() => {
+            select('.js-newsletter-email-field').setAttribute('value', '');
+        }, 2000);
+    });
 };
 
 document.addEventListener('DOMContentLoaded', initPage);

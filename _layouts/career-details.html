@@ -16,54 +16,43 @@
 {% endcapture %}
 <div class="u-rowGap--xloose">
     <article class="u-rowGap--normal">
+        {% capture metaStuff %}
+            <dl class="iconifiedMetaData">
+                {% if page.hiringCount %}
+                    {% if page.hiringCount == 1 %}
+                        {% assign hiringCountText = page.hiringCount | append: ' open position' %}
+                    {% else %}
+                        {% assign hiringCountText = page.hiringCount | append: ' open positions' %}
+                    {% endif %}
+                    {%
+                        include meta-data-item.html
+                            label="Hiring Count"
+                            icon="far fa-user"
+                            value=hiringCountText
+                    %}
+                {% endif %}
+                {%
+                    include meta-data-item.html
+                        label="Job Type"
+                        icon="far fa-clock"
+                        value=page.jobType
+                %}
+                {% assign locationList = page.locations | join: ", " %}
+                {%
+                    include meta-data-item.html
+                        label="Location"
+                        icon="far fa-map-marker-alt"
+                        value=locationList
+                %}
+            </dl>
+        {% endcapture %}
         {%
             include page-title.html
                 title=page.jobTitle
                 superTitle=superTitle
-                intro=page.blurb
+                subTitle=metaStuff
+                intro=page.intro
         %}
-
-        <div class="grid-container">
-            <div class="grid">
-                <img
-                    class="photo"
-                    src="http://lorempixel.com/640/360/abstract"
-                />
-
-                <hr class="horizontalRule--hairline u-marginY--normal" />
-
-                <dl class="iconifiedMetaData">
-                    {% if page.hiringCount %}
-                        {% if page.hiringCount == 1 %}
-                            {% assign hiringCountText = page.hiringCount | append: ' open position' %}
-                        {% else %}
-                            {% assign hiringCountText = page.hiringCount | append: ' open positions' %}
-                        {% endif %}
-                        {%
-                            include meta-data-item.html
-                                label="Hiring Count"
-                                icon="far fa-user"
-                                value=hiringCountText
-                        %}
-                    {% endif %}
-
-                    {%
-                        include meta-data-item.html
-                            label="Job Type"
-                            icon="far fa-clock"
-                            value=page.jobType
-                    %}
-
-                    {% assign locationList = page.locations | join: ", " %}
-                    {%
-                        include meta-data-item.html
-                            label="Location"
-                            icon="far fa-map-marker-alt"
-                            value=locationList
-                    %}
-                </dl>
-            </div>
-        </div>
 
         <div class="grid-container">
             <div class="post grid u-rowGap--normal">

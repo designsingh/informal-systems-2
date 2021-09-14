@@ -24,6 +24,7 @@
                                 | append: '.png'
                                 | relative_url
                         }}"
+                        onerror="this.src='{{ 'assets/img/portraits/profile-placeholder.png' | relative_url }}'"
                         alt="Portrait of {{ teamMember.name }}"
                     />
                 </li>
@@ -52,10 +53,6 @@
                 </div>
             </div>
         {% endif %}
-
-        {% assign title = career.jobTitle | append: " &mdash; " | append: career.groupName %}
-
-        {% assign url = career.url | relative_url %}
 
         {% include post-list-item.html post=career %}
     {% endif %}

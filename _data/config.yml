@@ -9,8 +9,8 @@ footerMenuItems:
       url: /about
     - label: Products
       url: /products
-    - label: Auditing
-      url: /services/auditing
+    - label: Security Audits
+      url: /services/security-audits
     - label: Proof of Stake Validator
       url: /services/proof-of-stake-validator
     - label: Careers
@@ -25,8 +25,8 @@ menuItems:
     - label: Services
       url: /services
       subMenuItems:
-          - label: Auditing
-            url: /services/auditing
+          - label: Security Audits
+            url: /services/security-audits
           - label: Proof of Stake Validator
             url: /services/proof-of-stake-validator
     - label: Careers
@@ -303,13 +303,13 @@ teamMembers:
       url: https://github.com/milosevic
     - service: LinkedIn
       url: https://www.linkedin.com/in/zarko-milosevic-8a87375
-ts:
-  - 1436208066882686980
-  - 1436675105405480961
-  - 1436857655306371081
-  - 1436208066882686980
-  - 1436675105405480961
-  - 1436857655306371081
+tweets:
+  - 1437513918340022274
+  - 1436544040904716291
+  - 1436403401651212290
+  - 1436015292321304582
+  - 1436007488843751424
+  - 1435803899542319116
 values:
   - label: Play
     description: Approach the world with open curiosity
