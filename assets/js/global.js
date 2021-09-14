@@ -93,15 +93,17 @@ const initPage = () => {
         });
     });
 
-    window.addEventListener('keydown', e => {
+    window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
-            const $openModalTrigger = select('.js-modal.is-open .js-modal-trigger');
+            const $openModalTrigger = select(
+                '.js-modal.is-open .js-modal-trigger'
+            );
 
             if ($openModalTrigger) {
                 $openModalTrigger.click();
             }
         }
-    })
+    });
 };
 
 document.addEventListener('DOMContentLoaded', initPage);
@@ -124,3 +126,28 @@ window.twttr = (function (d, s, id) {
 
     return t;
 })(document, 'script', 'twitter-wjs');
+
+const taggedElements = [
+    '.iubenda_legal_document',
+    '.iub_header',
+    '.expand-content',
+    '.box_primary',
+];
+
+window.addEventListener('load', () => {
+    let classAttempt = setInterval(() => {
+        const $elementsToTag = taggedElements.map((selector) =>
+            selectAll(selector)
+        );
+
+        if ($elementsToTag[0][0]) {
+            $elementsToTag.forEach(($elementToTag) => {
+                [].concat($elementToTag).forEach(($e) => {
+                    $e.classList.add('u-rowGap--normal');
+                });
+            });
+
+            classAttempt = clearInterval(classAttempt);
+        }
+    }, 250);
+});

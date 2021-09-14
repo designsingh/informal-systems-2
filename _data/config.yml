@@ -39,70 +39,270 @@ socialLinks:
       icon: fab fa-linkedin
       url: https://www.linkedin.com/company/informal-systems/
 teamMembers:
-  - name: Marie Leaf
-    socialLinks:
-      - service: Github
-        url: http://www.github.com/
-      - service: Instagram
-        url: http://www.instagram.com/
-    bio: |
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus, odit
-      quisquam. Quisquam aspernatur, hic, culpa voluptatum ducimus voluptas
-      placeat amet quo iure dignissimos delectus dicta, asperiores quibusdam nam
-      totam repellendus.
-  - name: Shon Feder
-    socialLinks:
-      - service: Github
-        url: http://www.github.com/
-      - service: Instagram
-        url: http://www.instagram.com/
-    bio: |
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque, nemo? At
-      est, culpa asperiores excepturi quibusdam iusto, eveniet quas molestias
-      velit alias quis assumenda incidunt, voluptates ab voluptatibus eum?
-      Aliquam!
-  - name: Josef Widder
-    socialLinks:
-      - service: Github
-        url: http://www.github.com/
-      - service: Instagram
-        url: http://www.instagram.com/
-    bio: |
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus tempore
-      dolor voluptate quis magnam eveniet a veniam distinctio laudantium
-      asperiores illo, voluptatem rem exercitationem hic similique, consequatur,
-      quasi omnis deserunt?
-  - name: Marie Leaf
-    socialLinks:
-      - service: Github
-        url: http://www.github.com/
-      - service: Instagram
-        url: http://www.instagram.com/
-    bio: |
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi labore totam
-      laudantium ad amet repellat quisquam omnis sed, necessitatibus ipsum laborum
-      reiciendis repudiandae odio, porro placeat obcaecati a esse ratione.
-  - name: Marie Leaf
-    socialLinks:
-      - service: Github
-        url: http://www.github.com/
-      - service: Instagram
-        url: http://www.instagram.com/
-    bio: |
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas inventore
-      ea eligendi incidunt maxime, nisi praesentium quo, id, pariatur vitae quod.
-      Quisquam obcaecati non pariatur voluptatum itaque vel, ullam officiis.
-  - name: Joshua Jeffrey
-    socialLinks:
-      - service: Github
-        url: http://www.github.com/
-      - service: Instagram
-        url: http://www.instagram.com/
-    bio: |
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus sit, nisi
-      repudiandae impedit earum dolor neque culpa at est vitae deserunt officia
-      voluptatem beatae libero labore qui ipsam! Cupiditate, deleniti.
-      twee
+- name: Adi Seredinschi
+  bio: |
+      Adi is a Research Engineer focused on Distributed Systems at Informal. He
+      likes understanding and building distributed systems, making them faster
+      and more resilient. Despite knowing that time is an illusion, the goal of
+      his life is to build things -- distributed systems, and not only -- that
+      last.
+  socialLinks:
+    - service: Github
+      url: http://github.com/adizere
+- name: Anca Zamfir
+  bio: |
+      Anca is a Software Engineer focused on Distributed Systems at Informal.
+      She works on protocol specification and development. Besides blockchain
+      technology, Anca likes skiing, swimming and painting.
+  socialLinks:
+    - service: Github
+      url: https://github.com/ancazamfir
+    - service: LinkedIn
+      url: https://www.linkedin.com/in/anca-zamfir-6508a3/
+- name: Andrey Kuprianov
+  bio: |
+      Andrey is a Research Engineer focusing on developing practical
+      verification methods and tools. He strives to make computer systems
+      reliable by combining simplicity and elegance of design with bug-fixing
+      through verification. Outside of work, Andrey enjoys reading and playing
+      the trumpet.
+  socialLinks:
+    - service: Github
+      url: https://github.com/andrey-kuprianov
+    - service: LinkedIn
+      url: https://www.linkedin.com/in/andrey-kupriyanov-3b43247b/
+- name: Andy Nogueira
+  bio: |
+      Andy is a Developer Advocate and Software Engineer at Informal. He
+      believes that creating successful ecosystems is a combination of getting
+      the right people and groups working together in a cohesive and trusting
+      way to benefit all the participants. He enjoys reading, photography,
+      swimming and playing tennis.
+  socialLinks:
+    - service: Twitter
+      url: https://twitter.com/andynogg
+    - service: Github
+      url: https://github.com/andynog
+    - service: LinkedIn
+      url: https://www.linkedin.com/in/andynogueira/
+- name: Arianne Flemming
+  bio: |
+      Arianne is COO at Informal focusing on overseeing company operations and
+      procedures. She believes that value should be shared among those who
+      create it. Outside of work you'll find her practicing yoga, teaching math,
+      and with her dog Millie.
+  socialLinks:
+    - service: LinkedIn
+      url: https://www.linkedin.com/in/arianneflemming/
+- name: Cezara Dragoi
+  bio: |
+      Cezara is Principal Scientist at Informal. She is interested in increasing
+      confidence in consensus solutions and in their impact. She uses formal
+      methods to structure the thought process and make great things better.
+  socialLinks:
+    - service:
+      url:
+- name: Ethan Buchman
+  bio: |
+      Ethan is CEO at Informal. He sees consensus algorithms as a 21st century
+      means for promoting social cohesion. He is driven to empower humans with
+      new ways to coordinate and reach agreement at scale.
+  socialLinks:
+    - service: Twitter
+      url: https://twitter.com/buchmanster
+    - service: Github
+      url: https://github.com/ebuchman/
+    - service: LinkedIn
+      url: https://www.linkedin.com/in/ethan-buchman-10b34944/
+- name: Greg Szabo
+  bio: |
+      Greg is Infrastructure and Security Lead at Informal. He leads
+      infrastructure projects that build tools and services for Informal and the
+      Cosmos ecosystem. He believes that using IT infrastructure should be a
+      seamless experience that enables customers to focus on their goals,
+      instead of fighting the servers.
+  socialLinks:
+    - service: Twitter
+      url: https://twitter.com/philosobearIT
+    - service: Github
+      url: https://github.com/greg-szabo
+    - service: LinkedIn
+      url: https://www.linkedin.com/in/gergelymszabo
+- name: Igor Konnov
+  bio: |
+      Igor is a Principal Scientist at Informal. He believes that computer-aided
+      verification is up to the challenges of finding bugs in industrial
+      consensus protocols and proving their correctness. Igor focuses on
+      specification and verification of fault-tolerant distributed algorithms as
+      well as improving the verification tools. Igor enjoys reading and riding
+      hills on a bike or ski.
+  socialLinks:
+    - service: Github
+      url: https://github.com/konnov
+- name: Jehan Tremback
+  bio: |
+      Jehan is a senior rust engineer at Informal, exploring how formal
+      verification techniques can help teams build provably correct
+      decentralized protocols at a velocity not previously possible. Previously,
+      he helped design and build the Gravity Cosmos-Ethereum bridge, and before
+      that served as CEO of Althea.
+  socialLinks:
+    - service: Github
+      url: https://github.com/jtremback
+    - service: Twitter
+      url: https://twitter.com/JTremback
+
+- name: Jelena Djuric
+  bio: |
+      Jelena is Operations Manager at Informal Systems working to scale up
+      company procedures and processes. She loves to read authors she disagrees
+      with and enjoys taking her Nikon FE2 on long walks. She believes that the
+      forthcoming decentralized digital world will be more beautiful and
+      empowering than the last.
+  socialLinks:
+    - service: LinkedIn
+      url: https://www.linkedin.com/in/djuricjelena
+- name: Josef Widder
+  bio: |
+      Josef is a Principal Scientist at Informal and focuses on fault-tolerant
+      distributed protocols, their formal specification, and their automated
+      verification. Josef believes in math and logic. He enjoys Yoga, all kinds
+      of music, and being at the seaside.
+  socialLinks:
+    - service: Twitter
+      url: https://twitter.com/josef_widder
+    - service: Github
+      url: https://github.com/josef-widder
+- name: Joshua Jeffrey
+  bio: |
+      Joshua is the Cephalopod community manager at Informal Systems. His
+      mission is to connect ecosystems and build communities. He believes that
+      open-source blockchain technology empowers communities with tools to drive
+      change and lead through innovation. Outside of work he likes to spend time
+      in forests surrounded by trees.
+  socialLinks:
+    - service:
+      url:
+
+- name: Jure Kukovec
+  bio: |
+      Jure is a Verification Engineer at Informal, based in Vienna. As part of
+      his doctoral work, he co-lead the design and development of the Apalache
+      model checker for TLA+. He works on formal verification and analysis of
+      distributed protocols and systems.
+  socialLinks:
+    - service: Github
+      url: http://github.com/kukovec
+- name: Marie Leaf
+  bio: |
+      Marie works on product development to support local money and mutual
+      credit systems. She cares about building resilient and equitable systems,
+      that incentivize cooperation and sustainability.
+  socialLinks:
+    - service: Twitter
+      url: https://twitter.com/mariesleaf
+
+- name: Mircea Colonescu
+  bio: |
+      Mircea is an Infrastructure Engineer at Informal who works on operating
+      networks for blockchain projects. Mircea is awesome at designing &
+      implementing infrastructure solutions on many platforms and at breaking
+      software. He is based in Toronto and when he's not coding, you can find
+      him in Rocket League and other competitive video game scenes.
+  socialLinks:
+    - service: Github
+      url: https://github.com/mircea-c
+- name: Ranadeep Biswas
+  bio: |
+      Ranadeep is a Research Engineer at Informal based in Paris. He uses
+      model-based testing to expose bugs in distributed systems. When not at
+      work, he is usually hiking in nature or meeting people at local pubs.
+  socialLinks:
+    - service: Github
+      url: https://github.com/rnbguy
+- name: Raj Pakiyanathan
+  bio: |
+      Raj is Finance & Operations Manager at Informal supporting, contributing
+      and managing company accounting, finance and processes. He believes in the
+      future of this technology and the impact this will have on the world.
+      Outside of work you'll find him hiking in nature or meditating.
+  socialLinks:
+    - service: LinkedIn
+      url: https://www.linkedin.com/in/saronraj-p-258767aa/?originalSubdomain=uk
+- name: Romain Ruetschi
+  bio: |
+      Romain is a Software Engineer focused on Distributed Systems at Informal.
+      He uses formal methods and programming language theory to build correct
+      and resilient software.  He's a major contributor to the Stainless
+      verification framework for Scala, and has co-authored a few popular crypto
+      libraries in Rust. Based in Lausanne, Romain likes to spend time in the
+      mountains, hiking, skiing and reading.
+  socialLinks:
+    - service: Twitter
+      url: https://twitter.com/_romac
+    - service: Github
+      url: https://github.com/romac
+    - service: LinkedIn
+      url: https://www.linkedin.com/in/romain-ruetschi/
+- name: Shoaib Ahmed
+  bio: |
+      Shoaib is a Technical Project Lead at Informal. He has a background in
+      embedded software development, and extensive experience with system
+      programming and protocol development for blockchain light clients. He is
+      an ardent proponent of free software and decentralization. Shoaib enjoys
+      listening to Indian classical music, writing poetry (of the urdu ghazal
+      genre) and reading research papers on distributed systems & threshold
+      cryptography.
+- name: Shon Feder
+  bio: |
+      Shon is a Software Engineer at Informal working to empower distributed
+      cooperative organizations. He loves encoding thought into being by
+      expressing theories as programs and he believes that forming kinder
+      communities is paramount.
+  socialLinks:
+    - service: Twitter
+      url: https://twitter.com/shonfeder?lang=en
+    - service: Github
+      url: https://github.com/shonfeder
+    - service: LinkedIn
+      url: https://www.linkedin.com/in/shonfeder/
+- name: Soares Chen
+  bio: |
+      Soares is a Rust engineer at Informal. He uses his knowledge in functional
+      programming and programming language theory to build software that is
+      correct and composable. Soares enjoys learning new things, and he is
+      interested in research topics such as algebraic effects, session types,
+      dependent types, formal methods, distributed systems, blockchains, and
+      macroeconomics.
+  socialLinks:
+    - service: Twitter
+      url: https://twitter.com/soareschen
+    - service: Github
+      url: https://github.com/soareschen
+- name: Thane Thomson
+  bio: |
+      Thane is a Software Engineer, supporting and contributing to the
+      development of plaintext tools at Informal. He believes that
+      decentralization is one critical component of what makes a healthy
+      society, and that distributed systems technology bolsters and supports
+      that decentralization.
+  socialLinks:
+    - service: Twitter
+      url: https://twitter.com/thanethomson
+    - service: Github
+      url: https://github.com/thanethomson
+    - service: LinkedIn
+      url: https://www.linkedin.com/in/thanethomson
+- name: Zarko Milosevic
+  bio: |
+      Zarko is Chief Scientist and leads research efforts at Informal. He
+      believes that specification and implementation should be in love, and
+      strongly encourages techies to garden.
+  socialLinks:
+    - service: Github
+      url: https://github.com/milosevic
+    - service: LinkedIn
+      url: https://www.linkedin.com/in/zarko-milosevic-8a87375
 ts:
   - 1436208066882686980
   - 1436675105405480961

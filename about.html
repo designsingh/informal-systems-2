@@ -2,8 +2,8 @@
 title: Verifiable Systems & Organizations
 superTitle: About Us
 intro: |
-    We believe that better relationships between people and
-    protocols can flourish.
+    We believe in the flourishing of better relationships between people and
+    protocols.
 ---
 <main class="u-rowGap--xloose">
     {%
@@ -201,7 +201,16 @@ intro: |
             </p>
         </div>
 
-        <div class="grid u-alignItems--flexStart u-columns--3 u-columnGap--normal u-rowGap--loose">
+        <div
+            class="
+                grid
+                u-alignItems--flexStart
+                u-columns--4
+                u-columnGap--normal
+                u-fontSize--small
+                u-rowGap--loose
+            "
+        >
             {%
                 assign teamMembers =
                     site.data.config.teamMembers | sort: "name"
@@ -209,7 +218,7 @@ intro: |
             {% for teamMember in teamMembers %}
                 {% assign modalWindowID = teamMember.name | downcase | replace: ' ', '-' %}
                 <div class="u-rowGap--tight">
-                    <div>
+                    <div class="u-flexShrink--0">
                         <img
                             class="photo"
                             src="{{
@@ -220,10 +229,11 @@ intro: |
                                     | append: '.png'
                                     | relative_url
                             }}"
+                            onerror="this.src='{{ 'assets/img/portraits/profile-placeholder.png' | relative_url }}'"
                             alt="Portrait of {{ teamMember.name }}"
                         />
                     </div>
-                    <h4 class="heading u-fontSize--xlarge">
+                    <h4 class="heading u-fontSize--large">
                         {{ teamMember.name }}
                     </h4>
                     <div class="u-rowGap">
@@ -298,7 +308,7 @@ intro: |
                                 {% endfor %}
                             </ul>
                         </div>
-                        <div>
+                        <div class="u-flexShrink--0">
                             <img
                                 class="photo"
                                 src="{{
@@ -310,6 +320,7 @@ intro: |
                                         | relative_url
                                 }}"
                                 alt="Portrait of {{ teamMember.name }}"
+                                onerror="this.src='{{ 'assets/img/portraits/profile-placeholder.png' | relative_url }}'"
                                 style="max-width: 250px"
                             />
                         </div>

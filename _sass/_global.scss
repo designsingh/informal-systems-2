@@ -1116,6 +1116,9 @@ $flexProperties: (
 .u-flexDirection--rowReverse {
     flex-direction: row-reverse;
 }
+.u-flexShrink--0 {
+    flex-shrink: 0;
+}
 .u-flexWrap {
     flex-wrap: wrap;
 }
@@ -1178,6 +1181,9 @@ $flexProperties: (
 }
 .u-textAlign--center {
     text-align: center;
+}
+.u-textAlign--right {
+    text-align: right;
 }
 .u-whiteSpace--nowrap {
     @include responsiveStylesFor('tablet') {

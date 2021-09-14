@@ -3,8 +3,10 @@
                 <div
                     class="
                         u-alignItems--flexStart
-                        u-columns--3
                         u-columnGap--normal
+                        u-columns--2
+                        u-justifyContent--spaceBetween
+                        u-paddingX--xloose
                         u-stackVerticallyIfMobile
                     "
                 >
@@ -19,7 +21,7 @@
                         </h4>
 
                         <p class="u-color--foreground--secondary">
-                            Our R&D powers and secures the Interchain.
+                            Our R&D powers and secures<br />the Interchain.
                         </p>
 
                         <ul class="u-columnGap--tight">
@@ -36,7 +38,7 @@
                         </ul>
                     </div>
 
-                    <div class="u-rowGap--normal">
+                    <div class="u-rowGap--normal u-textAlign--right">
                         <h4 class="heading">
                             Links
                         </h4>
@@ -57,32 +59,6 @@
                             {% endfor %}
                         </ul>
                     </div>
-
-                    <div class="u-rowGap--normal">
-                        <h4 class="heading">
-                            Contact
-                        </h4>
-
-                        <form action="#" class="u-rowGap--tight">
-                            <label class="formField">
-                                <span class="formField-label u-screenReadersOnly">
-                                    Subject
-                                </span>
-                                <input class="input" placeholder="Subject" type="text" name="subject" />
-                            </label>
-                            <label class="formField">
-                                <span class="formField-label u-screenReadersOnly">
-                                    Email Address
-                                </span>
-                                <input class="input" placeholder="Email Address" type="text" name="email_address" />
-                            </label>
-                            <div>
-                                <a class="button--primary" href="#">
-                                    Apply Now
-                                </a>
-                            </div>
-                        </form>
-                    </div>
                 </div>
             </div>
 
@@ -93,10 +69,10 @@
                     </div>
                     <ul class="u-columnGap--normal">
                         <li>
-                            <a href="#">Privacy Policy</a>
+                            <a href="{{ 'privacy-policy' | relative_url }}">Privacy Policy</a>
                         </li>
                         <li>
-                            <a href="#">Terms of Service</a>
+                            <a href="{{ 'tos' | relative_url }}">Terms of Service</a>
                         </li>
                     </ul>
                 </div>

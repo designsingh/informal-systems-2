@@ -7,7 +7,8 @@ blockChainProducts:
           icon: fab fa-github
           url: https://github.com/informalsystems/tendermint-rs
       description: |
-          Tendermint is a Byzantine Fault Tolerant state machine replication engine for applications written in Rust.
+          Tendermint is a Byzantine Fault Tolerant state machine replication
+          engine for applications written in Rust.
     - title: ibc-rs
       color: purple
       icon: assets/img/product-logos/ibc-rs.svg
@@ -26,7 +27,8 @@ blockChainProducts:
           icon: far fa-globe-americas
           url: https://hermes.informal.systems/relayer.html
       description: |
-          Hermes is an open-source Rust implementation of a relayer for IBC, released under the ibc-relayer-cli crate.
+          Hermes is an open-source Rust implementation of a relayer for IBC,
+          released under the ibc-relayer-cli crate.
 verificationProducts:
   - title: Apalache
     color: teal
@@ -39,13 +41,15 @@ verificationProducts:
         icon: far fa-globe-americas
         url: https://apalache.informal.systems/
     description: |
-        Symbolic model checker for TLA+ – formally verify TLA+ specifications for real-world distributed systems protocols
+        Symbolic model checker for TLA+ – formally verify TLA+ specifications
+        for real-world distributed systems protocols
   - title: Model Based Testing
     color: yellow
     icon: assets/img/product-logos/model-based-testing.svg
     socialLinks:
-      - label: Website
-        icon: far fa-globe-americas
-        url: https://aaronmw.github.io/informal-systems-2/services/auditing/
+      - label: Github
+        icon: fab fa-github
+        url: https://github.com/informalsystems/modelator
     description: |
-       A methodology and tool used to auto-generate tests for real implementations from an underlying TLA+ model.
+       A methodology and tool used to auto-generate tests for real
+       implementations from an underlying TLA+ model.
