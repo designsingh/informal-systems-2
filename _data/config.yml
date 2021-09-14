@@ -255,6 +255,14 @@ teamMembers:
       url: https://github.com/romac
     - service: LinkedIn
       url: https://www.linkedin.com/in/romain-ruetschi/
+- name: Sean Chen
+  bio: |
+      Sean is a Developer Relations Engineer at Informal. He helps to make the
+      world of Cosmos, blockchains, and cryptocurrencies less complicated and 
+      more understandable. He's an ardent evangelist of the Rust programming 
+      language and contributes to improving its standards and ergonomics. 
+      Outside of work, he is staying active by playing some kind of racket
+      sport and/or learning some form of dance.
 - name: Shoaib Ahmed
   bio: |
       Shoaib is a Technical Project Lead at Informal. He has a background in
