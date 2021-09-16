@@ -46,6 +46,6 @@ verificationProducts:
     socialLinks:
       - label: Website
         icon: far fa-globe-americas
-        url: https://aaronmw.github.io/informal-systems-2/services/auditing/
+        url: https://informal.systems/services/security-audits
     description: |
        A methodology and tool used to auto-generate tests for real implementations from an underlying TLA+ model.
